@@ -1,6 +1,14 @@
 # IT Support Lab Series (3-Part Project)
 
-This project is part of a hands-on lab series designed to simulate a real-world IT support environment using Windows Server and Active Directory.
+## Project Overview
+
+This lab series simulates a real-world IT support environment using Windows Server and Active Directory.
+
+The goal of this project is to demonstrate hands-on experience with common IT support responsibilities, including:
+- Setting up and managing domain environments
+- Administering users and permissions
+- Applying group policies
+- Troubleshooting real-world IT issues
 
 ## Labs
 
@@ -23,16 +31,13 @@ Part 3: [IT Support & Troubleshooting](#) (Coming Soon)
 * Used administrative tools to troubleshoot and restore system functionality
 
 
-## Skills Demonstrated
+## Real-World Scenarios Simulated
 
-- Active Directory (AD DS) setup and administration  
-- User and group management  
-- Group Policy (GPO) configuration  
-- Windows Server environment setup  
-- Domain-joined client management  
-- Network configuration (DNS, IP addressing)  
-- Troubleshooting common IT support issues  
-- Virtualization using VirtualBox  
+- User unable to log in due to account lockout
+- Incorrect group permissions preventing file access
+- DNS misconfiguration causing network connectivity issues
+- Group Policy not applying as expected
+- Domain trust and authentication troubleshooting
 
 ## Technologies Used
 
