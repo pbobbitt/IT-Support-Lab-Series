@@ -29,8 +29,8 @@ This environment will be used in later labs to simulate real-world IT administra
 
 | Component | Role | IP Address |
 | - | - | - |
-| WS2025-DC01 | Domain Controller (AD DS, DNS) | 192.168.0.10 |
-| W11-CL01 | Domain-Joined Client | 192.168.0.100 |
+| DC01 (Windows Server 2025) | Domain Controller (AD DS, DNS) | 192.168.0.10 |
+| CL01 (Windows 11) | Domain-Joined Client | 192.168.0.100 |
 | Network | VirtualBox NAT Network | 192.168.0.0/24 |
 
 📸 **VM Overview / Environment Setup**  
@@ -38,101 +38,12 @@ This environment will be used in later labs to simulate real-world IT administra
 
 
 
-## Key Configuration Steps
-
-### 1. Virtual Environment Setup
-- Installed VirtualBox and Extension Pack  
-- Created NAT Network (`192.168.0.0/24`)  
-- Enabled DHCP for initial configuration  
-
-**Virtual Network Configuration**  
-[View Screenshot](#)
-
-
-
-### 2. Domain Controller Setup (WS2025-DC01)
-- Created Windows Server 2025 virtual machine  
-- Allocated resources:
-  - 4 GB RAM
-  - 2 CPUs
-  - 80 GB storage  
-- Installed OS and verified internet connectivity  
-
-**VM Configuration Settings**  
-[View Screenshot](#)
-
-**Server Installation Complete**  
-[View Screenshot](#)
-
-
-
-### 3. Network Configuration
-- Assigned static IP address: `192.168.0.10`  
-- Configured DNS settings  
-- Verified connectivity using `ping`  
-
-**IP Configuration (Server)**  
-[View Screenshot](#)
-
-**Network Connectivity Test**  
-[View Screenshot](#)
-
-
-
-### 4. Active Directory Setup
-- Installed Active Directory Domain Services (AD DS)  
-- Promoted server to Domain Controller  
-- Created new forest: `lab.local`  
-- Configured Directory Services Restore Mode (DSRM)  
-
-**AD DS Role Installation**  
-[View Screenshot](#)
-
-**Domain Controller Promotion**  
-[View Screenshot](#)
-
-**Active Directory Domain (lab.local)**  
-[View Screenshot](#)
-
-
-
-### 5. Client Machine Setup (W11-CL01)
-- Created Windows 11 virtual machine  
-- Assigned static IP: `192.168.0.100`  
-- Configured DNS to point to domain controller  
-
-**Windows 11 Setup**  
-[View Screenshot](#)
-
-**Client Network Configuration**  
-[View Screenshot](#)
-
-
-
-### 6. Domain Join
-- Joined client machine to `lab.local` domain  
-- Authenticated using domain administrator credentials  
-- Verified system appears in Active Directory  
-
-**Domain Join Process**  
-[View Screenshot](#)
-
-**Successful Domain Join Confirmation**  
-[View Screenshot](#)
-
-**Computer Object in ADUC**  
-[View Screenshot](#)
-
-
-
-### 7. Snapshot Creation
-- Created snapshots for stable recovery points:
-  - Base AD DS configuration  
-  - Domain-joined client state  
-
-**Snapshot Configuration**  
-[View Screenshot](#)
-
+## What I Learned
+* How Active Directory environments are structured and managed
+* The importance of DNS in domain functionality
+* How to configure and troubleshoot domain join issues
+* How virtualization impacts networking and system performance
+* How to diagnose low-level system conflicts (e.g., Hyper-V vs VirtualBox)
 
 
 ## Troubleshooting
@@ -149,3 +60,12 @@ Hyper-V and Windows Core Isolation conflicted with VirtualBox
 - Disabled Hyper-V:
   ```bash
   bcdedit /set hypervisorlaunchtype off
+
+##Proof of Work
+
+* Domain controller configured with AD DS + DNS
+* Client machine successfully joined the domain
+* Device visible in Active Directory Users and Computers
+* Successful network communication between machines
+
+(Screenshots available in repository)
