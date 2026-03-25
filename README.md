@@ -1,64 +1,26 @@
-# IT Support Lab Series
+# IT Support Lab Series (3-Part Project)
 
-## Overview
+This project is part of a hands-on lab series designed to simulate a real-world IT support environment using Windows Server and Active Directory.
 
-This repository contains a **hands-on IT support lab series** that simulates a real-world enterprise environment using Windows Server, Active Directory, and virtualization.
+Part 1: Infrastructure Setup (This Lab)
 
-The goal of this project is to demonstrate practical IT support skills including system administration, user management, networking, and troubleshooting in a controlled lab environment.
+Build virtual environment (Windows Server + client)
+Configure networking and DNS
+Promote domain controller
 
+Part 2: [Active Directory Administration](#) (In-Progress)
 
+Create and manage users and groups
+Apply Group Policy Objects (GPOs)
+Implement access control and permissions
+
+Part 3: [Help Desk Ticket Scenarios](#) (Comming Soon)
+
+Troubleshoot common IT issues (password resets, account lockouts, DNS issues, etc.)
+Simulate real-world Tier 1 support tasks
+Document resolution steps and root cause analysis
 <BR>
 
-## Skills Demonstrated
-
-- Active Directory (AD DS) setup and administration  
-- User and group management  
-- Group Policy (GPO) configuration  
-- Windows Server environment setup  
-- Domain-joined client management  
-- Network configuration (DNS, IP addressing)  
-- Troubleshooting common IT support issues  
-- Virtualization using VirtualBox  
-
-
-
-<BR>
-
-## Lab Breakdown
-
-### Part 1: Infrastructure Setup  
-Build the foundation of the environment by configuring a domain controller, networking, and a client machine.
-
-[View Lab](#)
-
-
-
-### Part 2: Active Directory Administration *(In Progress)*  
-Create and manage users, groups, organizational units, and apply Group Policy.
-
-[View Lab](#)
-
-
-
-### Part 3: Help Desk Ticket Simulation *(Planned)*  
-Simulate real-world IT support scenarios such as password resets, account lockouts, DNS issues, and user environment troubleshooting.
-
-[View Lab](#)
-
-
-
-<BR>
-
-## Technologies Used
-
-- Windows Server 2025  
-- Windows 11  
-- Oracle VirtualBox  
-- Active Directory Domain Services (AD DS)  
-- DNS  
-- PowerShell / Command Line  
-
-<BR>
 
 ## Documentation & Proof
 
