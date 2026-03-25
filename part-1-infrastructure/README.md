@@ -15,14 +15,26 @@ This environment will be used in later labs to simulate real-world IT administra
 
 ## Skills Demonstrated
 
-- Active Directory Domain Services (AD DS) installation and configuration  
-- Domain controller promotion and forest creation (`lab.local`)  
-- Domain join process for client machines  
-- Static IP configuration and DNS setup  
-- Virtual machine provisioning and resource allocation  
-- Network configuration using VirtualBox NAT network  
-- Troubleshooting system and virtualization issues  
-
+* Active Directory Administration
+  * Installed and configured Active Directory Domain Services (AD DS)  
+  * Created a new domain (`lab.local`)
+  *  Verified domain objects using Active Directory Users and Computers (ADUC)  
+* Domain Management
+  * Joined Windows 11 client to domain
+  * Authenticated using domain credentials
+  * Verified domain connectivity and object creation  
+* Networking Fundamentals
+  * Configured static IP addressing
+  * Set up DNS for domain resolution
+  * Tested connectivity using `ping`
+* Virtualization
+  * Created and configured multiple virtual machines
+  * Allocated system resources (CPU, RAM, storage)
+  * Managed virtual networking using NAT network  
+* Troubleshooting
+  * Resolved VM boot issues caused by Hyper-V conflicts
+  *  Diagnosed and fixed network visibility issues
+  *  Verified system functionality through testing  
 
 
 ## Lab Architecture
