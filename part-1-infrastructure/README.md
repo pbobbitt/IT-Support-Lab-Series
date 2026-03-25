@@ -34,7 +34,11 @@ Successfully deployed a functional Active Directory environment capable of **cen
 - **System Snapshots:** `Lab Snapshots Final.png`
 
 ## Key Takeaways (Skills Demonstrated)
-- **Active Directory Administration:** Understanding domain architecture and centralized management.
-- **Network Infrastructure:** Implementing **DNS** and static addressing in a virtualized environment.
-- **System Troubleshooting:** Resolving hardware virtualization conflicts (Hyper-V/Core Isolation) to ensure peak performance.
-- **Disaster Recovery:** Utilizing snapshots for configuration baselining and risk mitigation.
+- **Active Directory Administration:**
+  - Understanding domain architecture and centralized management.
+- **Network Infrastructure:**
+  - Implementing **DNS** and static addressing in a virtualized environment.
+- **System Troubleshooting:**
+  - Resolving hardware virtualization conflicts (Hyper-V/Core Isolation) to ensure peak performance.
+- **Disaster Recovery:**
+  - Utilizing snapshots for configuration baselining and risk mitigation.
