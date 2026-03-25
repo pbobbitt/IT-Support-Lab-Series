@@ -6,21 +6,21 @@ This project is part of a hands-on lab series designed to simulate a real-world 
 
 Part 1: [Infrastructure Setup](part-1-infrastructure/README.md)
 
-* Build virtual environment (Windows Server + client)
-* Configure networking and DNS
-* Promote domain controller
+* Built virtualized enterprise lab environment (Windows Server + client)
+* Configured core network services (DNS, IP addressing, domain infrastructure)
+* Deployed Active Directory Domain Services and integrated client system
 
-Part 2: [Active Directory Administration](#) (In-Progress)
+Part 2: [User & Group Management](#) (In-Progress)
 
-* Create and manage users and groups
-* Apply Group Policy Objects (GPOs)
-* Implement access control and permissions
+* Created and managed users, groups, and organizational units (OUs)
+* Applied Group Policy Objects (GPOs) to enforce security and configurations
+* Simulated real-world account administration and access control
 
-Part 3: [Help Desk Ticket Scenarios](#) (Comming Soon)
+Part 3: [IT Support & Troubleshooting](#) (Comming Soon)
 
-* Troubleshoot common IT issues (password resets, account lockouts, DNS issues, etc.)
-* Simulate real-world Tier 1 support tasks
-* Document resolution steps and root cause analysis
+* Simulated common IT support scenarios in a domain environment
+* Diagnosed and resolved network, authentication, and policy-related issues
+* Used administrative tools to troubleshoot and restore system functionality
 
 
 ## Skills Demonstrated
