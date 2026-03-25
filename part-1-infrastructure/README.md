@@ -11,7 +11,7 @@ This includes:
 
 This environment will be used in later labs to simulate real-world IT administration and help desk scenarios.
 
----
+
 
 ## Skills Demonstrated
 
@@ -23,12 +23,12 @@ This environment will be used in later labs to simulate real-world IT administra
 - Network configuration using VirtualBox NAT network  
 - Troubleshooting system and virtualization issues  
 
----
+
 
 ## Lab Architecture
 
 | Component | Role | IP Address |
-|----------|------|-----------|
+|-||--|
 | WS2025-DC01 | Domain Controller (AD DS, DNS) | 192.168.0.10 |
 | W11-CL01 | Domain-Joined Client | 192.168.0.100 |
 | Network | VirtualBox NAT Network | 192.168.0.0/24 |
@@ -36,7 +36,7 @@ This environment will be used in later labs to simulate real-world IT administra
 📸 **VM Overview / Environment Setup**  
 [View Screenshot](#)
 
----
+
 
 ## Key Configuration Steps
 
@@ -48,7 +48,7 @@ This environment will be used in later labs to simulate real-world IT administra
 **Virtual Network Configuration**  
 [View Screenshot](#)
 
----
+
 
 ### 2. Domain Controller Setup (WS2025-DC01)
 - Created Windows Server 2025 virtual machine  
@@ -64,7 +64,7 @@ This environment will be used in later labs to simulate real-world IT administra
 **Server Installation Complete**  
 [View Screenshot](#)
 
----
+
 
 ### 3. Network Configuration
 - Assigned static IP address: `192.168.0.10`  
@@ -77,7 +77,7 @@ This environment will be used in later labs to simulate real-world IT administra
 **Network Connectivity Test**  
 [View Screenshot](#)
 
----
+
 
 ### 4. Active Directory Setup
 - Installed Active Directory Domain Services (AD DS)  
@@ -94,7 +94,7 @@ This environment will be used in later labs to simulate real-world IT administra
 **Active Directory Domain (lab.local)**  
 [View Screenshot](#)
 
----
+
 
 ### 5. Client Machine Setup (W11-CL01)
 - Created Windows 11 virtual machine  
@@ -107,7 +107,7 @@ This environment will be used in later labs to simulate real-world IT administra
 **Client Network Configuration**  
 [View Screenshot](#)
 
----
+
 
 ### 6. Domain Join
 - Joined client machine to `lab.local` domain  
@@ -123,7 +123,7 @@ This environment will be used in later labs to simulate real-world IT administra
 **Computer Object in ADUC**  
 [View Screenshot](#)
 
----
+
 
 ### 7. Snapshot Creation
 - Created snapshots for stable recovery points:
@@ -133,7 +133,7 @@ This environment will be used in later labs to simulate real-world IT administra
 **Snapshot Configuration**  
 [View Screenshot](#)
 
----
+
 
 ## Troubleshooting
 
