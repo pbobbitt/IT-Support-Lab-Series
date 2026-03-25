@@ -45,21 +45,46 @@ A working domain environment capable of centralized authentication and managemen
 
 
 ## Screenshots
-- Host System Info Hardware Verification
+
+### Host System Verification
+- Verified system resources using `msinfo32`
+- Confirmed host meets requirements for running multiple VMs
+- Validated sufficient CPU, RAM, and storage for lab environment  
+
 <img src="screenshots/System%20info.png" alt="Host System Specs" width="70%">
- 
-- Network Settings for Virtual Lab Network `NatNetwork_Lab`
-<img src="screenshots/NatNetwork_Lab.png" alt="Natnetwork_Lab sttings" width="70%">
 
-- Domain Controller `WS2025-DC01` Active Directory setup & DNS Confirmation
-<img src="screenshots/WS2025-DC01%20AD%20DS.png" alt="Natnetwork_Lab sttings" width="70%">
-<img src="screenshots/WS2025-DC01%20IPV4%20Settings.png" alt="Natnetwork_Lab sttings" width="70%">
 
-- Client `W11-CL01` Domain Join Success to `lab.local` forest
-<img src="screenshots/W11%20Has%20Joined%20Domain.png" alt="`lab.local` forest showing W11-CL01" width="70%">
-  
-- Post Lab Snapshots for System Recovery Points
-<img src="screenshots/Lab%20Snapshots%20Final.png" alt="Natnetwork_Lab sttings" width="70%">
+### Virtual Network Configuration
+- Created isolated network `NatNetwork_Lab` in VirtualBox
+- Configured subnet `192.168.0.0/24` with DHCP enabled
+- Verified network availability for VM communication  
+
+<img src="screenshots/NatNetwork_Lab.png" alt="NatNetwork_Lab settings" width="70%">
+
+
+### Domain Controller Setup (AD DS + DNS)
+- Installed and configured Active Directory Domain Services on `WS2025-DC01`
+- Promoted server to Domain Controller for `lab.local`
+- Verified DNS and domain services functioning correctly  
+
+<img src="screenshots/WS2025-DC01%20AD%20DS.png" width="70%">
+<img src="screenshots/WS2025-DC01%20IPV4%20Settings.png" width="70%">
+
+
+### Client Domain Join
+- Joined `W11-CL01` to `lab.local` domain
+- Authenticated using domain credentials
+- Verified computer object appears in Active Directory (ADUC)  
+
+<img src="screenshots/W11%20Has%20Joined%20Domain.png" width="70%">
+
+
+### Snapshot & Recovery Setup
+- Created VM snapshots after successful configuration
+- Established restore points for domain controller and client
+- Verified ability to revert environment to stable state  
+
+<img src="screenshots/Lab%20Snapshots%20Final.png" width="70%">
 
 
 ## Disclaimer & AI Disclosure
