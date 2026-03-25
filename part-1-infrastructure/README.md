@@ -9,13 +9,20 @@ Establish a centrally managed Windows domain environment to simulate real-world 
 - **Oracle VirtualBox** (Type-2 Hypervisor)
 
 ## Key Tasks
-- **Infrastructure Build:** Provisioned virtual hardware for server and client environments.
-- **Network Configuration:** Set up a private virtual network (`192.168.0.0/24`) for secure VM communication.
-- **Active Directory Setup:** Installed **AD DS** and promoted the server to a **Domain Controller** (`lab.local`).
-- **DNS Configuration:** Configured DNS and static IPv4 addressing to ensure reliable name resolution.
-- **System Integration:** Successfully joined the Windows 11 workstation (**W11-CL01**) to the domain.
-- **Validation:** Verified the computer object and connectivity within **Active Directory Users and Computers (ADUC)**.
-- **Recovery Planning:** Created system snapshots to ensure environment stability and rapid rollback capability.
+- **Infrastructure Build:**
+  - Provisioned virtual hardware for server and client environments.
+- **Network Configuration:**
+  - Set up a private virtual network (`192.168.0.0/24`) for secure VM communication.
+- **Active Directory Setup:**
+  - Installed **AD DS** and promoted the server to a **Domain Controller** (`lab.local`).
+- **DNS Configuration:**
+  - Configured DNS and static IPv4 addressing to ensure reliable name resolution.
+- **System Integration:**
+  - Successfully joined the Windows 11 workstation (**W11-CL01**) to the domain.
+- **Validation:**
+  - Verified the computer object and connectivity within **Active Directory Users and Computers (ADUC)**.
+- **Recovery Planning:**
+  - Created system snapshots to ensure environment stability and rapid rollback capability.
 
 ## Outcome
 Successfully deployed a functional Active Directory environment capable of **centralized authentication**, user management, and policy enforcement mirroring a professional enterprise IT setup.
