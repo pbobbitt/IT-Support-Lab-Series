@@ -13,7 +13,8 @@ Simulate day-to-day IT support tasks by managing users, groups, and access withi
 ## Key Tasks
 
 ### User Account Management
-* Created and managed user accounts in Active Directory, including password resets, account unlocks, and enforcing password policies.
+* Managed user accounts in Active Directory, including account creation, modification, and deactivation.
+* Performed common help desk tasks such as password resets, account unlocks, and enforcing password policies.
 
 ### Organizational Unit (OU) Structure
 * Built a structured OU hierarchy (e.g., IT, HR, Sales) to organize users and apply targeted policies.
