@@ -7,6 +7,7 @@ This repository contains a **hands-on IT support lab series** that simulates a r
 The goal of this project is to demonstrate practical IT support skills including system administration, user management, networking, and troubleshooting in a controlled lab environment.
 
 
+<BR>
 
 ## Skills Demonstrated
 
@@ -20,6 +21,8 @@ The goal of this project is to demonstrate practical IT support skills including
 - Virtualization using VirtualBox  
 
 
+
+<BR>
 
 ## Lab Breakdown
 
@@ -44,6 +47,8 @@ Simulate real-world IT support scenarios such as password resets, account lockou
 
 
 
+<BR>
+
 ## Technologies Used
 
 - Windows Server 2025  
@@ -53,28 +58,7 @@ Simulate real-world IT support scenarios such as password resets, account lockou
 - DNS  
 - PowerShell / Command Line  
 
-
-
-## Project Purpose
-
-This lab series is designed to reflect real-world IT support responsibilities by:
-
-- Building and managing a domain environment  
-- Performing administrative tasks in Active Directory  
-- Troubleshooting common issues encountered in help desk roles  
-
-
-
-## Why This Project Matters
-
-This project demonstrates my ability to:
-
-- Work within a Windows-based enterprise environment  
-- Support users and systems in a domain setting  
-- Diagnose and resolve technical issues  
-- Document processes clearly and effectively  
-
-
+<BR>
 
 ## Documentation & Proof
 
