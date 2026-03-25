@@ -28,7 +28,7 @@ This environment will be used in later labs to simulate real-world IT administra
 ## Lab Architecture
 
 | Component | Role | IP Address |
-|-||--|
+| - | - | - |
 | WS2025-DC01 | Domain Controller (AD DS, DNS) | 192.168.0.10 |
 | W11-CL01 | Domain-Joined Client | 192.168.0.100 |
 | Network | VirtualBox NAT Network | 192.168.0.0/24 |
