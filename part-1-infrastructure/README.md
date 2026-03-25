@@ -98,7 +98,7 @@ Virtual machines booted and operated normally
 
 
 
-## Full Technical Documentation
+## Deep Dive / Full Technical Log (for reference)
 
 This document provides a granular, step-by-step technical record of the project phases.
 
