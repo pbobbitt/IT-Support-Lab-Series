@@ -14,7 +14,7 @@ Simulate day-to-day IT support tasks by managing users, groups, and access withi
 
 
 ### Created an Organizational Unit Hierarchy
-* Built a structured Organizational Unit hierarchy to organize users and apply targeted policies.
+* Built a structured Organizational Unit hierarchy to organize users and apply targeted policies. with the following structure.
   * `Lab_Production`
     * `Lab_Users`
     * `Lab_Security`
