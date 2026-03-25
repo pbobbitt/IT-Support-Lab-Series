@@ -2,7 +2,7 @@
 
 This document provides a detailed, step-by-step technical record of the project phases. It is intended for technical review, auditing, and reproducibility.
 
----
+
 
 ## Phase 0: System Requirements Check
 
@@ -27,7 +27,7 @@ System verification using `msinfo32` confirmed:
 [System Info](Images/System%20info.png)  
 [C: Storage Space](Images/C:%20Storage%20Space.png)
 
----
+
 
 ## Phase 1: Download Systems
 
@@ -38,7 +38,7 @@ System verification using `msinfo32` confirmed:
 | Windows Server 2025 | Datacenter | Domain Controller |
 | Windows 11 Education | 25H2 | Client workstation |
 
----
+
 
 ## Phase 2: Virtual Network Configuration
 
@@ -49,7 +49,7 @@ System verification using `msinfo32` confirmed:
 **Evidence:**  
 [Network Settings](Images/NatNetwork_Lab.png)
 
----
+
 
 ## Phase 3: Virtual Machine Creation (Domain Controller)
 
@@ -64,7 +64,7 @@ System verification using `msinfo32` confirmed:
 **Evidence:**  
 [VM Settings](Images/WS2025-DC01%20VM%20Settings.png)
 
----
+
 
 ## Phase 4: Windows Server Installation
 
@@ -76,7 +76,7 @@ System verification using `msinfo32` confirmed:
 **Evidence:**  
 [Ping Test](#)
 
----
+
 
 ## Phase 5: Basic Server Configuration
 
@@ -89,7 +89,7 @@ System verification using `msinfo32` confirmed:
 [Server Settings](#)  
 [ipconfig Output](#)
 
----
+
 
 ## Phase 6: Active Directory Setup
 
@@ -102,7 +102,7 @@ System verification using `msinfo32` confirmed:
 **Evidence:**  
 [AD DS + DNS Config](#)
 
----
+
 
 ## Phase 7: Windows 11 Client Setup
 
@@ -118,7 +118,7 @@ System verification using `msinfo32` confirmed:
 **Evidence:**  
 [VM Settings](#)
 
----
+
 
 ### OS Configuration
 
@@ -133,13 +133,13 @@ System verification using `msinfo32` confirmed:
 **Evidence:**  
 [Ping Test](#)
 
----
+
 
 ### Final Network Configuration
 
 - Set static IP: `192.168.0.100`  
 
----
+
 
 ## Phase 8: Domain Join
 
@@ -158,7 +158,7 @@ Confirmed device appears in:
 **Evidence:**  
 [Domain Join Verification](#)
 
----
+
 
 ## Phase 9: Snapshot Configuration
 
@@ -172,7 +172,7 @@ Snapshots created for recovery and reproducibility:
 **Evidence:**  
 [Snapshot Tree](#)
 
----
+
 
 ## Troubleshooting Log
 
@@ -188,6 +188,6 @@ Snapshots created for recovery and reproducibility:
 [Fix Applied](#)  
 [Working VM](#)
 
----
+
 
 *End of Implementation Log*
