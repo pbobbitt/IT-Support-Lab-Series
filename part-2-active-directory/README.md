@@ -20,10 +20,6 @@ Simulate day-to-day IT support tasks by managing users, groups, and access withi
     * `Lab_Security`
     * `Lab_Computers`
 
-Lab_Production (Top-Level OU)
-├── Lab_Users
-├── Lab_Security
-└── Lab_Computers
    
 ### User Account Management
 * Managed user accounts in Active Directory, including account creation, modification, and deactivation.
