@@ -14,9 +14,9 @@ The goal of this project is to demonstrate hands-on experience with common IT su
 
 Part 1: [Infrastructure Setup](part-1-infrastructure/README.md)
 
-* Built virtualized enterprise lab environment (Windows Server + client)
+* Built a virtualized enterprise lab environment (Windows Server + client)
 * Configured core network services (DNS, IP addressing, domain infrastructure)
-* Deployed Active Directory Domain Services and integrated client system
+* Deployed Active Directory Domain Services and integrated the client system
 
 Part 2: [User & Group Management in Active Directory](#) (In-Progress)
 
@@ -34,8 +34,8 @@ Part 3: [IT Support & Troubleshooting](#) (Coming Soon)
 ## Real-World Scenarios Simulated
 
 - User unable to log in due to account lockout
-- Incorrect group permissions preventing file access
-- DNS misconfiguration causing network connectivity issues
+- Incorrect group permissions are preventing file access
+- DNS misconfiguration is causing network connectivity issues
 - Group Policy not applying as expected
 - Domain trust and authentication troubleshooting
 
@@ -54,4 +54,9 @@ Part 3: [IT Support & Troubleshooting](#) (Coming Soon)
 Each lab includes:
 - Step-by-step documentation  
 - Screenshots of configurations and results  
-- Troubleshooting scenarios and resolutions  
+- Troubleshooting scenarios and resolutions
+
+## Disclaimer & AI Disclosure
+While the **technical implementation** of these labs was performed entirely by the author, **Generative AI** was used as a collaborative tool to assist with structured formatting, professional terminology refinement, and the documentation of this report. 
+
+This approach was taken to ensure the lab's technical findings are communicated with the clarity and professional standards required in a production IT environment.
