@@ -4,7 +4,7 @@ This project is part of a hands-on lab series designed to simulate a real-world 
 
 ## Labs
 
-Part 1: Infrastructure Setup (This Lab)
+Part 1: Infrastructure Setup (part-1-infrastructure/README.md)
 
 * Build virtual environment (Windows Server + client)
 * Configure networking and DNS
