@@ -73,11 +73,41 @@ Hyper-V and Windows Core Isolation conflicted with VirtualBox
   ```bash
   bcdedit /set hypervisorlaunchtype off
 
+- Disabled Memory Integrity in Windows Security  
+
+**System Settings Adjustment**  
+[View Screenshot](#)
+
+**Result**  
+Virtual machines booted and operated normally  
+
+
+
 ## Proof of Work
 
-* Domain controller configured with AD DS + DNS
-* Client machine successfully joined the domain
-* Device visible in Active Directory Users and Computers
-* Successful network communication between machines
+- Domain controller configured with AD DS + DNS  
+- Client successfully joined to domain  
+- Device visible in Active Directory Users and Computers  
+- Verified network communication between systems  
 
-(Screenshots available in repository)
+**ADUC Final View**  
+[View Screenshot](#)
+
+**Client Logged in with Domain Account**  
+[View Screenshot](#)
+
+
+
+## Full Technical Documentation
+
+For detailed step-by-step implementation, see:
+
+[ImplementationLog.md](./ImplementationLog.md)
+
+
+
+## Next Step
+
+This environment will be used to simulate administrative tasks in Active Directory.
+
+Continue to: **Part 2 – Active Directory Administration**
