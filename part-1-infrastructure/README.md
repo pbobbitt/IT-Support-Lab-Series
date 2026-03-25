@@ -60,3 +60,9 @@ A working domain environment capable of centralized authentication and managemen
   
 - Post Lab Snapshots for System Recovery Points
 <img src="screenshots/Lab%20Snapshots%20Final.png" alt="Natnetwork_Lab sttings" width="70%">
+
+
+## Disclaimer & AI Disclosure
+While the **technical implementation** of this lab was performed entirely by the author, **Generative AI** was used as a collaborative tool to assist with structured formatting, professional terminology refinement, and the documentation of this report. 
+
+This approach was taken to ensure the lab's technical findings are communicated with the clarity and professional standards required in a production IT environment.
