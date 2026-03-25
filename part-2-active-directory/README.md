@@ -32,7 +32,7 @@ Simulate day-to-day IT support tasks by managing users, groups, and access withi
 
 ## Outcome
 
-A structured Active Directory environment where users, groups, and policies are centrally managed, reflecting real-world IT support responsibilities such as account management, access control, and policy enforcement.
+A structured Active Directory environment where users, groups, and policies are centrally managed, reflecting real-world IT support responsibilities such as account management, access control, and policy enforcement. This setup mirrors daily help desk operations in a corporate environment.
 
 ### Screenshots (guide the reader through proof)
 *   User Accounts Created in Active Directory
