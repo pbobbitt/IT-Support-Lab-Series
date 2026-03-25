@@ -6,7 +6,7 @@ This lab series simulates a real-world IT support environment using Windows Serv
 
 The goal of this project is to demonstrate hands-on experience with common IT support responsibilities, including:
 - Setting up and managing domain environments
-- Administering users and permissions
+- Administering users and permissions via Active Directory
 - Applying group policies
 - Troubleshooting real-world IT issues
 
