@@ -18,7 +18,7 @@ Part 1: [Infrastructure Setup](part-1-infrastructure/README.md)
 * Configured core network services (DNS, IP addressing, domain infrastructure)
 * Deployed Active Directory Domain Services and integrated client system
 
-Part 2: [User & Group Management](#) (In-Progress)
+Part 2: [User & Group Management in Active Directory](#) (In-Progress)
 
 * Created and managed users, groups, and organizational units (OUs)
 * Applied Group Policy Objects (GPOs) to enforce security and configurations
