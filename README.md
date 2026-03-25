@@ -16,7 +16,7 @@ Part 2: [User & Group Management](#) (In-Progress)
 * Applied Group Policy Objects (GPOs) to enforce security and configurations
 * Simulated real-world account administration and access control
 
-Part 3: [IT Support & Troubleshooting](#) (Comming Soon)
+Part 3: [IT Support & Troubleshooting](#) (Coming Soon)
 
 * Simulated common IT support scenarios in a domain environment
 * Diagnosed and resolved network, authentication, and policy-related issues
