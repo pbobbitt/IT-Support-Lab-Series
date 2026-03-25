@@ -61,7 +61,7 @@ Hyper-V and Windows Core Isolation conflicted with VirtualBox
   ```bash
   bcdedit /set hypervisorlaunchtype off
 
-##Proof of Work
+## Proof of Work
 
 * Domain controller configured with AD DS + DNS
 * Client machine successfully joined the domain
