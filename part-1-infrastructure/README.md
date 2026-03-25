@@ -1,7 +1,7 @@
 # Part 1: Infrastructure Setup
 
 ## Objective
-Set up a fully functional Windows domain environment with a domain controller and client machine to simulate a professional corporate network.
+Build and configure a Windows domain environment to simulate real-world IT support tasks, including domain administration, network configuration, and client integration.
 
 ## Environment
 - Windows Server 2025 (Domain Controller)
@@ -23,8 +23,10 @@ Set up a fully functional Windows domain environment with a domain controller an
 - **Proactive Troubleshooting & Optimization**
   - Resolved virtualization conflicts (Hyper-V interference) and implemented a Snapshot strategy to ensure environment stability and quick recovery.
 
+
+
 ## Outcome
-A working domain environment capable of centralized authentication and management, mimicking a real-world enterprise IT infrastructure.
+Successfully deployed a functional Windows domain environment supporting centralized authentication, device management, and network services, replicating a real-world enterprise IT infrastructure.
 
 ## Key Takeaways
 - **Centralized Administration**
@@ -35,6 +37,8 @@ A working domain environment capable of centralized authentication and managemen
   - Successfully diagnosed and fixed system-level errors (Hyper-V/Core Isolation) to ensure software compatibility and performance with the host device.
 - **Disaster Recovery Basics**
   - Utilized **Snapshots** to create "restore points," demonstrating an understanding of system backups and minimizing downtime.
+- **End-User Support Readiness**
+  - Developed practical skills aligned with L1 IT support tasks, including system setup, issue resolution, and environment validation.
  
 ## Troubleshooting Log
 
