@@ -12,6 +12,14 @@ Simulate day-to-day IT support tasks by managing users, groups, and access withi
 
 ## Key Tasks
 
+
+### Created an Organizational Unit Hierarchy
+* Built a structured Organizational Unit hierarchy to organize users and apply targeted policies.
+  * `Lab_Production`
+    * `Lab_Users`
+    * `Lab_Security`
+    * `Lab_Computers`
+   
 ### User Account Management
 * Managed user accounts in Active Directory, including account creation, modification, and deactivation.
 * Performed common help desk tasks such as password resets, account unlocks, and enforcing password policies.
