@@ -26,15 +26,6 @@ Set up a fully functional Windows domain environment with a domain controller an
 ## Outcome
 A working domain environment capable of centralized authentication and management, mimicking a real-world enterprise IT infrastructure.
 
-## Screenshots
-- [System info - Hardware Verification](Images/System%20info.png)
-- [Network Settings - Virtual Lab Network](Images/NatNetwork_Lab.png)
-
-- IPv4 Domain Controller `192.168.0.10`, Client `192.168.0.100` | DNS Settings Domain Controller `127.0.0.1`, Client `192.168.0.10`
-- [WS2025-DC01 - Active Directory & DNS Confirmation](Images/VM%20AD%20DS.png)
-- [W11-CL01 - Domain Join Success](Images/W11%20Has%20Joined%20Domain.png)
-- [Lab Snapshots - System Recovery Points](Images/Lab%20Snapshots%20Final.png)
-
 ## Key Takeaways
 - **Centralized Administration**
   - Learned how to create virtual machine instances and set up an Active Directory server, a critical skill for L1 support.
@@ -51,3 +42,21 @@ A working domain environment capable of centralized authentication and managemen
 | :--- | :--- | :--- |
 | On first run of [VM](Images/networking%20missing.png) couldn't find "network" under `Files>Tools`   | VM [preferences](Images/Preferences%20set%20as%20basic.png) were set to basic | Changed VM [preference](Images/networking%20is%20now%20listed.png) to expert and "networks" appeared under `Files>Tools>network` |
 | [VM Boot Failure / Black Screen](Images/VM%20Black.png) | Hyper-V / Core Isolation enabled on Host (Warning is Green Turtle icon)| Disabled Hyper-V via [bcdedit](https://github.com/pbobbitt/Windows-Server-2025-Virtual-Infrastructure-Deployment/blob/main/Images/Disabled%20Hyper-V%20bootloader.png) and toggled off [Memory Integrity](Images/Disabled%20Memory%20Integrity.png) to allow VirtualBox native VT-x/AMD-V access. Confirmed [VirtualBox now runs](Images/VM%20Working.png) |
+
+
+## Screenshots
+- Host System Info Hardware Verification
+<img src="screenshots/System%20info.png" alt="Host System Specs" width="70%">
+ 
+- Network Settings for Virtual Lab Network `NatNetwork_Lab`
+<img src="screenshots/NatNetwork_Lab.png" alt="Natnetwork_Lab sttings" width="70%">
+
+- Domain Controller `WS2025-DC01` Active Directory setup & DNS Confirmation
+<img src="screenshots/WS2025-DC01%20AD%20DS.png" alt="Natnetwork_Lab sttings" width="70%">
+<img src="screenshots/WS2025-DC01%20IPV4%20Settings.png" alt="Natnetwork_Lab sttings" width="70%">
+
+- Client `W11-CL01` Domain Join Success to `lab.local` forest
+<img src="screenshots/W11%20Has%20Joined%20Domain.png" alt="`lab.local` forest showing W11-CL01" width="70%">
+  
+- Post Lab Snapshots for System Recovery Points
+<img src="screenshots/Lab%20Snapshots%20Final.png" alt="Natnetwork_Lab sttings" width="70%">
