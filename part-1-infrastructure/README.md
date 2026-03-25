@@ -11,7 +11,7 @@ Set up a fully functional Windows domain environment with a domain controller an
 
 ## Key Tasks
 - **Hardware & Resource Planning**
-  - Performed a system audit using `msinfo32` to ensure hardware could support multiple virtual machines, allocating 8 GB RAM and 4 CPU Processors to the project.
+  - Performed a system audit using `msinfo32` to ensure hardware could support multiple virtual machines, allocating 8 GB RAM and 4 CPU cores to the project.
 - **Virtual Network Configuration**
   - Created a dedicated isolated network (`NatNetwork_Lab`) with DHCP enabled to allow secure communication between the domain controller and the client.
 - **Domain Controller Deployment (Active Directory)**
