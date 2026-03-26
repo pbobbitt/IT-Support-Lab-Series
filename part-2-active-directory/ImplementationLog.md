@@ -3,7 +3,7 @@
 
 * **Created a Top-Level Organizational Unit (OU).**
   * Made Top Level OU Called `Lab_Production`
-* **Created Sub-OUs for
+* Created Sub-OUs for
   * **Departments (Users):** `Lab_Users`
   * **Security Groups:** `Lab_Security`
   * **Managed Workstations:** `Lab_Computers`
