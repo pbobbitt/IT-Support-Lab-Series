@@ -16,9 +16,15 @@
 * **Create at least three unique Domain User accounts.**
   * Added 3 users: Darth Vader, Han Solo, Padme Amidala
 * **Configure initial User Password settings and account properties.**
-  * done
-* **Create Security Groups corresponding to your Department OUs.**
+  * done used format `first.last@lab.local`
+* Created Security Groups corresponding to Department OUs.
+  * **Finance:** `SG_Finance`
+  * **HR:** `SG_HR`
+  * **IT:** `SG_IT_Support`
 * **Assign Users to their respective Security Groups.**
+Han Solo: `SG_Finance`
+Darth Vader: `SG_HR`
+Padme Amidala: `SG_IT_Support`
 
 
 
@@ -49,3 +55,8 @@
 * **Log in as a Standard User and verify successful authentication.**
 * **Test the GPO restrictions** (e.g., attempt to open a prohibited setting).
 * **Generate a formal GP Result report on the client to confirm policy application.**
+
+
+| Issue Encountered | Root Cause Analysis | Resolution & Verification |
+| :--- | :--- | :--- |
+| After adding users, I was unable to log in with any of the user accounts | Tested all the users, double-checked the settings, and then saw I was trying to sign into the WS2025 Domain Controller VM| swapped to the correct W11 VM client and was able to log in |
