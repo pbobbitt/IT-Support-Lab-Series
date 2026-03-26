@@ -37,8 +37,8 @@
 
 
 * Used Find command on `lab.local` to look for client object `*CL` to find all client workstations
-  * Returned with `W11-CL01` used move command to move this computer to `Lab_Computers` OU   
-* Verified the move within Active Directory Users and Computers (ADUC). by looking at `Lab_Computers`
+  * Returned with `W11-CL01` used the move command to move this computer to `Lab_Computers` OU   
+* Verified the move within Active Directory Users and Computers (ADUC) by looking at `Lab_Computers.`
 
 
 
@@ -46,9 +46,23 @@
 *Focus: Defining the "Business Rules" through Group Policy.*
 
 * **Create a new Group Policy Object (GPO) for Account Security** (e.g., Lockout Policy).
+  * Made `Lockout Policy` GPO
+    * Goal: to prevent brute force password attacks.
+    * Set login attempts to a max of 5 before account lockout.
 * **Create a GPO for Desktop Restrictions** (e.g., Prohibiting Control Panel or CMD).
+  * Created `Prohibit Control Panel and CMD` GPO
+    * Goal: implement least privilege to prevent non-admin users (Han Solo and Darth Vader) from changing system settings or running scripts.
+    * Removed control panel and CMD access 
 * **Create a GPO for "Quality of Life" or Branding** (e.g., Interactive Logon Banner or Wallpaper).
+  * Created `Logon Banner` GPO
+  * Goal: Display a legal warning before login
+    * Message set to `Authorized Access Only. All activities are monitored.`
 * **Link each GPO to the appropriate OU in the Group Policy Management Console (GPMC).**
+  * `Lockout Policy` Linked to `lab.local` top-level domain
+  * `Prohibit Control Panel and CMD` linked to `Lab_Users`
+    * To keep Padme Amidala and other users in the `SG_IT_Support` ou still having access to these to do job functions, a new user OU was created called `Lab_Admins`. `Prohibit Control Panel and CMD` was not applied to this new OU
+    * All membors of the `SG_IT_Support` ou were moved there
+  * `Logon Banner` Linked to `Lab_Computers`
 
 
 
