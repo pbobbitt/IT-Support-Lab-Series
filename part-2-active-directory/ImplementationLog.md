@@ -14,7 +14,10 @@
 *Focus: Populating the directory with objects and assigning roles.*
 
 * **Create at least three unique Domain User accounts.**
-  * Added 3 users: Darth Vader, Han Solo, Padme Amidala
+  * Added 3 users:
+    * Darth Vader
+    * Han Solo
+    * Padme Amidala
 * **Configure initial User Password settings and account properties.**
   * done used format `first.last@lab.local`
 * Created Security Groups corresponding to Department OUs.
