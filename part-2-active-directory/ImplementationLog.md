@@ -1,4 +1,4 @@
-### Milestone 1: Structural Foundation (OU Hierarchy)
+# Milestone 1: Structural Foundation (OU Hierarchy)
 *Focus: Organizing the Active Directory environment for scalability.*
 
 * **Created a Top-Level Organizational Unit (OU).**
@@ -10,7 +10,7 @@
 
 
 
-### Milestone 2: Identity & Access Management (Users & Groups)
+# Milestone 2: Identity & Access Management (Users & Groups)
 *Focus: Populating the directory with objects and assigning roles.*
 
 * **Create at least three unique Domain User accounts.**
@@ -32,7 +32,7 @@
 
 
 
-### Milestone 3: Asset Migration (Client Integration)
+# Milestone 3: Asset Migration (Client Integration)
 *Focus: Bringing the workstation under the management of your new OUs.*
 
 
@@ -42,7 +42,7 @@
 
 
 
-### Milestone 4: Policy Enforcement (GPOs)
+# Milestone 4: Policy Enforcement (GPOs)
 *Focus: Defining the "Business Rules" through Group Policy.*
 
 * **Create a new Group Policy Object (GPO) for Account Security** (e.g., Lockout Policy).
