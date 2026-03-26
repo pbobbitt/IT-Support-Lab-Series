@@ -61,7 +61,7 @@
   * `Lockout Policy` Linked to `lab.local` top-level domain
   * `Prohibit Control Panel and CMD` linked to `Lab_Users`
     * To keep Padme Amidala and other users in the `SG_IT_Support` ou still having access to these to do job functions, a new user OU was created called `Lab_Admins`. `Prohibit Control Panel and CMD` was not applied to this new OU
-    * All membors of the `SG_IT_Support` ou were moved there
+    * All membors of the `SG_IT_Support` OU were moved from `Lab_Users` to `Lab_Admins`
   * `Logon Banner` Linked to `Lab_Computers`
 
 
