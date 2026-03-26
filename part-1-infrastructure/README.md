@@ -18,7 +18,7 @@ The goal was to deploy a centralized Windows Server 2025 environment to manage u
 ## Final Validation & Project Completion
 **The enterprise environment is 100% operational, with a verified secure link between the Windows Server 2025 Domain Controller and the Windows 11 workstation, confirming that centralized management and DNS services are fully functional.**
 
-> **[Full Technical Deep Dive]**
+> **Full Technical Deep Dive**
 > For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](InsertLinkHere.md)**
 
 ## Visual Proof
