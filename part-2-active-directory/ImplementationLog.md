@@ -14,8 +14,9 @@
 *Focus: Populating the directory with objects and assigning roles.*
 
 * **Create at least three unique Domain User accounts.**
-  * Added 3 users Darth Vader, Han Solo, Padme Amidala
+  * Added 3 users: Darth Vader, Han Solo, Padme Amidala
 * **Configure initial User Password settings and account properties.**
+  * done
 * **Create Security Groups corresponding to your Department OUs.**
 * **Assign Users to their respective Security Groups.**
 
@@ -24,9 +25,10 @@
 ### Milestone 3: Asset Migration (Client Integration)
 *Focus: Bringing the workstation under the management of your new OUs.*
 
-* **Locate the Windows 11 computer object in the default container.**
-* **Move the computer object into the newly created Workstations OU.**
-* **Verify the move within Active Directory Users and Computers (ADUC).**
+
+* Used Find command on `lab.local` to look for client object `*CL` to find all client workstations
+  * Returned with `W11-CL01` used move command to move this computer to `Lab_Computers` OU   
+* Verified the move within Active Directory Users and Computers (ADUC). by looking at `Lab_Computers`
 
 
 
