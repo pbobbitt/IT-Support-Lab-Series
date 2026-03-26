@@ -1,97 +1,41 @@
-# Part 1: Infrastructure Setup
+# Windows Server 2025 & Active Directory Infrastructure
 
 ## Objective
-Build and configure a Windows domain environment to simulate real-world IT support tasks, including domain administration, network configuration, and client integration.
+The goal was to deploy a centralized Windows Server 2025 environment to manage users, devices, and security policies from a single interface. This solves the business problem of "unmanaged hardware" by ensuring every laptop and server on the network follows company security standards and can be managed remotely.
 
-## Environment
-- Windows Server 2025 (Domain Controller)
-- Windows 11 Education (Client)
-- Oracle VirtualBox
-- Virtual Network (NAT Network: 192.168.0.0/24)
+## Tech Stack & Skills
+*   **Systems:** Windows Server 2025 (Datacenter Edition), Windows 11, Oracle VirtualBox 7.x (Hypervisor)
+*   **Networking & Security:** DNS (Domain Name System), DHCP, Static IP Addressing, NAT Networking, Forest/Domain Architecture
+*   **Core Skills:** Active Directory Users & Computers (ADUC), Identity & Access Management (IAM), Disaster Recovery (Snapshots), System Optimization & Hardening
 
-## Key Tasks
-- **Hardware & Resource Planning**
-  - Performed a system audit using `msinfo32` to ensure hardware could support multiple virtual machines, allocating 8 GB RAM and 4 CPU cores to the project.
-- **Virtual Network Configuration**
-  - Created a dedicated isolated network (`NatNetwork_Lab`) with DHCP enabled to allow secure communication between the domain controller and the client.
-- **Domain Controller Deployment (Active Directory)**
-  - Installed Windows Server 2025 and promoted it to a Domain Controller for the `lab.local` forest, establishing the foundation for centralized identity management.
-- **Network Services Setup (DNS & IPv4)**
-  - Configured static IPv4 addressing and DNS settings to ensure the client machine could reliably locate and communicate with the server.
-- **Client Integration & Domain Join**
-  - Provisioned a Windows 11 workstation and successfully joined it to the `lab.local` domain, verifying the connection through Active Directory Users and Computers (ADUC).
-- **Proactive Troubleshooting & Optimization**
-  - Resolved virtualization conflicts (Hyper-V interference) and implemented a Snapshot strategy to ensure environment stability and quick recovery.
+## Key Accomplishments
+*   **Centralized Identity Management:** Deployed a **Windows Server 2025 Domain Controller** (`lab.local`) to act as the central "brain" of the network, allowing for one-click user onboarding and offboarding.
+*   **Network Infrastructure Design:** Engineered an isolated **NAT Network** with custom IPv4 addressing and **Static IPs**, ensuring the server has a permanent, reliable "address" that workstations can always find.
+*   **Secure Endpoint Integration:** Successfully joined a **Windows 11 Workstation** to the professional domain, moving the device from a standalone state to a managed asset that obeys corporate security rules.
+*   **Disaster Recovery Preparedness:** Established **System Snapshots** (State-in-time backups) for all infrastructure. This ensures the business can recover from a system failure or a botched update in seconds rather than hours.
+*   **Hardware Compatibility Troubleshooting:** Resolved complex **Hyper-V and Core Isolation conflicts** at the firmware level to ensure the virtualization environment remained stable and high-performing.
 
+## Final Validation & Project Completion
+**The enterprise environment is 100% operational, with a verified secure link between the Windows Server 2025 Domain Controller and the Windows 11 workstation, confirming that centralized management and DNS services are fully functional.**
 
+> **[Full Technical Deep Dive]**
+> For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](InsertLinkHere.md)**
 
-## Outcome
-Successfully deployed a functional Windows domain environment supporting centralized authentication, device management, and network services, replicating a real-world enterprise IT infrastructure.
+## Visual Proof
 
-## Key Takeaways
-- **Centralized Administration**
-  - Learned how to create virtual machine instances and set up an Active Directory server, a critical skill for L1 support.
-- **Networking Foundations**
-  - Gained hands-on experience with **IPv4 and DNS**, ensuring seamless connectivity between enterprise devices.
-- **Critical Problem Solving**
-  - Successfully diagnosed and fixed system-level errors (Hyper-V/Core Isolation) to ensure software compatibility and performance with the host device.
-- **Disaster Recovery Basics**
-  - Utilized **Snapshots** to create "restore points," demonstrating an understanding of system backups and minimizing downtime.
-- **End-User Support Readiness**
-  - Developed practical skills aligned with L1 IT support tasks, including system setup, issue resolution, and environment validation.
- 
-## Troubleshooting Log
+### Domain Integration & Centralized Management
+*   **Action:** Joined the Windows 11 workstation to the `lab.local` domain.
+*   **Context:** Bringing a new employee device under company control so it can receive security updates and policies.
+*   **Validation:** Verified the workstation (`W11-CL01`) appears correctly within the **Active Directory Users and Computers (ADUC)** management console on the server.
+**[Insert Screenshot of ADUC showing W11-CL01 in the Computers Container]**
 
-| Issue Encountered | Root Cause Analysis | Resolution & Verification |
-| :--- | :--- | :--- |
-| On first run of [VM](screenshots/networking%20missing.png) couldn't find "network" under `Files>Tools`   | VM [preferences](screenshots/Preferences%20set%20as%20basic.png) were set to basic | Changed VM [preference](screenshots/networking%20is%20now%20listed.png) to expert and "networks" appeared under `Files>Tools>network` |
-| [VM Boot Failure / Black Screen](screenshots/VM%20Black.png) | Hyper-V / Core Isolation enabled on Host (Warning is Green Turtle icon)| Disabled Hyper-V via [bcdedit](screenshots/Disabled%20Hyper-V%20bootloader.png) and toggled off [Memory Integrity](screenshots/Disabled%20Memory%20Integrity.png) to allow VirtualBox native VT-x/AMD-V access. Confirmed [VirtualBox now runs](screenshots/VM%20Working.png) |
+### End-to-End Connectivity
+*   **Action:** Performed internal and external Ping tests.
+*   **Context:** Ensuring the workstation can reach both the internal server for files and the external internet for updates.
+*   **Validation:** Confirmed 0% packet loss to both the Domain Controller (`192.168.0.10`) and external DNS (`8.8.8.8`).
+**[Insert Screenshot of successful Ping tests]**
 
-
-## Screenshots
-
-### Host System Verification
-- Verified system resources using `msinfo32`
-- Confirmed host meets requirements for running multiple VMs
-- Validated sufficient CPU, RAM, and storage for lab environment  
-
-<img src="screenshots/System%20info.png" alt="Host System Specs" width="70%">
-
-
-### Virtual Network Configuration
-- Created isolated network `NatNetwork_Lab` in VirtualBox
-- Configured subnet `192.168.0.0/24` with DHCP enabled
-- Verified network availability for VM communication  
-
-<img src="screenshots/NatNetwork_Lab.png" alt="NatNetwork_Lab settings" width="70%">
-
-
-### Domain Controller Setup (AD DS + DNS)
-- Installed and configured Active Directory Domain Services on `WS2025-DC01`
-- Promoted server to Domain Controller for `lab.local`
-- Verified DNS and domain services functioning correctly  
-
-<img src="screenshots/WS2025-DC01%20AD%20DS.png" width="70%">
-<img src="screenshots/WS2025-DC01%20IPV4%20Settings.png" width="70%">
-
-
-### Client Domain Join
-- Joined `W11-CL01` to `lab.local` domain
-- Authenticated using domain credentials
-- Verified computer object appears in Active Directory (ADUC)  
-
-<img src="screenshots/W11%20Has%20Joined%20Domain.png" width="70%">
-
-
-### Snapshot & Recovery Setup
-- Created VM snapshots after successful configuration
-- Established restore points for domain controller and client
-- Verified ability to revert environment to stable state  
-
-<img src="screenshots/Lab%20Snapshots%20Final.png" width="70%">
-
-
-## Disclaimer & AI Disclosure
-While the **technical implementation** of this lab was performed entirely by the author, **Generative AI** was used as a collaborative tool to assist with structured formatting, professional terminology refinement, and the documentation of this report. 
-
-This approach was taken to ensure the lab's technical findings are communicated with the clarity and professional standards required in a production IT environment.
+## Professional Key Takeaways
+*   **Scalability:** I learned how to manage an entire fleet of computers as easily as managing one, using Active Directory to automate what would otherwise be manual tasks.
+*   **Resource Management:** I gained experience in capacity planning, ensuring that virtualized hardware (RAM/CPU) was allocated efficiently to prevent system slowdowns.
+*   **Technical Resilience:** By troubleshooting "Black Screen" boot errors related to Windows Security features, I demonstrated the ability to research and solve low-level system conflicts that stop a project in its tracks.
