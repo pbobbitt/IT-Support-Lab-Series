@@ -46,7 +46,7 @@ This repository contains a comprehensive, three-part technical lab series simula
 *   Provisioned a Windows 11 managed endpoint.
 *   **Key Outcome:** A fully functional, stable environment with verified internal/external connectivity and disaster recovery fail-safes.
 
-### [Part 2: Identity & Access Management (AD/GPO)](./part-2-active-directory/)
+### [Part 2: Identity & Access Management (Active Directory/GPO)](./part-2-active-directory/)
 **Focus: Security & Governance.**
 *   Designed a scalable **Organizational Unit (OU)** hierarchy.
 *   Implemented **Role-Based Access Control (RBAC)** for HR, Finance, and IT departments.
