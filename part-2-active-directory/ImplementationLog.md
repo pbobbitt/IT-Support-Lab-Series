@@ -21,10 +21,10 @@
   * **Finance:** `SG_Finance`
   * **HR:** `SG_HR`
   * **IT:** `SG_IT_Support`
-* **Assign Users to their respective Security Groups.**
-Han Solo: `SG_Finance`
-Darth Vader: `SG_HR`
-Padme Amidala: `SG_IT_Support`
+* **Assign Users to their respective Security Groups.**  
+* Han Solo: `SG_Finance`  
+* Darth Vader: `SG_HR`  
+* Padme Amidala: `SG_IT_Support`  
 
 
 
