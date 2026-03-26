@@ -1,66 +1,41 @@
-# Part 2: User & Group Management
+# Identity & Access Management With Active Directory
 
 ## Objective
+The goal was to build a centralized server environment to streamline user management and device security across an organization. This solves the problem of decentralized administration by allowing all employee permissions and security rules to be managed from a single, secure control point.
 
-Simulate day-to-day IT support tasks by managing users, groups, and access within an Active Directory environment. This lab focuses on account administration, permission control, and enforcing company-wide policies.
+## Tech Stack & Skills
+*   **Systems:** Windows Server 2025, Windows 11, Active Directory (AD DS)
+*   **Networking/Security:** Group Policy (GPOs), Account Lockout Policies, Least Privilege, DNS
+*   **Core Skills:** Identity & Access Management (IAM), Organizational Unit (OU) Design, System Hardening, Troubleshooting
 
-## Environment
-*   Windows Server 2025 (Domain Controller)
-*   Windows 11 (Domain-Joined Client)
-*   Active Directory Domain Services (AD DS)
-*   Group Policy Management Console (GPMC)
+## Key Accomplishments
+*   **Scalable Infrastructure Design:** Built a logical Organizational Unit (OU) hierarchy to separate users, security groups, and hardware assets, ensuring the environment remains organized as the company grows.
+*   **Role-Based Access Control (RBAC):** Provisioned departmental security groups (HR, Finance, IT) and automated resource access by mapping users to specific roles, reducing the risk of unauthorized data access.
+*   **Asset Lifecycle Management:** Migrated Windows 11 workstations into the domain and organized them into managed containers to allow for centralized software deployment and monitoring.
+*   **System Hardening & Security:** Deployed automated security policies to enforce "Least Privilege," successfully blocking non-admin users from accessing sensitive tools like the Command Prompt and Control Panel.
+*   **Brute-Force Protection:** Configured and enforced account lockout thresholds to automatically freeze accounts after five failed login attempts, protecting the network from external password attacks.
 
-## Key Tasks
+## Final Validation & Project Completion
+**The environment is 100% functional, with a verified link between the Server and Windows 11 workstation. All security policies are active, and standard users are successfully restricted from administrative settings.**
 
+> **Full Technical Deep Dive**
+> For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](InsertLinkHere.md)**
 
-### Created an Organizational Unit Hierarchy
-* Built a structured Organizational Unit hierarchy to organize users and apply targeted policies. with the following structure.
-  * `Lab_Production`  (Top-Level OU)
-    * `Lab_Users`
-    * `Lab_Security`
-    * `Lab_Computers`
+## Visual Proof
 
-   
-### User Account Management
-* Managed user accounts in Active Directory, including account creation, modification, and deactivation.
-* Performed common help desk tasks such as password resets, account unlocks, and enforcing password policies.
+### Policy Enforcement & Least Privilege
+*   **Action:** Applied Restricted User GPO.
+*   **Context:** Protecting system settings from non-administrative users to prevent unauthorized changes.
+*   **Validation:** Logged in as a standard user (Han Solo) and verified that access to the Control Panel and CMD was strictly denied by system policy.
+**[Insert Screenshot of "Access Denied" error on W11 Client]**
 
-### Organizational Unit (OU) Structure
-* Built a structured OU hierarchy (e.g., IT, HR, Sales) to organize users and apply targeted policies.
+### Corporate Compliance Branding
+*   **Action:** Configured Interactive Logon Banner.
+*   **Context:** Establishing legal notice and "Authorized Use" warnings for all employees prior to login.
+*   **Validation:** Verified that the custom security warning appears on the Windows 11 lock screen before any user can input credentials.
+**[Insert Screenshot of Logon Banner on W11 Client]**
 
-### Security Group Management
-* Created security groups and assigned users to control access to shared resources and simulate role-based permissions.
-
-### Group Policy Configuration (GPOs)
-* Configured and applied GPOs to enforce settings such as password policies, desktop restrictions, and system security controls.
-
-### Access Control & Permissions
-* Simulated real-world access scenarios by granting and restricting permissions based on group membership.
-
-### Policy Validation & Testing
-* Verified GPO application and user access on the client machine using standard tools (gpupdate / gpresult).
-
-## Outcome
-
-A structured Active Directory environment where users, groups, and policies are centrally managed, reflecting real-world IT support responsibilities such as account management, access control, and policy enforcement. This setup mirrors daily help desk operations in a corporate environment.
-
-### Screenshots (guide the reader through proof)
-*   User Accounts Created in Active Directory
-*   Organizational Unit (OU) Structure
-*   Security Groups & Membership
-*   Group Policy Configuration (GPMC)
-*   Client Machine Showing Applied Policies
-
-## Key Takeaways
-
-### Active Directory Administration
-* Gained hands-on experience managing users, groups, and OUs, which are core responsibilities in IT support roles.
-
-### Access Control & Security
-* Learned how to use security groups to control permissions and protect company resources.
-
-### Group Policy Management
-* Applied GPOs to enforce company-wide settings and ensure consistent system configurations.
-
-### Real-World IT Support Tasks
-* Simulated common help desk actions such as password resets, account unlocks, and troubleshooting policy issues.
+## Professional Key Takeaways
+*   **Automation & Scalability:** I learned how to manage 100+ users as efficiently as one user by utilizing Group Policy and Security Groups rather than manual configuration.
+*   **Security-First Mindset:** I focused on the "Principle of Least Privilege," ensuring that standard employees have exactly what they need to work without the ability to accidentally compromise the network.
+*   **Adaptability:** During the lab, I successfully troubleshot an authentication issue by identifying a VM mismatch, demonstrating my ability to remain calm and analytical when technical roadblocks occur.
