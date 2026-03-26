@@ -65,14 +65,75 @@
   * `Logon Banner` Linked to `Lab_Computers`
 
 
+# Milestone 5: Resource Management (FSRM & Print Services)
 
-### Milestone 5: Validation & L1 Support Testing
-*Focus: Verifying that your administrative changes are active on the endpoint.*
+**Focus:** Provisioning critical business resources by establishing a centralized file server and automated print services.
 
-* **Perform a "Force Update" of policies on the Client Machine.**
-* **Log in as a Standard User and verify successful authentication.**
-* **Test the GPO restrictions** (e.g., attempt to open a prohibited setting).
-* **Generate a formal GP Result report on the client to confirm policy application.**
+### Implement a Centralized File Share with NTFS and Share Permissions
+
+*   **Objective:** Create a centralized location for file storage with granular access control.
+*   **Key Actions:**
+    *   Establish a shared folder on a designated server.
+    *   Configure NTFS permissions to define user and group access rights at the file and folder level.
+    *   Set up Share Permissions to control network access to the shared folder.
+
+### Configure a Network Drive Mapping via Group Policy (GPO)
+
+*   **Objective:** Automatically map the centralized file share as a network drive for users upon login.
+*   **Key Actions:**
+    *   Create a new Group Policy Object (GPO) linked to the appropriate organizational unit (OU).
+    *   Navigate to `User Configuration > Preferences > Windows Settings > Drive Maps`.
+    *   Configure a new mapped drive, specifying the drive letter, location (path to the file share), and other relevant settings.
+
+### Deploy a Network Printer to Managed Workstations
+
+*   **Objective:** Automate the installation of network printers on client machines.
+*   **Key Actions:**
+    *   Install and share the printer on a print server.
+    *   Utilize Group Policy to deploy the printer to specific users or computers.
+    *   Navigate to `User Configuration` or `Computer Configuration > Policies > Windows Settings > Deployed Printers`.
+
+### Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM)
+
+*   **Objective:** Manage storage utilization and control the types of files stored on the server.
+*   **Key Actions:**
+    *   Install the File Server Resource Manager (FSRM) role on the file server.
+    *   **Quotas:** Define storage limits for specific volumes or folders to prevent excessive disk space consumption.
+    *   **File Screens:** Create rules to block certain file types (e.g., .mp3, .exe) from being saved to the file share.
+
+
+# Milestone 6: Validation & L1 Support Testing
+
+**Focus:** Verifying that your administrative changes are active on the endpoint.
+
+### Perform a "Force Update" of policies on the Client Machine
+
+*   **Objective:** Immediately apply any new or updated Group Policy settings without waiting for the default refresh interval.
+*   **Key Actions:**
+    *   Open a Command Prompt on the client machine.
+    *   Execute the command: `gpupdate /force`.
+
+### Log in as a Standard User and verify successful authentication
+
+*   **Objective:** Confirm that a non-administrative user can successfully log in and access their environment.
+*   **Key Actions:**
+    *   Log off from any administrative accounts on the client machine.
+    *   Log in using the credentials of a standard user account within the domain.
+
+### Test the GPO restrictions (e.g., attempt to open a prohibited setting)
+
+*   **Objective:** Ensure that the configured Group Policy restrictions are being correctly enforced.
+*   **Key Actions:**
+    *   As the standard user, attempt to access a feature or setting that was restricted via GPO (e.g., Control Panel, specific settings pages).
+    *   Verify that access is denied as expected.
+
+### Generate a formal GP Result report on the client to confirm policy application
+
+*   **Objective:** Create a detailed report to verify which Group Policy Objects are being applied to the user and computer.
+*   **Key Actions:**
+    *   Open a Command Prompt on the client machine.
+    *   Execute the command: `gpresult /h C:\temp\gpresult.html` (or another accessible path).
+    *   Open the generated HTML file to review the applied GPOs and troubleshoot any issues.
 
 
 | Issue Encountered | Root Cause Analysis | Resolution & Verification |
