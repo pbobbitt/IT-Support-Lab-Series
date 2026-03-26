@@ -4,8 +4,8 @@
 **Focus:** Ensuring the physical hardware can support the virtual infrastructure and gathering the necessary software components.
 
 *   **Conducted a hardware audit to ensure the host computer could handle multiple virtual machines.**
-    *   Calculated the total resources needed (approximately 6 CPU cores, 12GB of RAM, and 160GB of storage) to run the Server and Windows 11 client simultaneously.
-    *   Verified the host system’s specifications using the `msinfo32` command, confirming it exceeded requirements with 32GB of RAM and a 6-core (12-thread) processor. 
+    *   Calculated the total resources needed (approximately 4 CPU cores, 12GB of RAM, and 160GB of storage) to run the Server and Windows 11 client simultaneously.
+    *   Verified the host system’s specifications using the `msinfo32` command, confirming it exceeded requirements with 32GB of RAM and a 6-core (12-thread) processor, and 250GB of storage. 
 *   **Prepared the Virtualization Platform.**
     *   Installed Oracle VirtualBox 7.x as the "Type-2 Hypervisor" to manage the virtual hardware.
     *   Added the VirtualBox Extension Pack to enable support for modern features like NVMe disk performance and encrypted connections.
