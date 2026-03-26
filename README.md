@@ -1,62 +1,82 @@
-# IT Support Lab Series (3-Part Project)
+# Enterprise IT Support & Systems Administration Lab Series  
+
+
+**Professional & Educational Credentials**  
+<p align="left">
+<a href="https://linkedin.com/in/patrick-bobbitt">
+<img src="https://img.shields.io/badge/LinkedIn-Patrick%20Bobbitt-0072b1?style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
+<img src="https://img.shields.io/badge/Education-WGU%20BS%20Cloud%20%26%20Network-00ADEE?style=for-the-badge&logo=googlescholar&logoColor=white" />
+<a href="https://github.com/pbobbitt/pbobbitt/blob/main/CompTIA%20A%2B%20ce%20certificate.pdf">
+<img src="https://img.shields.io/badge/Certification-CompTIA%20A%2B%20Certified-E31837?style=for-the-badge&logo=comptia&logoColor=white" />
+</a>
+</p>
+
+**Lab Series Technical Stack**  
+<p align="left">
+<img src="https://img.shields.io/badge/Server-Windows%20Server%202025-0078D4?style=for-the-badge&logo=windowsserver&logoColor=white" />
+<img src="https://img.shields.io/badge/Client-Windows%2011-0078D4?style=for-the-badge&logo=windows11&logoColor=white" />
+<img src="https://img.shields.io/badge/Identity-Active%20Directory-004C99?style=for-the-badge&logo=microsoftactivedirectory&logoColor=white" />
+<img src="https://img.shields.io/badge/Operations-Ticketing%20Lab-2ea44f?style=for-the-badge&logo=helpdesk&logoColor=white" />
+<img src="https://img.shields.io/badge/Hypervisor-VirtualBox-183a61?style=for-the-badge&logo=virtualbox&logoColor=white" />
+</p>
+
 
 ## Project Overview
+This repository contains a comprehensive, three-part technical lab series simulating a real-world enterprise IT environment. The project moves from raw infrastructure deployment to advanced Identity and Access Management (IAM), concluding with a hands-on Help Desk ticketing simulation.
 
-This lab series simulates a real-world IT support environment using Windows Server and Active Directory.
-
-The goal of this project is to demonstrate hands-on experience with common IT support responsibilities, including:
-- Setting up and managing domain environments
-- Administering users and permissions via Active Directory
-- Applying group policies
-- Troubleshooting real-world IT issues
-
-## Labs
-
-Part 1: [Infrastructure Setup](part-1-infrastructure/README.md)
-
-* Built a virtualized enterprise lab environment (Windows Server + client)
-* Configured core network services (DNS, IP addressing, domain infrastructure)
-* Deployed Active Directory Domain Services and integrated the client system
-
-Part 2: [User & Group Management in Active Directory](#) (In-Progress)
-
-* Created and managed users, groups, and organizational units (OUs)
-* Applied Group Policy Objects (GPOs) to enforce security and configurations
-* Simulated real-world account administration and access control
-
-Part 3: [IT Support & Troubleshooting](#) (Coming Soon)
-
-* Simulated common IT support scenarios in a domain environment
-* Diagnosed and resolved network, authentication, and policy-related issues
-* Used administrative tools to troubleshoot and restore system functionality
+**The Goal:** To build, secure, and manage a corporate network from the ground up, demonstrating proficiency in systems administration, network security, and technical support workflows.
 
 
-## Real-World Scenarios Simulated
-
-- User unable to log in due to account lockout
-- Incorrect group permissions are preventing file access
-- DNS misconfiguration is causing network connectivity issues
-- Group Policy not applying as expected
-- Domain trust and authentication troubleshooting
-
-## Technologies Used
-
-- Windows Server 2025  
-- Windows 11  
-- Oracle VirtualBox  
-- Active Directory Domain Services (AD DS)  
-- DNS  
-- PowerShell / Command Line  
+## Core Tech Stack & Competencies
+*   **Operating Systems:** Windows Server 2025 (Datacenter), Windows 11 Enterprise
+*   **Directory Services:** Active Directory Domain Services (AD DS)
+*   **Networking:** DNS, DHCP, Static IPv4 Addressing, NAT Networking
+*   **Security & Policy:** Group Policy Objects (GPO), RBAC (Role-Based Access Control), Least Privilege, Account Lockout Policies
+*   **Virtualization:** Oracle VirtualBox (Type-2 Hypervisor)
+*   **IT Operations:** Disaster Recovery (Snapshots), Documentation, Troubleshooting
 
 
-## Documentation & Proof
+## Project Structure
 
-Each lab includes:
-- Step-by-step documentation  
-- Screenshots of configurations and results  
-- Troubleshooting scenarios and resolutions
+### [Part 1: Windows Server & Infrastructure Build](./part-1-infrastructure/)
+**Focus: The Foundation.** 
+*   Architected an isolated virtual network environment.
+*   Deployed **Windows Server 2025** as a Primary Domain Controller.
+*   Provisioned a Windows 11 managed endpoint.
+*   **Key Outcome:** A fully functional, stable environment with verified internal/external connectivity and disaster recovery fail-safes.
 
-## Disclaimer & AI Disclosure
-While the **technical implementation** of these labs was performed entirely by the author, **Generative AI** was used as a collaborative tool to assist with structured formatting, professional terminology refinement, and the documentation of this report. 
+### [Part 2: Identity & Access Management (AD/GPO)](./part-2-active-directory/)
+**Focus: Security & Governance.**
+*   Designed a scalable **Organizational Unit (OU)** hierarchy.
+*   Implemented **Role-Based Access Control (RBAC)** for HR, Finance, and IT departments.
+*   Deployed **Group Policy Objects (GPOs)** to harden endpoints (restricting CMD/Control Panel) and enforce corporate compliance.
+*   **Key Outcome:** A secured domain where user permissions are automated based on their job function, significantly reducing the attack surface.
 
-This approach was taken to ensure the lab's technical findings are communicated with the clarity and professional standards required in a production IT environment.
+### [Part 3: Help Desk Operations & Ticketing](./part-3-helpdesk-tickets/) *(In Progress)*
+**Focus: The User Experience.**
+*   Simulating real-world L1/L2 support scenarios.
+*   Resolving common issues: Password resets, software deployment, and policy troubleshooting.
+*   Utilizing ticketing workflows to document and track "Break/Fix" incidents.
+*   **Key Outcome:** Demonstrating the ability to translate technical knowledge into professional end-user support.
+
+
+## Key Technical Highlights
+
+### Security Hardening
+I didn't just build a network; I secured it. By applying the **Principle of Least Privilege (PoLP)**, I ensured that standard users cannot access system-level tools, while "IT Support" users maintain the access needed to perform their duties.
+
+### Troubleshooting & Resilience
+Throughout this lab, I resolved critical "low-level" conflicts, including:
+*   **Hypervisor Optimization:** Solving "Black Screen" boot errors by managing Hyper-V/Core Isolation conflicts at the host firmware level.
+*   **Network Logic:** Rectifying authentication errors caused by VM mismatches, proving a methodical approach to the OSI model.
+
+### Documentation & Governance
+Each phase of this project includes a detailed **Implementation Log**. I treat these logs as professional internal documentation, ensuring that every configuration change is auditable and repeatable, a vital skill in any enterprise IT team.
+
+
+## Contact & Connect
+*   **LinkedIn:** [Your LinkedIn Profile Link]
+*   **Email:** [Your Professional Email]
+
+
