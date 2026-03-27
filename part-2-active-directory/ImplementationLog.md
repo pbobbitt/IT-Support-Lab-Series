@@ -126,12 +126,30 @@
   * Restriction Test: Logged in as Han Solo (Finance) and attempted to open the Command Prompt and Control Panel; verified both were [blocked](#) by Group Policy.
   * Exception Test: Logged in as Padme Amidala (IT) and verified that CMD and Control Panel remain [accessible](#), confirming the Lab_Admins OU is correctly excluded from the restriction GPO.
   * Banner Test: Confirmed the legal warning banner appears on the W11-CL01 [login screen](#) for all users.
-* **Resource Limit Enforcement (FSRM Validation)**
-  * Quota Test: Attempted to copy a 150MB file into the 100MB-limited Finance folder as Han Solo; verified the system blocked the transfer due to insufficient space.
-  * Screening Test: Attempted to save a .mp4 video file to the share; verified the File Screen blocked the write operation despite having remaining storage quota. 
 * **Network Resource Auto-Provisioning**  
   * Verified that the S: Drive (Mapped Drive) and the Lab_Office_Printer are automatically mapped and visible in File Explorer/Devices upon login [without manual user intervention](#).
   * Used the gpresult /r command on the client workstation to generate a report confirming all policies are being [applied to the user session](#).
+* **Resource Limit Enforcement (FSRM Validation)**
+  * Quota Test: Attempted to copy a 101MB file into the 100MB-limited Finance folder as Han Solo; verified the [system blocked the transfer due to insufficient space](#).
+    * **1. Powershell Quota Test Script (101MB File)**
+Used to verify that the 100MB limit on the Finance folder correctly blocks oversized transfers.
+```powershell
+$path = "$home\Desktop\TestFile.dat"
+$size = 101MB
+$file = [System.IO.File]::Create($path)
+$file.SetLength($size)
+$file.Close()
+```
+  * Screening Test: Attempted to save a .mp4 video file to the share; verified the File Screen blocked the write operation despite having remaining storage quota.
+    * **1. Powershell File Screening Script (1MB .mp4 File)**
+Used to verify that unauthorized file types are blocked even when the user has remaining storage quota.
+```powershell
+$path = "$home\Desktop\fake video.mp4"
+$size = 1MB
+$file = [System.IO.File]::Create($path)
+$file.SetLength($size)
+$file.Close()
+```
     
 ## Milestone 7: Scalability & Automation
 **Focus:** Demonstrating enterprise-level administration by using PowerShell to automate the mass creation and categorization of 100 domain users.
