@@ -68,161 +68,130 @@
 ## Milestone 5: Resource Management (FSRM & Print Services)
 **Focus:** Provisioning critical business resources by establishing a centralized file server and automated print services.
 
-*  **Implement a Centralized File Share with NTFS and Share Permissions.**
-   * On `WS2025-DC01` Created folder on `C:` named `Company_Share`
-      * Made 3 subfolders: `Finance`, `HR`, `IT`
-    * Enabled share this folder on `Company_Share` to everyone with full control (Actual locking will be done with the `Security` tab; this prevents potential conflicts)
-    * Subfolder permissions were set to remove `Lab_Users` on the `Security` tab and set these specific permissions for each of the following folders.
-      * `Finance` = `SG_Finance`  
-      * `HR` = `SG_HR`  
-      * `IT` = `SG_IT_Support`
-*   **Configure a Network Drive Mapping via Group Policy (GPO).**
-    *  Created GPO `Drive Mappings`
-    * Set drive mappings under `User Configuration>Preferences>Windows Settings>Drive Maps` then `Drive Maps>New>Mapped Drive`
-    * Created a new mapped drive for each of the following with the drive letter `s` <BR><BR>
-    
-    | Path | Department | Securtiy Group|
-    | - | - | - | 
-    | \\WS2025-DC01\Company_Shares\Finance | Finance | SG_Finance |
-    | \\WS2025-DC01\Company_Shares\HR | HR | SG_HR |
-    | \\WS2025-DC01\Company_Shares\IT | IT | SG_IT_Support |
-    
-    * Assigned `Drive Mappings` to `Lab_User` and `Lab_Admins` because the IT support staff are actually in the admin OU, and we want this to apply to all users
-       
-* **Deploy a Network Printer to Managed Workstations.:**
-  * Created Print Server Role
-    * `Server Manager>Manage>Add Roles and Features>Print and Document Services.`
-  * Created network printer named `Lab_Office_Printer`
-    * `Tools>Print Management>Print Servers > WS2025-DC01 > Printers`
-    * Port: `LPT1`
-    * Driver: `Microsoft IPP Class Driver`
-    * Share this printer: Enabled
-  * Granted users access via GPO
-    * From `Lab_Office_Printer` used `Deploy with Group Policy`
-    * Created `Printer Policy` GPO
-      * Assigned to `Lab_Users` and `Lab_Admins`
-      * Made sure `The users that this GPO applies to (per user)` is checked
-    
-*   **Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).**
-  * Added `File Server Resource Manager` role
-    * `Server Manager>Manage>Add Roles and Features>Expand File and Storage Services>Expand File and iSCSI Services`
-  * Establish Storage Quotas
-    *  `Server Manager>Tools > File Server Resource Manager>Quota Management>Quotas`
-    *  Added Quota for `Finance`, `HR`, and `IT`
-        * 100 MB Limit
-    * Established File Screens
-      * `Server Manager>Tools > File Server Resource Manager>File Screens>`
-      * Added File Screen for root folder `C:\Company_Shares`
-        * Blocked Audio and Video Files
+*   **Implemented a Centralized File Share with NTFS and Share Permissions.**
+    *   On the server `WS2025-DC01`, created a main folder on the C: drive named `Company_Share`.
+    *   Inside `Company_Share`, created three subfolders: `Finance`, `HR`, and `IT`.
+    *   Configured the main `Company_Share` folder to be shared with "Everyone" having full control. This initial open setting prevents permission conflicts, as specific security will be handled at the subfolder level.
+    *   Modified the security permissions for each subfolder to grant exclusive access to the correct department group:
+        *   `Finance` folder access was granted to the `SG_Finance` group.
+        *   `HR` folder access was granted to the `SG_HR` group.
+        *   `IT` folder access was granted to the `SG_IT_Support` group.
+*   **Configured a Network Drive Mapping via Group Policy (GPO).**
+    *   Created a new GPO named `Drive Mappings`.
+    *   Within this GPO, set up policies to automatically map the 'S:' drive for users based on their department's security group.
+        *   Members of `SG_Finance` are mapped to `\\WS2025-DC01\Company_Shares\Finance`.
+        *   Members of `SG_HR` are mapped to `\\WS2025-DC01\Company_Shares\HR`.
+        *   Members of `SG_IT_Support` are mapped to `\\WS2025-DC01\Company_Shares\IT`.
+    *   Linked the `Drive Mappings` GPO to both the `Lab_Users` and `Lab_Admins` OUs to ensure all employees, including IT staff, receive the mapped drive.
+*   **Deployed a Network Printer to Managed Workstations.**
+    *   Added the "Print and Document Services" role to the server.
+    *   Set up a new shared network printer named `Lab_Office_Printer`.
+    *   Created a new GPO called `Printer Policy` to automatically deploy this printer to users.
+    *   Linked the `Printer Policy` GPO to the `Lab_Users` and `Lab_Admins` OUs so all users would have access to the printer.
+*   **Established Storage Quotas and File Screens using File Server Resource Manager (FSRM).**
+    *   Added the "File Server Resource Manager" role to the server.
+    *   Set up storage quotas on the `Finance`, `HR`, and `IT` folders, limiting each to a maximum size of 100 MB.
+    *   Created a file screen on the main `Company_Shares` folder to block users from saving audio and video file types.
        
 # Milestone 6: Validation & Audit Before Scaling
-*Focus: Testing and documenting user access, policy enforcement, and resource restrictions to ensure the environment is secure and stable before mass-scaling the directory.*
+**Focus:** Testing and documenting user access, policy enforcement, and resource restrictions to ensure the environment is secure and stable before mass-scaling the directory.
 
-* **Cross-Departmental Permission Audit**
-  * Verified that `Finance` members can successfully access the [Finance folder](#) and can not see or access the HR or IT folders.
-  * Confirmed IT members who also have Admin status are similarly restricted to only the [IT folder](#).
-    >This validates that the NTFS permissions and Security Group mappings are correctly overriding the "Everyone: Full Control" share setting. 
-* **GPO Enforcement & Exception Verification**
-  * Restriction Test: Logged in as Han Solo (Finance) and attempted to open the Command Prompt and Control Panel; verified both were [blocked](#) by Group Policy.
-  * Exception Test: Logged in as Padme Amidala (IT) and verified that CMD and Control Panel remain [accessible](#), confirming the Lab_Admins OU is correctly excluded from the restriction GPO.
-  * Banner Test: Confirmed the legal warning banner appears on the W11-CL01 [login screen](#) for all users.
-* **Network Resource Auto-Provisioning**  
-  * Verified that the S: Drive (Mapped Drive) and the Lab_Office_Printer are automatically mapped and visible in File Explorer/Devices upon login [without manual user intervention](#).
-  * Used the gpresult /r command on the client workstation to generate a report confirming all policies are being [applied to the user session](#).
-* **Resource Limit Enforcement (FSRM Validation)**
-  * Quota Test: Attempted to copy a 101MB file into the 100MB-limited Finance folder as Han Solo; verified the [system blocked the transfer due to insufficient space](#).
-    * **Powershell Quota Test Script (101MB File)**
-Used to verify that the 100MB limit on the Finance folder correctly blocks oversized transfers.
-```powershell
-$path = "$home\Desktop\TestFile.dat"
-$size = 101MB
-$file = [System.IO.File]::Create($path)
-$file.SetLength($size)
-$file.Close()
-```
-   * Screening Test: Attempted to save a .mp4 video file to the share; verified the File Screen blocked the write operation despite having remaining storage quota.
-    * **Powershell File Screening Script (1MB .mp4 File)**
-Used to verify that unauthorized file types are blocked even when the user has remaining storage quota.
-```powershell
-$path = "$home\Desktop\fake video.mp4"
-$size = 1MB
-$file = [System.IO.File]::Create($path)
-$file.SetLength($size)
-$file.Close()
-```
+*   **Step 1:** Performed a cross-departmental permission audit.
+    *   Verified that users in the `Finance` group can successfully access the [Finance folder](#) but are correctly blocked from seeing or accessing the HR or IT folders.
+    *   Confirmed that members of the IT group are also properly restricted to their designated [IT folder](#).
+    *   This test validates that the specific folder permissions (NTFS) and security group rules are correctly overriding the more general "Everyone: Full Control" setting on the main share.
+*   **Step 2:** Verified Group Policy enforcement and its exceptions.
+    *   **Restriction Test:** Logged in as a standard Finance user (Han Solo) and confirmed that both the Command Prompt and Control Panel were successfully [blocked](#) as intended by the policy.
+    *   **Exception Test:** Logged in as an IT user (Padme Amidala) and confirmed that the Command Prompt and Control Panel remained [accessible](#), proving that the exclusion for the `Lab_Admins` OU is working correctly.
+    *   **Banner Test:** Confirmed that the legal warning banner appears on the [login screen](#) of the workstation for all users.
+*   **Step 3:** Confirmed automatic provisioning of network resources.
+    *   Verified that both the S: Drive and the `Lab_Office_Printer` are automatically mapped and visible to the user upon login [without any manual intervention](#).
+    *   Used the `gpresult /r` command on the client computer to generate a report, which confirmed that all the correct policies are being [applied to the user's session](#).
+*   **Step 4:** Validated the enforcement of resource limits.
+    *   **Quota Test:** As a standard user, attempted to copy a 101MB file into the Finance folder, which has a 100MB limit. Verified that the [system blocked the transfer](#) because the quota would be exceeded.
+        *   **Powershell Quota Test Script (101MB File):** Used to verify that the 100MB limit on the Finance folder correctly blocks oversized transfers.
+          ```powershell
+          $path = "$home\Desktop\TestFile.dat"
+          $size = 101MB
+          $file = [System.IO.File]::Create($path)
+          $file.SetLength($size)
+          $file.Close()
+          ```
+    *   **Screening Test:** Attempted to save a video file (.mp4) to the shared folder. Verified the system blocked the action because of the file type, even though the user still had available storage space.
+        *   **Powershell File Screening Script (1MB .mp4 File):** Used to verify that unauthorized file types are blocked even when the user has remaining storage quota.
+          ```powershell
+          $path = "$home\Desktop\fake video.mp4"
+          $size = 1MB
+          $file = [System.IO.File]::Create($path)
+          $file.SetLength($size)
+          $file.Close()
+          ```
     
 ## Milestone 7: Scalability & Automation
 **Focus:** Demonstrating enterprise-level administration by using PowerShell to automate the mass creation and categorization of 100 domain users.
 
-*   **Develop a CSV User Database**
-    * Created a structured .csv file containing Firstname, Lastname, Username, and Department for 97 additional staff members to simulate a full-scale corporate environment.
-      * see below to structure, view full list [here](#) 
-```
-Firstname,Lastname,Username,Department
-Han,Solo,han.solo,Finance
-Darth,Vader,darth.vader,HR
-Padme,Amidala,padme.amidala,IT_Support
-```
-      
-*   **Scripted User Creation via PowerShell**
-    * Developed and executed a PowerShell script to iterate through the CSV, automatically generating AD accounts with standardized User Principal Names (UPN) and secure default passwords.
-    * This script also automated Security Group Mapping
-      * Integrated logic into the script to automatically assign each new user to their respective departmental Security Group (`SG_Finance`, `SG_HR`, or `SG_IT_Support`) based on the CSV data.
-```powershell
-# 1. Define where the user list is
-$csvPath = "C:\Users\Administrator\Documents\NewUsers.csv"
+*   **Step 1:** Developed a master list of users.
+    *   To simulate a large-scale environment, a structured CSV file was created. This file acted as a blueprint, containing the Firstname, Lastname, Username, and Department for 97 additional staff members.
+    *   The file followed the structure below. The full list can be viewed [here](#).
+      ```
+      Firstname,Lastname,Username,Department
+      Han,Solo,han.solo,Finance
+      Darth,Vader,darth.vader,HR
+      Padme,Amidala,padme.amidala,IT_Support
+      ```
 
-# 2. Loop through every person in that list
-Import-Csv $csvPath | ForEach-Object {
-    
-    # Set a default password (For this lab they will not have to change it at first login)
-    $Password = ConvertTo-SecureString "Testlab1" -AsPlainText -Force
-    
-    # 3. Create the User in the Lab_Users OU
-    New-ADUser -Name "$($_.Firstname) $($_.Lastname)" `
-               -GivenName $_.Firstname `
-               -Surname $_.Lastname `
-               -SamAccountName $_.Username `
-               -UserPrincipalName "$($_.Username)@lab.local" `
-               -Path "OU=Lab_Users,OU=Lab_Production,DC=lab,DC=local" `
-               -AccountPassword $Password `
-               -ChangePasswordAtLogon $false `
-               -Enabled $true
-               
-    # 4. Map them to their Security Group based on the CSV "Department" column
-    # Note: Groups are named SG_Finance, SG_HR, SG_IT_Support
-    $groupName = "SG_$($_.Department)"
-    
-    try {
-        Add-ADGroupMember -Identity $groupName -Members $_.Username
-        Write-Host "Successfully added $($_.Username) to $groupName" -ForegroundColor Green
-    } catch {
-        Write-Host "Failed to add $($_.Username) to $groupName. Check if group exists." -ForegroundColor Red
-    }
-}
-```
-*   **Bulk Account Activation and OU Placement**
-    * Verified all 100 accounts were correctly provisioned within the Lab_Users OU and enabled for immediate domain authentication.
-      * ![Verification Image](#)
-    * Checked security groups to make sure users landed in the correct security groups
-      * ![Verification Image](#)
-    * For users in `SG_IT_Suport`they needed to be moved to the `Lab_Admin` to ensure they would not be affected bu `Prohibit CMD and Control Panel` GPO
-    * Ran this PowerShell script   to automate finding and moving users in the `SG_IT_Support` SG
-      * Confirmed successful move
-        * ![Verification Image](#)
-        * ![Verification Image](#)
-```powershell
-# 1. Get all members of the IT Support group
-$ITMembers = Get-ADGroupMember -Identity "SG_IT_Support"
+*   **Step 2:** Automated user creation with a PowerShell script.
+    *   A script was executed to read the master list and automatically create an Active Directory account for each person.
+    *   This script also handled assigning each new user to their correct departmental Security Group (`SG_Finance`, `SG_HR`, or `SG_IT_Support`) based on the data in the CSV file.
+      ```powershell
+      # 1. Define where the user list is
+      $csvPath = "C:\Users\Administrator\Documents\NewUsers.csv"
 
-# 2. Move each member to the Lab_Admins OU
-$ITMembers | ForEach-Object {
-    Move-ADObject -Identity $_.DistinguishedName -TargetPath "OU=Lab_Admins,OU=Lab_Production,DC=lab,DC=local"
-    Write-Host "Moved $($_.Name) to Lab_Admins OU" -ForegroundColor Cyan
-}
+      # 2. Loop through every person in that list
+      Import-Csv $csvPath | ForEach-Object {
+          
+          # Set a default password (For this lab they will not have to change it at first login)
+          $Password = ConvertTo-SecureString "Testlab1" -AsPlainText -Force
+          
+          # 3. Create the User in the Lab_Users OU
+          New-ADUser -Name "$($_.Firstname) $($_.Lastname)" `
+                     -GivenName $_.Firstname `
+                     -Surname $_.Lastname `
+                     -SamAccountName $_.Username `
+                     -UserPrincipalName "$($_.Username)@lab.local" `
+                     -Path "OU=Lab_Users,OU=Lab_Production,DC=lab,DC=local" `
+                     -AccountPassword $Password `
+                     -ChangePasswordAtLogon $false `
+                     -Enabled $true
+                     
+          # 4. Map them to their Security Group based on the CSV "Department" column
+          # Note: Groups are named SG_Finance, SG_HR, SG_IT_Support
+          $groupName = "SG_$($_.Department)"
+          
+          try {
+              Add-ADGroupMember -Identity $groupName -Members $_.Username
+              Write-Host "Successfully added $($_.Username) to $groupName" -ForegroundColor Green
+          } catch {
+              Write-Host "Failed to add $($_.Username) to $groupName. Check if group exists." -ForegroundColor Red
+          }
+      }
+      ```
 
-```
+*   **Step 3:** Verified account creation and finalized placements.
+    *   Confirmed that all 100 accounts were correctly created within the `Lab_Users` OU and were active for login. ![Verification Image](#)
+    *   Checked the security groups to ensure all new users were placed into the correct department groups. ![Verification Image](#)
+    *   Since IT staff require access to administrative tools, a second script was run to automatically find all users in the `SG_IT_Support` group and move them to the `Lab_Admins` OU. This ensures they are not impacted by policies that restrict tools for standard users.
+    *   The successful move of these users was confirmed. ![Verification Image](#) ![Verification Image](#)
+      ```powershell
+      # 1. Get all members of the IT Support group
+      $ITMembers = Get-ADGroupMember -Identity "SG_IT_Support"
 
+      # 2. Move each member to the Lab_Admins OU
+      $ITMembers | ForEach-Object {
+          Move-ADObject -Identity $_.DistinguishedName -TargetPath "OU=Lab_Admins,OU=Lab_Production,DC=lab,DC=local"
+          Write-Host "Moved $($_.Name) to Lab_Admins OU" -ForegroundColor Cyan
+      }
+      ```
 
 | Issue Encountered | Root Cause Analysis | Resolution & Verification |
 | :--- | :--- | :--- |
