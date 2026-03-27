@@ -61,8 +61,8 @@ This project outlines the foundational setup of a virtualized enterprise environ
 
 | Issue Encountered | Root Cause Analysis | Resolution & Verification |
 | :--- | :--- | :--- |
-| On first run of [VM](Images/networking%20missing.png) couldn't find "network" under `Files>Tools`   | VM [preferences](Images/Preferences%20set%20as%20basic.png) were set to basic | Changed VM [preference](Images/networking%20is%20now%20listed.png) to expert and "networks" appeared under `Files>Tools>network` |
-| [VM Boot Failure / Black Screen](Images/VM%20Black.png) | Hyper-V / Core Isolation enabled on Host (Warning is Green Turtle icon). were set to basic | Disabled Hyper-V via [bcdedit](https://github.com/pbobbitt/Windows-Server-2025-Virtual-Infrastructure-Deployment/blob/main/Images/Disabled%20Hyper-V%20bootloader.png) and toggled off [Memory Integrity](Images/Disabled%20Memory%20Integrity.png) to allow VirtualBox native VT-x/AMD-V access. Confirmed [VirtualBox now runs](Images/VM%20Working.png) |
+| On first run of [VM](screenshots/networking%20missing.png) couldn't find "network" under `Files>Tools`   | VM [preferences](screenshots/Preferences%20set%20as%20basic.png) were set to basic | Changed VM preference to expert and [networks](screenshots/networking%20is%20now%20listed.png) appeared under `Files>Tools>network` |
+| [VM Boot Failure / Black Screen](screenshots/VM%20Black.png) | Hyper-V / Core Isolation enabled on Host (Warning is Green Turtle icon). were set to basic | Disabled Hyper-V via [bcdedit](screenshots/Disabled%20Hyper-V%20bootloader.png) and toggled off [Memory Integrity](screenshots/Disabled%20Memory%20Integrity.png) to allow VirtualBox native VT-x/AMD-V access. Confirmed [VirtualBox now runs](screenshots/VM%20Working.png) |
 
 ---
 *End of Implementation Log*
