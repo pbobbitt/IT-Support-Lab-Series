@@ -89,8 +89,15 @@
     
     * Assigned `Drive Mappings` to `Lab_User` and `Lab_Admins` because the IT support staff are actually in the admin OU and we want this to apply to all users
        
-*   **Deploy a Network Printer to Managed Workstations.:**
-  *   
+* **Deploy a Network Printer to Managed Workstations.:**
+  * Created Print Server Role
+    * `Server Manager>Manage>Add Roles and Features>Print and Document Services.`
+  * Created network printer named `Lab_Office_Printer`
+    * `Tools>Print Management>Print Servers > WS2025-DC01 > Printers`
+    * Port: `LPT1`
+    * Driver: `Microsoft IPP Class Driver`
+    * Share this printer: Enabled
+  * 
     
 *   **Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).:**
 
