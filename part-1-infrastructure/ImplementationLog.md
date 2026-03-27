@@ -11,6 +11,7 @@ This project outlines the foundational setup of a virtualized enterprise environ
 *   **Constructed a Virtual Network:** Created an isolated VirtualBox network (`NatNetwork_Lab`) with a `192.168.0.0/24` IP range to allow the server and client to communicate.
 
 > **Evidence:** See **Network Settings**  
+
 <img src="screenshots/NatNetwork_Lab.png" alt="A screenshot of the host computer's system information" width="49%"> <img src="screenshots/WS2025-DC01%20IPV4%20Settings.png" alt="IPV4 config" width="49%">
 <BR>
 
