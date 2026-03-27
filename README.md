@@ -61,9 +61,19 @@ This repository contains a comprehensive, three-part technical lab series simula
 
 ## Key Technical Highlights
 
-### Security Hardening
-I didn't just build a network; I secured it. By applying the **Principle of Least Privilege (PoLP)**, I ensured that standard users cannot access system-level tools, while "IT Support" users maintain the access needed to perform their duties.
+### Enterprise-Scale Automation
+* Automated the creation and security group assignment of 100+ user accounts using a custom PowerShell script, reducing a multi-hour onboarding task to just minutes and eliminating manual errors.
 
+### Security Hardening
+* Deployed automated security policies to enforce **Principle of Least Privilege (PoLP)**, I ensured that standard users cannot access system-level tools, while "IT Support" users maintain the access needed to perform their duties.
+
+### Automated Resource Provisioning
+* Deployed Group Policies to automatically map departmental network drives (S:) and deploy shared printers, providing employees with instant, zero-touch access to essential tools upon login.
+
+### Efficient Storage Management
+*  Implemented FSRM to enforce storage quotas and block unauthorized file types (e.g., audio/video), preventing waste and ensuring critical disk space remains available for business operations.
+
+  
 ### Troubleshooting & Resilience
 Throughout this lab, I resolved critical "low-level" conflicts, including:
 *   **Hypervisor Optimization:** Solving "Black Screen" boot errors by managing Hyper-V/Core Isolation conflicts at the host firmware level.
@@ -76,8 +86,8 @@ Throughout this lab, I resolved critical "low-level" conflicts, including:
 Each phase of this project includes a detailed **Implementation Log**. I treat these logs as professional internal documentation, ensuring that every configuration change is auditable and repeatable, a vital skill in any enterprise IT team.
 
 
-## Contact & Connect
-*   **LinkedIn:** [Your LinkedIn Profile Link]
-*   **Email:** [Your Professional Email]
+## Contact & Connect  
+How to reach me: The best way to contact me is via [LinkedIn](https://www.linkedin.com/in/patrickbobbitt/). For technical inquiries regarding my labs, feel free to open an issue.
+
 
 
