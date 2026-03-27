@@ -97,7 +97,11 @@
     * Port: `LPT1`
     * Driver: `Microsoft IPP Class Driver`
     * Share this printer: Enabled
-  * 
+  * Granted users access via GPO
+    * From `Lab_Office_Printer` used `Deploy with Group Policy`
+    * Created `Printer Policy` GPO
+      * Assigned to `Lab_Users` and `Lab_Admins`
+      * Made sure `The users that this GPO applies to (per user)` is checked
     
 *   **Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).:**
 
