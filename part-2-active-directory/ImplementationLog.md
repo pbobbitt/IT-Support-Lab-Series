@@ -131,7 +131,7 @@
   * Used the gpresult /r command on the client workstation to generate a report confirming all policies are being [applied to the user session](#).
 * **Resource Limit Enforcement (FSRM Validation)**
   * Quota Test: Attempted to copy a 101MB file into the 100MB-limited Finance folder as Han Solo; verified the [system blocked the transfer due to insufficient space](#).
-    * **1. Powershell Quota Test Script (101MB File)**
+    * **Powershell Quota Test Script (101MB File)**
 Used to verify that the 100MB limit on the Finance folder correctly blocks oversized transfers.
 ```powershell
 $path = "$home\Desktop\TestFile.dat"
@@ -140,8 +140,8 @@ $file = [System.IO.File]::Create($path)
 $file.SetLength($size)
 $file.Close()
 ```
-  * Screening Test: Attempted to save a .mp4 video file to the share; verified the File Screen blocked the write operation despite having remaining storage quota.
-    * **1. Powershell File Screening Script (1MB .mp4 File)**
+   * Screening Test: Attempted to save a .mp4 video file to the share; verified the File Screen blocked the write operation despite having remaining storage quota.
+    * **Powershell File Screening Script (1MB .mp4 File)**
 Used to verify that unauthorized file types are blocked even when the user has remaining storage quota.
 ```powershell
 $path = "$home\Desktop\fake video.mp4"
