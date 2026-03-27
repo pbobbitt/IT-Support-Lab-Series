@@ -80,6 +80,4 @@ The goal was to build a centralized server environment to streamline user manage
   * I demonstrated a methodical approach to problem-solving by diagnosing a complex GPO printer deployment issue, isolating the root cause through a series of validation steps, and implementing a stable fix. This proves my ability to remain calm and analytical when resolving technical roadblocks.
 
 ## Disclaimer & AI Disclosure
-While the **technical architecture, troubleshooting, data migration, and verification** of this lab were performed entirely by the author, **Generative AI** was utilized as a collaborative tool to assist in the structured formatting, professional terminology refinement, and documentation of this report. 
-
-This approach was taken to ensure the lab's technical findings are communicated with the clarity and professional standards required in a production IT environment.
+While 100% of the technical implementation and verification within this environment was conducted by the author, Generative AI was employed to assist in structuring the final report and ensuring professional terminology standards were met throughout the documentation.
