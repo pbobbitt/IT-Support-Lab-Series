@@ -119,19 +119,19 @@
 *Focus: Testing and documenting user access, policy enforcement, and resource restrictions to ensure the environment is secure and stable before mass-scaling the directory.*
 
 * **Cross-Departmental Permission Audit**
-  * Verified that Han Solo (Finance) can successfully access the Finance share but receives an "Access Denied" error when attempting to open the HR or IT folders.
-  * Confirmed that Darth Vader (HR) is similarly restricted to only the HR subfolder.
-  * This validates that the NTFS permissions and Security Group mappings are correctly overriding the "Everyone: Full Control" share setting. 
+  * Verified that `Finance` members can successfully access the [Finance folder](#) and can not see or access the HR or IT folders.
+  * Confirmed IT members who also have Admin status are similarly restricted to only the [IT folder](#).
+    >This validates that the NTFS permissions and Security Group mappings are correctly overriding the "Everyone: Full Control" share setting. 
 * **GPO Enforcement & Exception Verification**
-  * Restriction Test: Logged in as Han Solo and attempted to open the Command Prompt and Control Panel; verified both were blocked by Group Policy.
-  * Exception Test: Logged in as Padme Amidala (IT) and verified that CMD and Control Panel remain accessible, confirming the Lab_Admins OU is correctly excluded from the restriction GPO.
-  * Banner Test: Confirmed the legal warning banner appears on the W11-CL01 login screen for all users.
+  * Restriction Test: Logged in as Han Solo (Finance) and attempted to open the Command Prompt and Control Panel; verified both were [blocked](#) by Group Policy.
+  * Exception Test: Logged in as Padme Amidala (IT) and verified that CMD and Control Panel remain [accessible](#), confirming the Lab_Admins OU is correctly excluded from the restriction GPO.
+  * Banner Test: Confirmed the legal warning banner appears on the W11-CL01 [login screen](#) for all users.
 * **Resource Limit Enforcement (FSRM Validation)**
   * Quota Test: Attempted to copy a 150MB file into the 100MB-limited Finance folder as Han Solo; verified the system blocked the transfer due to insufficient space.
   * Screening Test: Attempted to save a .mp4 video file to the share; verified the File Screen blocked the write operation despite having remaining storage quota. 
 * **Network Resource Auto-Provisioning**  
-  * Verified that the S: Drive (Mapped Drive) and the Lab_Office_Printer are automatically mapped and visible in File Explorer/Devices upon login without manual user intervention.
-  * Used the gpresult /r command on the client workstation to generate a report confirming all policies are being applied to the user session.
+  * Verified that the S: Drive (Mapped Drive) and the Lab_Office_Printer are automatically mapped and visible in File Explorer/Devices upon login [without manual user intervention](#).
+  * Used the gpresult /r command on the client workstation to generate a report confirming all policies are being [applied to the user session](#).
     
 ## Milestone 7: Scalability & Automation
 **Focus:** Demonstrating enterprise-level administration by using PowerShell to automate the mass creation and categorization of 100 domain users.
