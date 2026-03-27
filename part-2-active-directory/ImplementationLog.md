@@ -156,21 +156,73 @@ $file.Close()
 
 *   **Develop a CSV User Database**
     * Created a structured .csv file containing Firstname, Lastname, Username, and Department for 97 additional staff members to simulate a full-scale corporate environment.
+      * see below to structure, view full list [here](#) 
+```
+Firstname,Lastname,Username,Department
+Han,Solo,han.solo,Finance
+Darth,Vader,darth.vader,HR
+Padme,Amidala,padme.amidala,IT_Support
+```
+      
 *   **Scripted User Creation via PowerShell**
     * Developed and executed a PowerShell script to iterate through the CSV, automatically generating AD accounts with standardized User Principal Names (UPN) and secure default passwords.
-*   **Automated Security Group Mapping**
-    * Integrated logic into the script to automatically assign each new user to their respective departmental Security Group (SG_Finance, SG_HR, or SG_IT_Support) based on the CSV data.
+    * This script also automated Security Group Mapping
+      * Integrated logic into the script to automatically assign each new user to their respective departmental Security Group (`SG_Finance`, `SG_HR`, or `SG_IT_Support`) based on the CSV data.
+```powershell
+# 1. Define where the user list is
+$csvPath = "C:\Users\Administrator\Documents\NewUsers.csv"
+
+# 2. Loop through every person in that list
+Import-Csv $csvPath | ForEach-Object {
+    
+    # Set a default password (For this lab they will not have to change it at first login)
+    $Password = ConvertTo-SecureString "Testlab1" -AsPlainText -Force
+    
+    # 3. Create the User in the Lab_Users OU
+    New-ADUser -Name "$($_.Firstname) $($_.Lastname)" `
+               -GivenName $_.Firstname `
+               -Surname $_.Lastname `
+               -SamAccountName $_.Username `
+               -UserPrincipalName "$($_.Username)@lab.local" `
+               -Path "OU=Lab_Users,OU=Lab_Production,DC=lab,DC=local" `
+               -AccountPassword $Password `
+               -ChangePasswordAtLogon $false `
+               -Enabled $true
+               
+    # 4. Map them to their Security Group based on the CSV "Department" column
+    # Note: Groups are named SG_Finance, SG_HR, SG_IT_Support
+    $groupName = "SG_$($_.Department)"
+    
+    try {
+        Add-ADGroupMember -Identity $groupName -Members $_.Username
+        Write-Host "Successfully added $($_.Username) to $groupName" -ForegroundColor Green
+    } catch {
+        Write-Host "Failed to add $($_.Username) to $groupName. Check if group exists." -ForegroundColor Red
+    }
+}
+```
 *   **Bulk Account Activation and OU Placement**
     * Verified all 100 accounts were correctly provisioned within the Lab_Users OU and enabled for immediate domain authentication.
-{Use as many/few steps as are needed to complete the Milestone}
+      * ![Verification Image](#)
+    * Checked security groups to make sure users landed in the correct security groups
+      * ![Verification Image](#)
+    * For users in `SG_IT_Suport`they needed to be moved to the `Lab_Admin` to ensure they would not be affected bu `Prohibit CMD and Control Panel` GPO
+    * Ran this PowerShell script   to automate finding and moving users in the `SG_IT_Support` SG
+      * Confirmed successful move
+        * ![Verification Image](#)
+        * ![Verification Image](#)
+```powershell
+# 1. Get all members of the IT Support group
+$ITMembers = Get-ADGroupMember -Identity "SG_IT_Support"
 
-## Milestone 8: Validation & L1 Support Testing
-**Focus:** Verifying that your administrative changes are active on the endpoint.
+# 2. Move each member to the Lab_Admins OU
+$ITMembers | ForEach-Object {
+    Move-ADObject -Identity $_.DistinguishedName -TargetPath "OU=Lab_Admins,OU=Lab_Production,DC=lab,DC=local"
+    Write-Host "Moved $($_.Name) to Lab_Admins OU" -ForegroundColor Cyan
+}
 
-*   **Step 1:** Perform a "Force Update" of policies on the Client Machine.
-*   **Step 2:** Log in as a Standard User and verify successful authentication.
-*   **Step 3:** Test the GPO restrictions (e.g., attempt to open a prohibited setting).
-*   **Step 4:** Generate a formal GP Result report on the client to confirm policy application.
+```
+
 
 | Issue Encountered | Root Cause Analysis | Resolution & Verification |
 | :--- | :--- | :--- |
