@@ -68,15 +68,15 @@
 ## Milestone 5: Resource Management (FSRM & Print Services)
 **Focus:** Provisioning critical business resources by establishing a centralized file server and automated print services.
 
-*  **Implement a Centralized File Share with NTFS and Share Permissions.:**
+*  **Implement a Centralized File Share with NTFS and Share Permissions.**
    * On `WS2025-DC01` Created folder on `C:` named `Company_Share`
-      * Made 3 subfolders `Finance`, `HR`, `IT`
-    * Enabled share this folder on `Company_Share` to everyone with full control (Actual locking will be done with the `Security` tab, this prevents potential conflicts)
+      * Made 3 subfolders: `Finance`, `HR`, `IT`
+    * Enabled share this folder on `Company_Share` to everyone with full control (Actual locking will be done with the `Security` tab; this prevents potential conflicts)
     * Subfolder permissions were set to remove `Lab_Users` on the `Security` tab and set these specific permissions for each of the following folders.
       * `Finance` = `SG_Finance`  
       * `HR` = `SG_HR`  
       * `IT` = `SG_IT_Support`
-*   **Configure a Network Drive Mapping via Group Policy (GPO).:**
+*   **Configure a Network Drive Mapping via Group Policy (GPO).**
     *  Created GPO `Drive Mappings`
     * Set drive mappings under `User Configuration>Preferences>Windows Settings>Drive Maps` then `Drive Maps>New>Mapped Drive`
     * Created a new mapped drive for each of the following with the drive letter `s` <BR><BR>
@@ -87,7 +87,7 @@
     | \\WS2025-DC01\Company_Shares\HR | HR | SG_HR |
     | \\WS2025-DC01\Company_Shares\IT | IT | SG_IT_Support |
     
-    * Assigned `Drive Mappings` to `Lab_User` and `Lab_Admins` because the IT support staff are actually in the admin OU and we want this to apply to all users
+    * Assigned `Drive Mappings` to `Lab_User` and `Lab_Admins` because the IT support staff are actually in the admin OU, and we want this to apply to all users
        
 * **Deploy a Network Printer to Managed Workstations.:**
   * Created Print Server Role
@@ -103,7 +103,7 @@
       * Assigned to `Lab_Users` and `Lab_Admins`
       * Made sure `The users that this GPO applies to (per user)` is checked
     
-*   **Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).:**
+*   **Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).**
   * Added `File Server Resource Manager` role
     * `Server Manager>Manage>Add Roles and Features>Expand File and Storage Services>Expand File and iSCSI Services`
   * Establish Storage Quotas
@@ -157,6 +157,7 @@
 | Issue Encountered | Root Cause Analysis | Resolution & Verification |
 | :--- | :--- | :--- |
 | After adding users, I was unable to log in with any of the user accounts | Tested all the users, double-checked the settings, and then saw I was trying to sign into the WS2025 Domain Controller VM | Swapped to the correct W11 VM client and was able to log in |
-| While auditing file share permissions, it was discovered `SG_Finance` users had access to all folders | When setting up file share permissions, `SG_Finance` was accidentally added to the root share and inherited down to all subfolders<br><BR>After more testing it was discovered that on the folder interface right clicking alone brings up the root folder the user needs to actually left click the file to select it and then right click to bring up the propeties for the correct sub folder. <BR><BR> It is unclear why this is happening it may be due to this system being a virtual machine but im not sure either way this problem is not in the scope of this project so I'll just document this issue instead | Removed `SG_Finance` from root folder permissions and correctly added them to only the finance folder. Another audit was performed all folders had the correct permissions |
-| In Prescale Audit no users had access to the were able to access the `Lab_Office_Printer` | ran gpupdate /force as Padme Amidala (IT) it came back with the error ["Windows failed to apply the Deployed Printer Connections settings."](#) | Enabled "Point and Print Restrictions" on `Printer Policy` to allow the GPO to be a trusted source. <BR><BR> Verified printer can now be accessed on user [workstations](#) |
-| After orginal set up the printer was not showing for any users | There were a few key root issues i beleive <BR><BR> 1. The printer was pointing at `\\WS2025-DC01` instead of `\\WS2025-DC01.lab/local` under [`Point and Print Restrictions`](#) <BR><BR> 2. Running gpupdate as the admin pademe showed the message `"Windows failed to apply the Deployed Printer Connections settings"` which suggested the GPO was being seen but the connection wasint being allowed. <BR><BR> 3. Tried doing a registry edit using `RestrictDriverInstallationToAdministrators` at `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows NT\Printers\PointAndPrint` to enable the driver to work with local admins like padme but this also did not fix the issue <BR><BR> 4. Attempted a Manual Hanshake using `W11 VM client>Win + R>\\WS2025-DC01.lab.local` but it [failed](#) but did give me the erroe code `0x00000490`  <BR><BR> 5. `0x00000490` indicated The issue may be the printer's drivers was set to `Microsoft IPP Class Driver` Which in theory should have worked, but for some reason was not connecting to client devices i tried to change the driver to "Generic / Text Only" but was getting this [error](#) locking me out. <BR><BR> Below are a few additional issues i ran into while fixing this | Ultimately had to delete the printer entry and remake but with "Generic / Text Only" and fix the `Point and Print Restrictions` path to point to the correct `\\WS2025-DC01.lab/local` path <BR><BR> after these changes the printer finally showed  on all client devices tested on both Admin level accounts and user level accounts. [printer working](#) | 
+| While auditing file share permissions, it was discovered `SG_Finance` users had access to all folders | When setting up file share permissions, `SG_Finance` was accidentally added to the root share and inherited down to all subfolders<br><BR>After more testing it was discovered that on the folder interface right clicking alone brings up the root folder the user needs to actually left click the file to select it and then right click to bring up the propeties for the correct sub folder. <BR><BR> It is unclear why this is happening it may be due to this system being a virtual machine but im not sure either way this problem is not in the scope of this project, so I'll just document this issue instead | Removed `SG_Finance` from root folder permissions and correctly added them to only the finance folder. Another audit was performed all folders had the correct permissions |
+| **In Pre-Scale Audit, no users were able to access the `Lab_Office_Printer`** | There were several key root issues identified:<br><br>1. **Pathing Error:** The GPO was pointing at `\\WS2025-DC01` instead of the FQDN `\\WS2025-DC01.lab.local` under **Point and Print Restrictions**.<br><br>2. **GPO Block:** Running `gpupdate` as Padme (Admin) returned the error: *"Windows failed to apply the Deployed Printer Connections settings,"* suggesting the GPO was detected but the connection was being rejected by client security.<br><br>3. **Driver Staging:** Attempted a registry edit on the W11 Client (`RestrictDriverInstallationToAdministrators = 0`) at `HKLM\...\Printers\PointAndPrint` to allow driver installation, but the issue persisted.<br><br>4. **Manual Handshake Failure:** Attempted manual connection via **Win+R** to `\\WS2025-DC01.lab.local`. It failed with error code **`0x00000490`** (Element not found).<br><br>5. **Driver Architecture:** Error `0x00000490` indicated the **Microsoft IPP Class Driver** was failing to handshake. Attempted to swap to **Generic/Text Only**, but the server returned a "not supported" error, locking the configuration. | **Resolution:**<br>Successfully resolved by deleting the stubborn printer object on the server and recreating it from scratch using the **Generic / Text Only** driver. <br><br>Additionally, updated the **Point and Print Restrictions** GPO path to correctly point to the FQDN (`\\WS2025-DC01.lab.local`).<br><br>**Verification:** After a final `gpupdate /force`, the printer successfully appeared on all client devices for both [Admin](#) and Standard [User](#) accounts. |
+
+
