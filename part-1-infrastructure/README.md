@@ -1,7 +1,7 @@
 # Windows Server 2025 & Active Directory Infrastructure
 
-## Objective
-The goal was to deploy a centralized Windows Server 2025 environment to manage users, devices, and security policies from a single interface. This solves the business problem of "unmanaged hardware" by ensuring every laptop and server on the network follows company security standards and can be managed remotely.
+Project Conclusion
+The primary objective of this phase was to establish a scalable, virtualized Windows Server 2025 Active Directory environment and successfully integrate a Windows 11 Education client workstation. By leveraging Oracle VirtualBox and a custom NAT Network, the project successfully created an isolated sandbox that mimics an enterprise infrastructure.
 
 ## Tech Stack & Skills
 *   **Systems:** Windows Server 2025 (Datacenter Edition), Windows 11, Oracle VirtualBox 7.x (Hypervisor)
@@ -9,14 +9,24 @@ The goal was to deploy a centralized Windows Server 2025 environment to manage u
 *   **Core Skills:** Active Directory Users & Computers (ADUC), Identity & Access Management (IAM), Disaster Recovery (Snapshots), System Optimization & Hardening
 
 ## Key Accomplishments
-*   **Centralized Identity Management:** Deployed a **Windows Server 2025 Domain Controller** (`lab.local`) to act as the central "brain" of the network, allowing for one-click user onboarding and offboarding.
-*   **Network Infrastructure Design:** Engineered an isolated **NAT Network** with custom IPv4 addressing and **Static IPs**, ensuring the server has a permanent, reliable "address" that workstations can always find.
-*   **Secure Endpoint Integration:** Successfully joined a **Windows 11 Workstation** to the professional domain, moving the device from a standalone state to a managed asset that obeys corporate security rules.
-*   **Disaster Recovery Preparedness:** Established **System Snapshots** (State-in-time backups) for all infrastructure. This ensures the business can recover from a system failure or a botched update in seconds rather than hours.
-*   **Hardware Compatibility Troubleshooting:** Resolved complex **Hyper-V and Core Isolation conflicts** at the firmware level to ensure the virtualization environment remained stable and high-performing.
+
+###  Centralized Identity Management & AD DS Deployment
+* Deployed a Windows Server 2025 Domain Controller to establish the `lab.local` forest. This creates a single "source of truth" for identity and access management (IAM), enabling centralized control over user accounts and network-wide permissions.
+
+###  Professional Domain Integration & Endpoint Management
+* Successfully transitioned a Windows 11 Education workstation from a standalone state to a managed domain asset. This confirms that the server correctly handles authentication, DNS registration, and the application of corporate security policies.
+
+###  Advanced Virtualization Troubleshooting (Firmware & OS Level)
+* Resolved complex hardware-assisted virtualization conflicts by disabling Hyper-V and Memory Integrity (Core Isolation). This ensured VirtualBox had direct VT-x/AMD-V access, preventing system instability and "Black Screen" boot failures.
+
+###  Isolated Infrastructure & Network Schema Design
+* Engineered a custom NAT Network with a structured IPv4 addressing scheme. By implementing static IP assignments and internal DNS resolution, I ensured the server maintains a permanent, reachable "address" for all client workstations.
+
+###  Disaster Recovery & Environment Resiliency
+* Established a "Point-of-No-Return" recovery strategy using System Snapshots for all infrastructure nodes. This ensures the environment can be reverted to a clean, domain-joined state in seconds, protecting against configuration errors or botched updates.
 
 ## Final Validation & Project Completion
-**The enterprise environment is 100% operational, with a verified secure link between the Windows Server 2025 Domain Controller and the Windows 11 workstation, confirming that centralized management and DNS services are fully functional.**
+**The enterprise environment is fully operational, with a verified secure link between the Windows Server 2025 Domain Controller and the Windows 11 workstation, confirming that centralized management and DNS services are fully functional.**
 
 > **Full Technical Deep Dive**
 > For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](InsertLinkHere.md)**
@@ -27,15 +37,23 @@ The goal was to deploy a centralized Windows Server 2025 environment to manage u
 *   **Action:** Joined the Windows 11 workstation to the `lab.local` domain.
 *   **Context:** Bringing a new employee device under company control so it can receive security updates and policies.
 *   **Validation:** Verified the workstation (`W11-CL01`) appears correctly within the **Active Directory Users and Computers (ADUC)** management console on the server.
-**[Insert Screenshot of ADUC showing W11-CL01 in the Computers Container]**
+
+<img src="screenshots/W11%20Has%20Joined%20Domain.png" alt="ADUC showing W11-CL01 in the Computers Container" width="70%">  
 
 ### End-to-End Connectivity
 *   **Action:** Performed internal and external Ping tests.
 *   **Context:** Ensuring the workstation can reach both the internal server for files and the external internet for updates.
 *   **Validation:** Confirmed 0% packet loss to both the Domain Controller (`192.168.0.10`) and external DNS (`8.8.8.8`).
-**[Insert Screenshot of successful Ping tests]**
+  
+<img src="screenshots/W11-CL01%20VM%20Ping%20Test.png" alt="Successful Ping tests" width="70%">
 
 ## Professional Key Takeaways
-*   **Scalability:** I learned how to manage an entire fleet of computers as easily as managing one, using Active Directory to automate what would otherwise be manual tasks.
-*   **Resource Management:** I gained experience in capacity planning, ensuring that virtualized hardware (RAM/CPU) was allocated efficiently to prevent system slowdowns.
-*   **Technical Resilience:** By troubleshooting "Black Screen" boot errors related to Windows Security features, I demonstrated the ability to research and solve low-level system conflicts that stop a project in its tracks.
+
+###  **Systematic Approach:**
+* I learned to build an IT environment methodically, starting with hardware requirements and network configuration before moving to server roles and client integration. This prevents errors and ensures a stable foundation.
+  
+###  **Security-First Mindset:**  
+* By creating a Domain Controller, I implemented a core security principle: centralized control. Managing users from one place is fundamentally more secure and efficient than managing accounts on individual machines.  
+
+###  **Effective Troubleshooting:**
+* I demonstrated the ability to diagnose and resolve technical roadblocks, such as virtualization software conflicts (Hyper-V vs. VirtualBox), which is a critical skill for maintaining system uptime.
