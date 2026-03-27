@@ -143,7 +143,7 @@
 ## Milestone 7: Scalability & Automation
 **Focus:** Demonstrating enterprise-level administration by using PowerShell to automate the mass creation and categorization of 100 domain users.
 
-*   **Step 1:** Developed a master list of users.
+*   **Developed a master list of users.**
     *   To simulate a large-scale environment, a structured CSV file was created. This file acted as a blueprint, containing the Firstname, Lastname, Username, and Department for 97 additional staff members.
     *   The file followed the structure below. The full list can be viewed [here](screenshots/NewUsers.csv).
       ```
@@ -153,7 +153,7 @@
       Padme,Amidala,padme.amidala,IT_Support
       ```
 
-*   **Step 2:** Automated user creation with a PowerShell script.
+*   **Automated user creation with a PowerShell script.**
     *   A script was executed to read the master list and automatically create an Active Directory account for each person.
     *   This script also handled assigning each new user to their correct departmental Security Group (`SG_Finance`, `SG_HR`, or `SG_IT_Support`) based on the data in the CSV file.
       ```powershell
@@ -190,11 +190,14 @@
       }
       ```
 
-*   **Step 3:** Verified account creation and finalized placements.
-    *   Confirmed that all 100 accounts were correctly created within the `Lab_Users` OU and were active for login. ![Verification Image](#)
-    *   Checked the security groups to ensure all new users were placed into the correct department groups. ![Verification Image](#)
-    *   Since IT staff require access to administrative tools, a second script was run to automatically find all users in the `SG_IT_Support` group and move them to the `Lab_Admins` OU. This ensures they are not impacted by policies that restrict tools for standard users.
-    *   The successful move of these users was confirmed. ![Verification Image](#) ![Verification Image](#)
+*   **Verified account creation and finalized placements.**
+    *   Confirmed that all 100 accounts were correctly created within the `Lab_Users` OU and were active for login.  
+<img src="screenshots/Scaling%20PowerShell%20.png" alt="Users added with powershell" width="49%"> <img src="screenshots/Scaled%20AD%20Users.png" alt=" All Users in AD " width="49%">  
+    *   Checked the security groups to ensure all new users were placed into the correct department groups.  
+<img src="screenshots/Scaled%20AD%20Users%20SG%20Check.png" alt="Users in Security Groups" width="100%">  
+    *   Since IT staff requires access to administrative tools, a second script was run to automatically find all users in the `SG_IT_Support` group and move them to the `Lab_Admins` OU. This ensures they are not impacted by policies that restrict tools for standard users.
+    *   The successful move of these users was confirmed.
+<img src="screenshots/Bulk%20Move%20Script.png" alt="IT Users moved with powershell" width="49%"> <img src="screenshots/SG_IT_Support%20Users%20Correct.png" alt="IT correctly in Lab_Users" width="49%">  
       ```powershell
       # 1. Get all members of the IT Support group
       $ITMembers = Get-ADGroupMember -Identity "SG_IT_Support"
