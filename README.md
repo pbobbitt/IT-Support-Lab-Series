@@ -67,7 +67,10 @@ I didn't just build a network; I secured it. By applying the **Principle of Leas
 Throughout this lab, I resolved critical "low-level" conflicts, including:
 *   **Hypervisor Optimization:** Solving "Black Screen" boot errors by managing Hyper-V/Core Isolation conflicts at the host firmware level.
 *   **Network Logic:** Rectifying authentication errors caused by VM mismatches, proving a methodical approach to the OSI model.
-
+*   **Permission Misconfiguration:** Identified and corrected inherited NTFS/share permission conflicts that unintentionally granted Finance access to all departments.
+*   **GPO & Print Deployment Failure:** Troubleshot a failed network printer deployment caused by incorrect GPO pathing, driver issues, and client security restrictions; rebuilt the printer using a compatible driver and corrected FQDN configuration to restore functionality.
+*   **Policy Validation & Debugging:** Used tools like gpupdate and manual connection testing to systematically isolate failures and confirm successful policy enforcement across user environments.
+  
 ### Documentation & Governance
 Each phase of this project includes a detailed **Implementation Log**. I treat these logs as professional internal documentation, ensuring that every configuration change is auditable and repeatable, a vital skill in any enterprise IT team.
 
