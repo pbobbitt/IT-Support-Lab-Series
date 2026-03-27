@@ -30,6 +30,7 @@ This repository contains a comprehensive, three-part technical lab series simula
 *   **Security & Policy:** Group Policy Objects (GPO), RBAC (Role-Based Access Control), Least Privilege, Account Lockout Policies
 *   **Virtualization:** Oracle VirtualBox (Type-2 Hypervisor)
 *   **IT Operations:** Disaster Recovery (Snapshots), Documentation, Troubleshooting
+*   **Scripting:** PowerShell
 
 
 ## Project Structure
