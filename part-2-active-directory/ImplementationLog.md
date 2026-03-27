@@ -68,15 +68,15 @@
 ## Milestone 5: Resource Management (FSRM & Print Services)
 **Focus:** Provisioning critical business resources by establishing a centralized file server and automated print services.
 
-*   **Step 1:** Implement a Centralized File Share with NTFS and Share Permissions.
-    * On `WS2025-DC01` Created folder on `C:` named `Company_Share`
+*  **Implement a Centralized File Share with NTFS and Share Permissions.:**
+   * On `WS2025-DC01` Created folder on `C:` named `Company_Share`
       * Made 3 subfolders `Finance`, `HR`, `IT`
     * Enabled share this folder on `Company_Share` to everyone with full control (Actual locking will be done with the `Security` tab, this prevents potential conflicts)
     * Subfolder permissions were set to remove `Lab_Users` on the `Security` tab and set these specific permissions for each of the following folders.
       * `Finance` = `SG_Finance`  
       * `HR` = `SG_HR`  
       * `IT` = `SG_IT_Support`
-*   **Step 2:** Configure a Network Drive Mapping via Group Policy (GPO).
+*   **Configure a Network Drive Mapping via Group Policy (GPO).:**
     *  Created GPO `Drive Mappings`
     * Set drive mappings under `User Configuration>Preferences>Windows Settings>Drive Maps` then `Drive Maps>New>Mapped Drive`
     * Created a new mapped drive for each of the following with the drive letter `s` <BR><BR>
@@ -89,9 +89,10 @@
     
     * Assigned `Drive Mappings` to `Lab_User` and `Lab_Admins` because the IT support staff are actually in the admin OU and we want this to apply to all users
        
-*   **Step 3:** Deploy a Network Printer to Managed Workstations.
+*   **Deploy a Network Printer to Managed Workstations.:**
+  *   
     
-*   **Step 4:** Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).
+*   **Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).:**
 
 ## Milestone 6: Validation & L1 Support Testing
 **Focus:** Verifying that your administrative changes are active on the endpoint.
