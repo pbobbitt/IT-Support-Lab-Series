@@ -115,6 +115,19 @@
       * Added File Screen for root folder `C:\Company_Shares`
         * Blocked Audio and Video Files
 
+## Milestone 6: Scalability & Automation
+**Focus:** Demonstrating enterprise-level administration by using PowerShell to automate the mass creation and categorization of 100 domain users.
+
+*   **Develop a CSV User Database**
+    * Created a structured .csv file containing Firstname, Lastname, Username, and Department for 97 additional staff members to simulate a full-scale corporate environment.
+*   **Scripted User Creation via PowerShell**
+    * Developed and executed a PowerShell script to iterate through the CSV, automatically generating AD accounts with standardized User Principal Names (UPN) and secure default passwords.
+*   **Automated Security Group Mapping**
+    * Integrated logic into the script to automatically assign each new user to their respective departmental Security Group (SG_Finance, SG_HR, or SG_IT_Support) based on the CSV data.
+*   **Bulk Account Activation and OU Placement**
+    * Verified all 100 accounts were correctly provisioned within the Lab_Users OU and enabled for immediate domain authentication.
+{Use as many/few steps as are needed to complete the Milestone}
+
 ## Milestone 6: Validation & L1 Support Testing
 **Focus:** Verifying that your administrative changes are active on the endpoint.
 
