@@ -1,5 +1,5 @@
 # Milestone 1: Structural Foundation (OU Hierarchy)
-*Focus: Organizing the Active Directory environment for scalability.*
+*Focus: Implemented an Active Directory structure for scalability.*
 
 * **Created a Top-Level Organizational Unit (OU).**
   * Made Top Level OU Called `Lab_Production`
@@ -8,10 +8,12 @@
   * **Security Groups:** `Lab_Security`
   * **Managed Workstations:** `Lab_Computers`
 
-
-
+> **Evidence:** See **Organizational Unit Hierarchy**
+<img src="screenshots/Organizational%20Unit%20Hierarchy.png" alt="Users In Active Directory" width="70%">
+<BR>
+ 
 # Milestone 2: Identity & Access Management (Users & Groups)
-*Focus: Populating the directory with objects and assigning roles.*
+*Focus: Populating the directory with User objects and assigning Security Groups based on department*
 
 * **Create at least three unique Domain User accounts.**
   * Added 3 users:
@@ -31,19 +33,23 @@
 * Confirmed successful domain authentication on `W11-CL01` using the whoami command.
 
 
+> **Evidence:** See **Users In Active Directory**
+<img src="screenshots/Users%20added%20to%20AD%20and%20in%20SG.png" alt="Users In Active Directory" width="70%">
+<BR>
 
 # Milestone 3: Asset Migration (Client Integration)
-*Focus: Bringing the workstation under the management of your new OUs.*
-
+*Focus: **Added Workstation to `Lab_Computers` OU*
 
 * Used Find command on `lab.local` to look for client object `*CL` to find all client workstations
   * Returned with `W11-CL01` used the move command to move this computer to `Lab_Computers` OU   
 * Verified the move within Active Directory Users and Computers (ADUC) by looking at `Lab_Computers.`
 
-
+> **Evidence:** See **Workstations In Active Directory**
+<img src="screenshots/Lab_Computers.png" alt="Users In Active Directory" width="70%">
+<BR>
 
 # Milestone 4: Policy Enforcement (GPOs)
-*Focus: Defining the "Business Rules" through Group Policy.*
+*Focus: Defining Role-Based Access Control Rules through Group Policy Objects.*
 
 * **Create a new Group Policy Object (GPO) for Account Security** (e.g., Lockout Policy).
   * Made `Lockout Policy` GPO
@@ -64,6 +70,9 @@
     * All membors of the `SG_IT_Support` OU were moved from `Lab_Users` to `Lab_Admins`
   * `Logon Banner` Linked to `Lab_Computers`
 
+> **Evidence:** See **Group Policy Objects**
+<img src="screenshots/GPOs.png" alt="Users In Active Directory" width="70%">
+<BR>
 
 ## Milestone 5: Resource Management (FSRM & Print Services)
 **Focus:** Provisioning critical business resources by establishing a centralized file server and automated print services.
@@ -92,7 +101,11 @@
     *   Added the "File Server Resource Manager" role to the server.
     *   Set up storage quotas on the `Finance`, `HR`, and `IT` folders, limiting each to a maximum size of 100 MB.
     *   Created a file screen on the main `Company_Shares` folder to block users from saving audio and video file types.
-       
+
+> **Evidence:** To reduce redunancy see these in **Milestone 6**
+> I had a lot of issues setting the `Printer Policy` see the [Jump to Troubleshooting](#troubleshooting-log)
+<BR>
+
 # Milestone 6: Validation & Audit Before Scaling
 **Focus:** Testing and documenting user access, policy enforcement, and resource restrictions to ensure the environment is secure and stable before mass-scaling the directory.
 
@@ -108,7 +121,7 @@
     *   Verified that both the S: Drive and the `Lab_Office_Printer` are automatically mapped and visible to the user upon login [without any manual intervention](#).
     *   Used the `gpresult /r` command on the client computer to generate a report, which confirmed that all the correct policies are being [applied to the user's session](#).
 *   **Step 4:** Validated the enforcement of resource limits.
-    *   **Quota Test:** As a standard user, attempted to copy a 101MB file into the Finance folder, which has a 100MB limit. Verified that the [system blocked the transfer](#) because the quota would be exceeded.
+    *   **Quota Test:** As a standard user, I attempted to copy a 101MB file into the Finance folder, which has a 100MB limit. Verified that the [system blocked the transfer](#) because the quota would be exceeded.
         *   **Powershell Quota Test Script (101MB File):** Used to verify that the 100MB limit on the Finance folder correctly blocks oversized transfers.
           ```powershell
           $path = "$home\Desktop\TestFile.dat"
