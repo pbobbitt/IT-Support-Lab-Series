@@ -1,3 +1,8 @@
+# Project Conclusion
+This project demonstrates the end-to-end deployment of a Windows Server 2025 virtual infrastructure, transitioning from a blank-slate environment to a fully automated, enterprise-ready domain. By leveraging PowerShell automation to scale the directory to 100 users and implementing a strict Least Privilege model via Group Policy Objects, the lab achieves a balance between administrative efficiency and robust security.  
+
+The successful resolution of complex Point and Print handshake failures and the enforcement of FSRM storage governance further validate the reliability of the network resources. Ultimately, this environment serves as a functional proof-of-concept for managing scalable identity services, automated resource provisioning, and real-world infrastructure troubleshooting in a modern IT ecosystem.
+
 # Milestone 1: Structural Foundation (OU Hierarchy)
 *Focus: Implemented an Active Directory structure for scalability.*
 
@@ -197,7 +202,7 @@
 <img src="screenshots/Scaled%20AD%20Users%20SG%20Check.png" alt="Users in Security Groups" width="70%">  
     *   Since IT staff requires access to administrative tools, a second script was run to automatically find all users in the `SG_IT_Support` group and move them to the `Lab_Admins` OU. This ensures they are not impacted by policies that restrict tools for standard users.
     *   The successful move of these users was confirmed.  
-<img src="screenshots/Bulk%20Move%20Script.png" alt="IT Users moved with powershell" width="43%"> <img src="screenshots/SG_IT_Support%20Users%20Correct.png" alt="IT correctly in Lab_Admin" width="43%">  
+<img src="screenshots/Bulk%20Move%20Script.png" alt="IT Users moved with powershell" width="43%"> <img src="screenshots/SG_IT_Support%20Users%20Correct.png" alt="IT correctly in Lab_Admins" width="43%">  
       ```powershell
       # 1. Get all members of the IT Support group
       $ITMembers = Get-ADGroupMember -Identity "SG_IT_Support"
