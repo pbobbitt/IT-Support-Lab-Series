@@ -9,17 +9,24 @@ The goal was to build a centralized server environment to streamline user manage
 *   **Core Skills:** Identity & Access Management (IAM), Organizational Unit (OU) Design, System Hardening, Troubleshooting, PowerShell Scripting, Automation, Resource Management
 
 ## Key Accomplishments
-*   **Scalable Infrastructure Design:** Built a logical Organizational Unit (OU) hierarchy to separate users, security groups, and hardware assets, ensuring the environment remains organized as the company grows.
-*   **Role-Based Access Control (RBAC):** Provisioned departmental security groups (HR, Finance, IT) and automated resource access by mapping users to specific roles, reducing the risk of unauthorized data access.
-*   **Asset Lifecycle Management:** Migrated Windows 11 workstations into the domain and organized them into managed containers to allow for centralized software deployment and monitoring.
-*   **System Hardening & Security:** Deployed automated security policies to enforce "Least Privilege," successfully blocking non-admin users from accessing sensitive tools like the Command Prompt and Control Panel.
-*   **Brute-Force Protection:** Configured and enforced account lockout thresholds to automatically freeze accounts after five failed login attempts, protecting the network from external password attacks.
-*   **Enterprise-Scale Automation:** Automated the creation and security group assignment of 100+ user accounts using a custom PowerShell script, reducing a multi-hour onboarding task to just minutes and eliminating manual errors.
-*   **Automated Resource Provisioning:** Deployed Group Policies to automatically map departmental network drives (S:) and deploy shared printers, providing employees with instant, zero-touch access to essential tools upon login.
-*   **Efficient Storage Management:** Implemented FSRM to enforce storage quotas and block unauthorized file types (e.g., audio/video), preventing waste and ensuring critical disk space remains available for business operations.
+###   **Enterprise-Scale Automation:**
+*  Automated the creation and security group assignment of 100+ user accounts using a custom PowerShell script, reducing a multi-hour onboarding task to just minutes and eliminating manual errors.
+
+###   **System Hardening & Security**
+*  Deployed automated security policies to enforce "Least Privilege," successfully blocking non-admin users from accessing sensitive tools like the Command Prompt and Control Panel.
+
+###   **Automated Resource Provisioning**
+*  Deployed Group Policies to automatically map departmental network drives (S:) and deploy shared printers, providing employees with instant, zero-touch access to essential tools upon login.
+
+###   **Role-Based Access Control (RBAC):**
+*  Provisioned departmental security groups (HR, Finance, IT) and automated resource access by mapping users to specific roles, reducing the risk of unauthorized data access.
+
+###   **Efficient Storage Management**
+*  Implemented FSRM to enforce storage quotas and block unauthorized file types (e.g., audio/video), preventing waste and ensuring critical disk space remains available for business operations.
+
 
 ## Final Validation & Project Completion
-**The environment is 100% functional, with a verified link between the Server and Windows 11 workstation. All security policies are active, and standard users are successfully restricted from administrative settings.**
+**The environment is fully functional and scaled for 100 users. All automated security policies, resource permissions, and network services have been verified as operational, with client workstations successfully receiving all configurations as intended.**
 
 > **Full Technical Deep Dive**
 > For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](InsertLinkHere.md)**
