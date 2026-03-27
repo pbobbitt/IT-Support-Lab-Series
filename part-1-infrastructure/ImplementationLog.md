@@ -1,137 +1,61 @@
 # Windows Server 2025 & Active Directory Deployment Lab
 
-## Milestone 1: Environment Readiness & Resource Planning
-**Focus:** Ensuring the physical hardware can support the virtual infrastructure and gathering the necessary software components.
+# Project Conclusion
+This project outlines the foundational setup of a virtualized enterprise environment. Starting with bare-metal hardware, a complete, two-machine network was deployed, consisting of a Windows Server 2025 Domain Controller and a Windows 11 client workstation. The process involved meticulous hardware validation, virtual network configuration, operating system installation, and the critical integration of the client into the Active Directory domain. The result is a stable, cleanly configured baseline environment, secured with snapshots, ready for more advanced infrastructure development and testing.
 
-*   **Conducted a hardware audit to ensure the host computer could handle multiple virtual machines.**
-    *   Calculated the total resources needed (approximately 4 CPU cores, 12GB of RAM, and 160GB of storage) to run the Server and Windows 11 client simultaneously.
-    *   Verified the host system’s specifications using the `msinfo32` command, confirming it exceeded requirements with 32GB of RAM and a 6-core (12-thread) processor, and 250GB of storage. 
-*   **Prepared the Virtualization Platform.**
-    *   Installed Oracle VirtualBox 7.x as the "Type-2 Hypervisor" to manage the virtual hardware.
-    *   Added the VirtualBox Extension Pack to enable support for modern features like NVMe disk performance and encrypted connections.
-*   **Acquired the necessary Operating System images (ISOs).**
-    *   Downloaded Windows Server 2025 Datacenter Edition to serve as the Primary Domain Controller (the "brain" of the network).
-    *   Downloaded Windows 11 Education to serve as the managed workstation for testing user policies and security settings.
-*   **Verified storage availability for the virtual environment.**
-    *   Confirmed 224GB of free disk space on the host drive to accommodate the growth of the virtual hard disks during the lab.
+## Milestone 1: Environment Preparation
+**Focus:** Verifying hardware capabilities and establishing the virtual network backbone.
 
-## Milestone 2: Virtual Network Configuration
-**Focus:** Establishing an isolated network environment to allow communication between the server and future client workstations.
+*   **Confirmed Host System Compatibility:** Ensured the physical machine met the necessary CPU, RAM, and storage requirements to run both virtual machines and the host operating system without performance issues.
+*   **Acquired Core Software:** Downloaded all required components, including VirtualBox, the VirtualBox Extension Pack, Windows Server 2025, and Windows 11 Education ISOs.
+*   **Constructed a Virtual Network:** Created an isolated VirtualBox network (`NatNetwork_Lab`) with a `192.168.0.0/24` IP range to allow the server and client to communicate.
 
-*   **Created a dedicated NAT Network named `NatNetwork_Lab`.**
-*   **Defined the network addressing scheme.**
-    *   Configured the network to use the `192.168.0.0/24` IP range, providing a professional and organized internal address space.
-*   **Enabled DHCP (Dynamic Host Configuration Protocol).**
-    *   This ensures that any new device added to the lab automatically receives an IP address, simplifying the connection process.
+> **Evidence:** See **System info** and **Network Settings**
+<img src="Images/System%20info.png" alt="A screenshot of the host computer's system information" width="70%">
+<BR>
 
-## Milestone 3: Server Provisioning & Operating System Installation
-**Focus:** Deploying the virtual hardware and installing Windows Server 2025 as the foundation of the lab.
+## Milestone 2: Server Deployment & Domain Creation
+**Focus:** Building and promoting the primary server to a Domain Controller.
 
-*   **Built the `WS2025-DC01` Virtual Machine.**
-    *   Allocated 4GB of RAM and 2 processors to ensure the server runs efficiently.
-    *   Created an 80GB "Dynamically Allocated" virtual disk, allowing the lab to grow in size only as data is actually added.
-*   **Configured Virtual Hardware settings.**
-    *   Attached the VM to the `NatNetwork_Lab` created in the previous phase.
-    *   Mounted the Windows Server 2025 ISO to the virtual optical drive to begin the boot process.
-*   **Completed the Windows Server 2025 Installation.**
-    *   Initialized the setup using the "Set up for work or school" configuration to prepare for enterprise-level management.
-    *   Established the primary Administrator account for the server.
-*   **Verified baseline network connectivity.**
-    *   Performed a successful `ping` test to 8.8.8.8 to confirm the server could communicate through the virtual network and reach the internet.
+*   **Created the Server Virtual Machine:** Provisioned a new VM named `WS2025-DC01` with 4GB of RAM and 2 processors.
+*   **Installed and Configured Windows Server:** Completed the installation of Windows Server 2025, set a static IP address (`192.168.0.10`), and renamed the machine.
+*   **Deployed Active Directory:** Added the Active Directory Domain Services role and promoted the server to become the first domain controller in a new forest named `lab.local`.
 
-## Milestone 4: System Optimization & Network Identification
-**Focus:** Enhancing the server's usability and establishing a permanent, static identity on the network.
+> **Evidence:** See **Virtual Machine AD DS + DNS**
+<img src="Images/VM%20AD%20DS.png" alt="Server Manager dashboard showing AD DS and DNS roles are installed" width="70%">
+<BR>
 
-*   **Improved the virtual machine’s performance and integration.**
-    *   Installed "VirtualBox Guest Additions," which allows for better screen resolution, smoother mouse movement, and easier file sharing between the host and the server.
-*   **Established a Static IP address for the server.**
-    *   Configured the network settings manually to ensure the server’s address never changes—a critical step for any machine providing central services to a network.
-    *   Disabled IPv6 to simplify the network environment and prevent connectivity conflicts during the lab.
-*   **Standardized the server’s naming convention.**
-    *   Changed the computer name from a random default string to `WS2025-DC01`. 
-    *   This follows professional IT standards, identifying the machine as "Windows Server 2025 - Domain Controller 01."
-*   **Verified the new configuration.**
-    *   Used the `ipconfig` command to confirm the manual network settings were applied correctly and the server was properly identified on the virtual network. 
+## Milestone 3: Client Workstation Setup
+**Focus:** Deploying a Windows 11 client machine prepared for domain integration.
 
-## Milestone 5: Active Directory Domain Services (AD DS) Installation
-**Focus:** Transforming the standalone server into a "Domain Controller," which acts as the central command center for the entire network.
+*   **Created the Client Virtual Machine:** Provisioned a new VM named `W11-CL01` with specifications matching the server.
+*   **Installed Windows 11 Education:** Completed the OS installation, specifically using the "Domain join instead" option to create a local account and avoid a mandatory Microsoft account.
+*   **Configured Client Network Settings:** Set a static IP address (`192.168.0.100`) and pointed its DNS to the server's IP to ensure it could find the `lab.local` domain.
 
-*   **Installed the Active Directory Domain Services role.**
-    *   Utilized the Server Manager "Add Roles and Features" wizard to prepare the server for its new identity as a network manager.
-*   **Promoted the server to a Domain Controller and established a new "Forest."**
-    *   Created a new directory structure named `lab.local`, which serves as the private root for all users, computers, and security policies in this environment.
-*   **Configured Domain Functional Levels and Disaster Recovery.**
-    *   Set the forest and domain functional levels to "Windows Server 2025" to ensure the network can utilize the most modern security and performance features.
-    *   Established a Directory Services Restore Mode (DSRM) password to ensure the database can be recovered in the event of a system failure.
-*   **Captured the configuration for future automation.**
-    *   Reviewed and exported the setup as a PowerShell script before finalizing the installation. This is a professional best practice that allows this entire deployment to be automated or replicated in a real-world business setting.
-*   **Finalized the installation and performed a system reboot.**
-    *   Completed the promotion and restarted the machine, officially initializing the `lab.local` domain and making the server ready to manage client workstations.
+> **Evidence:** See **W11 Ping test**
+<img src="Images/W11-CL01%20VM%20Ping%20Test.png" alt="A command prompt window showing a successful ping from the Windows 11 client to the server" width="70%">
+<BR>
 
+## Milestone 4: Domain Integration
+**Focus:** Joining the client workstation to the Active Directory domain.
 
-## Milestone 6: Client Workstation Deployment
-**Focus:** Provisioning and installing a Windows 11 endpoint to serve as a managed device within the network.
+*   **Connected Client to Domain:** Used the System Properties (`sysdm.cpl`) utility on the `W11-CL01` client to officially join it to the `lab.local` domain.
+*   **Verified Domain Membership:** Confirmed on the `WS2025-DC01` server that a new computer object for `W11-CL01` appeared in the "Computers" container within Active Directory Users and Computers.
 
-*   **Created the virtual hardware for the client workstation.**
-    *   Named the machine `W11-CL01` and allocated 4GB of RAM and 2 CPU processors to meet system requirements.
-    *   Configured an 80GB "Dynamically Allocated" virtual disk to efficiently manage physical storage space.
-*   **Prepared the installation environment.**
-    *   Attached the VM to the `NatNetwork_Lab` and mounted the Windows 11 Education ISO.
-*   **Performed the Windows 11 Operating System installation.**
-    *   Bypassed the Microsoft Account requirement by selecting the "Domain Join Instead" option, creating a local administrative account named `LabAdmin`.
-    *   Streamlined the OS performance by disabling resource-heavy privacy settings such as location tracking and diagnostic data collection.
+> **Evidence:** See **W11-CL01 shows in ADUC on WS2025-DC01**
+<img src="Images/W11%20Has%20Joined%20Domain.png" alt="Active Directory Users and Computers window showing the W11-CL01 computer object" width="70%">
+<BR>
 
-## Milestone 7: Client Configuration & Network Identity
-**Focus:** Finalizing the workstation setup and establishing a permanent, static presence on the laboratory network.
+## Milestone 5: Environment Finalization & Stability
+**Focus:** Creating a clean, revertible baseline for both machines to ensure a stable foundation for future work.
 
-*   **Optimized the virtual machine user experience.**
-    *   Installed VirtualBox Guest Additions to enable advanced features like shared clipboards, smoother mouse integration, and proper screen resolution.
-*   **Standardized the workstation’s network name.**
-    *   Renamed the computer to `W11-CL01` within the system settings to match the lab's naming convention, making it easily identifiable for the Domain Controller.
-*   **Configured Static IPv4 Network Settings.**
-    *   Manually assigned the IP address `192.168.0.100` to the workstation. 
-    *   Using a static address instead of a dynamic one ensures the machine is always reachable at a predictable location during testing.
-*   **Verified end-to-end network connectivity.**
-    *   Performed successful "ping" tests to both the external internet (8.8.8.8) and the internal Server (192.168.0.10) to confirm the workstation was correctly communicating with the entire environment.
+*   **Captured Server Snapshot:** Took a snapshot of the `WS2025-DC01` VM named `Base-ADDS-Configured` after Active Directory was fully installed and the server was stable.
+*   **Captured Client Snapshot:** Took a snapshot of the `W11-CL01` VM named `Base-Domain-Joined` immediately after it was successfully connected to the domain.
+*   **Resolved Initial Setup Hurdles:** Documented and fixed preliminary issues, such as Hyper-V conflicts that initially prevented the VMs from booting, ensuring a smooth operational state.
 
-## Milestone 8: Domain Integration & Client Verification
-**Focus:** Finalizing the connection between the workstation and the server to enable centralized security and management.
-
-*   **Initiated the domain join process on the Windows 11 workstation.**
-    *   Utilized the system properties tool (`sysdm.cpl`) to transition the machine from a standalone "Workgroup" to the professional `lab.local` domain environment.
-*   **Authenticated the secure connection.**
-    *   Provided the Domain Administrator credentials (`LAB\Administrator`) to authorize the workstation’s entry into the network, ensuring only approved devices can join the domain.
-*   **Validated the successful integration on the Domain Controller.**
-    *   Confirmed that the workstation `W11-CL01` appeared correctly within the "Computers" container of the Active Directory Users and Computers (ADUC) management console.
-*   **Performed a final verification of the machine's identity.**
-    *   Verified that the server now recognizes the Windows 11 client as a managed asset, allowing for future deployment of security policies and user accounts.
-
-
-## Milestone 9: Environment Preservation (System Snapshots)
-**Focus:** Establishing a "fail-safe" restoration point to protect the lab's progress and ensure system stability for future testing.
-
-*   **Created a baseline snapshot for the Domain Controller (`WS2025-DC01`).**
-    *   Named the snapshot `Base-ADDS-Configured` to mark the exact moment the Active Directory forest and DNS were fully operational.
-*   **Created a baseline snapshot for the Windows 11 Workstation (`W11-CL01`).**
-    *   Named the snapshot `Base-Domain-Joined` to preserve the state where the machine is successfully authenticated, the static IP is set, and the domain integration is verified.
-*   **Established a "Rollback" strategy for the lab environment.**
-    *   By capturing these snapshots, the entire network can be reverted to this clean, working state in seconds. This acts as an insurance policy, allowing for aggressive security testing or complex configuration changes without the risk of having to rebuild the virtual machines from scratch.
-*   **Verified the snapshot tree within VirtualBox.**
-    *   Confirmed that both machines are synchronized at the same point in time, ensuring the internal relationship between the server and the client remains intact upon restoration.
-
-## Project Completion & Final Validation
-**Focus:** Verifying the integrity of the network and ensuring all systems are communicating as intended.
-
-*   **Verified the Health of the Domain Controller.**
-    *   Confirmed that Windows Server 2025 is successfully broadcasting the `lab.local` domain and managing DNS requests for the internal network.
-*   **Validated Centralized Endpoint Management.**
-    *   Confirmed the Windows 11 workstation (`W11-CL01`) is a "Trustworthy" member of the domain. This was verified by locating the computer object within the Active Directory Users and Computers (ADUC) console.
-*   **Confirmed End-to-End Connectivity.**
-    *   Verified that both the Server and Client can communicate through the virtual switch, ensuring that future security policies (GPOs) will deploy correctly across the network.
-*   **Established Environment Stability.**
-    *   Finalized the lab by creating "Clean State" snapshots. This ensures the entire environment can be restored to this exact working configuration in seconds, providing a reliable foundation for future advanced security testing.
-*   **Outcome:**
-    *   The lab is now a fully functional, enterprise-grade directory environment. I have successfully moved from raw hardware requirements to a managed network where a single server can control, secure, and update multiple client workstations from one central location.
+> **Evidence:** See **Final Snapshot Tree**
+<img src="Images/Lab%20Snapshots%20Final.png" alt="The VirtualBox snapshot manager showing the final snapshot tree for the lab VMs" width="70%">
+<BR>
 
 ## Troubleshooting Log
 
