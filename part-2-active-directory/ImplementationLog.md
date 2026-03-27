@@ -104,6 +104,16 @@
       * Made sure `The users that this GPO applies to (per user)` is checked
     
 *   **Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).:**
+  * Added `File Server Resource Manager` role
+    * `Server Manager>Manage>Add Roles and Features>Expand File and Storage Services>Expand File and iSCSI Services`
+  * Establish Storage Quotas
+    *  `Server Manager>Tools > File Server Resource Manager>Quota Management>Quotas`
+    *  Added Quota for `Finance`, `HR`, and `IT`
+      * 100 MB Limit
+    * Established File Screens
+      * `Server Manager>Tools > File Server Resource Manager>File Screens>`
+      * Added File Screen for root folder `C:\Company_Shares`
+        * Blocked Audio and Video Files
 
 ## Milestone 6: Validation & L1 Support Testing
 **Focus:** Verifying that your administrative changes are active on the endpoint.
