@@ -87,7 +87,8 @@
     | \\WS2025-DC01\Company_Shares\HR | HR | SG_HR |
     | \\WS2025-DC01\Company_Shares\IT | IT | SG_IT_Support |
     
-    * Assigned `Drive Mappings` to `Lab_User` and `Lab_Admins` because the IT support staff are actually in that OU and we want this to apply to all users  
+    * Assigned `Drive Mappings` to `Lab_User` and `Lab_Admins` because the IT support staff are actually in the admin OU and we want this to apply to all users
+       
 *   **Step 3:** Deploy a Network Printer to Managed Workstations.
     
 *   **Step 4:** Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).
