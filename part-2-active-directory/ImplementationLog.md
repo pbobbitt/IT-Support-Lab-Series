@@ -69,8 +69,17 @@
 **Focus:** Provisioning critical business resources by establishing a centralized file server and automated print services.
 
 *   **Step 1:** Implement a Centralized File Share with NTFS and Share Permissions.
+  * On `WS2025-DC01` Created folder on `C:` named `Company_Share`
+    * Made 3 subfolders `Finance`, `HR`, `IT`
+  * Enabled share this folder on `Company_Share` to everyone with full control (Actual locking will be done with the `Security` tab, this prevents potential conflicts)
+  * Subfolder permissions were set to remove `Lab_Users` on the `Security` tab and set these specific permissions for each of the following folders.
+    * `Finance` = `SG_Finance`  
+    * `HR` = `SG_HR`  
+    * `IT` = `SG_IT_Support`
 *   **Step 2:** Configure a Network Drive Mapping via Group Policy (GPO).
+  *  Enabled share this folder on `Company_Share` to everyone with full control (Actual locking will be done with the `Security` tab, this prevents potential conflicts)
 *   **Step 3:** Deploy a Network Printer to Managed Workstations.
+*   
 *   **Step 4:** Establish Storage Quotas and File Screens using File Server Resource Manager (FSRM).
 
 ## Milestone 6: Validation & L1 Support Testing
@@ -83,4 +92,5 @@
 
 | Issue Encountered | Root Cause Analysis | Resolution & Verification |
 | :--- | :--- | :--- |
-| After adding users, I was unable to log in with any of the user accounts | Tested all the users, double-checked the settings, and then saw I was trying to sign into the WS2025 Domain Controller VM| Swapped to the correct W11 VM client and was able to log in |
+| After adding users, I was unable to log in with any of the user accounts | Tested all the users, double-checked the settings, and then saw I was trying to sign into the WS2025 Domain Controller VM | Swapped to the correct W11 VM client and was able to log in |
+| While auditing file share permissions, it was discovered `SG_Finance` users had access to all folders | When setting up file share permissions, `SG_Finance` was accidentally added to the root share and inherited down to all subfolders | Removed `SG_Finance` from root folder permissions and correctly added them to only the finance folder. Another audit was performed all folders had the correct permissions |
