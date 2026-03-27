@@ -109,7 +109,7 @@
   * Establish Storage Quotas
     *  `Server Manager>Tools > File Server Resource Manager>Quota Management>Quotas`
     *  Added Quota for `Finance`, `HR`, and `IT`
-      * 100 MB Limit
+        * 100 MB Limit
     * Established File Screens
       * `Server Manager>Tools > File Server Resource Manager>File Screens>`
       * Added File Screen for root folder `C:\Company_Shares`
