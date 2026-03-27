@@ -37,36 +37,32 @@ The goal was to build a centralized server environment to streamline user manage
 ### Enterprise User Provisioning & Automation
 *   **Action:** Automated the mass creation and categorization of 100 domain users via PowerShell.
 *   **Context:** Replaced manual data entry with scalable automation to ensure rapid onboarding and 100% accuracy in departmental assignments.
-*   **Validation:** Verified the successful migration of users into specific Active Directory OUs (Organizational Units) and confirmed correct Security Group memberships (Finance, HR, IT Support).
-**[Insert Screenshot of PowerShell Script Execution showing "Successfully added" messages]**
+*   **Validation:** Verified the successful migration of users into specific Active Directory OUs (Organizational Units) and confirmed correct Security Group memberships (Finance, HR, IT Support).  
+<img src="screenshots/Scaling%20PowerShell%20.png" alt="Users added with powershell" width="49%"> <img src="screenshots/Scaled%20AD%20Users.png" alt=" All Users in AD " width="49%">  
 
 ### Policy Enforcement & Least Privilege
 *   **Action:** Applied Restricted User GPO.
 *   **Context:** Protecting system settings from non-administrative users to prevent unauthorized changes.
-*   **Validation:** Logged in as a standard user (Han Solo) and verified that access to the Control Panel and CMD was strictly denied by system policy.
-**[Insert Screenshot of "Access Denied" error on W11 Client]**
+*   **Validation:** Logged in as a standard user (Han Solo) and verified that access to the Control Panel and CMD was strictly denied by system policy.  
+<img src="screenshots/Finance%20member%20Cant%20use%20CMD%20or%20Control%20Panel.png" alt="Users cant access CMD or Control Panel" width="70%">
 
 ### Automated Resource Deployment
 *   **Action:** Linked Drive Mappings and Printer Policy GPOs to user OUs.
 *   **Context:** Ensuring all users automatically receive their department-specific shared drive and the office printer without IT intervention.
-*   **Validation:** Logged in as a standard user and confirmed the 'S:' drive and Lab_Office_Printer were present and functional in File Explorer.
-**[Insert Screenshot of W11 File Explorer showing mapped S: Drive and Printer]**
+*   **Validation:** Logged in as a standard user and confirmed the 'S:' drive and Lab_Office_Printer were present and functional in File Explorer.  
+<img src="screenshots/S%20Drive%20and%20Printer%20Accessible.png" alt="W11 File Explorer showing mapped S: Drive and Printer" width="70%">
 
 ### Role-Based Access Control (RBAC) & Identity Management
 *   **Action:** Provisioned departmental Security Groups (SG_Finance, SG_HR, SG_IT_Support) and implemented an OU-based exclusion for IT Administrators.
 *   **Context:** Establishing a scalable access model where permissions are tied to job functions (Roles) rather than individual user accounts, ensuring consistent security across the domain.
 *   **Validation:** Verified that moving users from the Lab_Users OU to the Lab_Admins OU successfully triggered GPO "Filtered" status, allowing IT staff to bypass standard desktop restrictions while keeping Finance and HR restricted.
-**[Users added to AD and in SG.png]** **Scaled AD Users SG%20Check.png**
-
-
+<img src="screenshots/IT%20member%20Can%20use%20CMD%20or%20Control%20Panel.png" alt="Admins Users can access CMD and Control Panel " width="49%"> <img src="screenshots/SG_IT_Support%20Users%20Correct.png" alt="Users in the Admin Group" width="49%">  
 
 ### Storage Quota Enforcement
 *   **Action:** Configured a 100 MB FSRM quota on the Finance share.
 *   **Context:** To control storage consumption and prevent a single department from using all available disk space.
-*   **Validation:** Attempted to copy a 101 MB file into the Finance share and was blocked by the system due to the quota limit.
-**[Insert Screenshot of "File too large for destination" error message]**
-
-
+*   **Validation:** Attempted to copy a 101 MB file into the Finance share and was blocked by the system due to the quota limit.  
+<img src="screenshots/Finance%20member%20cant%20add%20101%20MB%20file%20to%20Finance%20folder.png" alt="system blocked the 101 MB transfer" width="70%">
 
 
 ## Professional Key Takeaways
