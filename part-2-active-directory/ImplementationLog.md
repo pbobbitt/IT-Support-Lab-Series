@@ -102,7 +102,7 @@
     *   Set up storage quotas on the `Finance`, `HR`, and `IT` folders, limiting each to a maximum size of 100 MB.
     *   Created a file screen on the main `Company_Shares` folder to block users from saving audio and video file types.
 
-> **Evidence:** To reduce redunancy see these in **Milestone 6**
+> **Evidence:** To reduce redunancy see these in **Milestone 6**  
 > I had a lot of issues setting the `Printer Policy` see the [Jump to Troubleshooting](#troubleshooting-log)
 <BR>
 
@@ -110,18 +110,18 @@
 **Focus:** Testing and documenting user access, policy enforcement, and resource restrictions to ensure the environment is secure and stable before mass-scaling the directory.
 
 *   **Step 1:** Performed a cross-departmental permission audit.
-    *   Verified that users in the `Finance` group can successfully access the [Finance folder](#) but are correctly blocked from seeing or accessing the HR or IT folders.
-    *   Confirmed that members of the IT group are also properly restricted to their designated [IT folder](#).
-    *   This test validates that the specific folder permissions (NTFS) and security group rules are correctly overriding the more general "Everyone: Full Control" setting on the main share.
+    *   Verified that users in the `Finance` group can successfully access the [Finance folder](screenshots/Finance%20member%20can%20only%20see%20Finance%20folder.png) but are correctly blocked from seeing or accessing the HR or IT folders.
+    *   Confirmed that members of the IT group are also properly restricted to their designated [IT folder](screenshots/IT%20Support%20user%20can%20only%20see%20IT%20folder.png).
+      *   This test validates that the specific folder permissions (NTFS) and security group rules are correctly overriding the more general "Everyone: Full Control" setting on the main share.
 *   **Step 2:** Verified Group Policy enforcement and its exceptions.
-    *   **Restriction Test:** Logged in as a standard Finance user (Han Solo) and confirmed that both the Command Prompt and Control Panel were successfully [blocked](#) as intended by the policy.
-    *   **Exception Test:** Logged in as an IT user (Padme Amidala) and confirmed that the Command Prompt and Control Panel remained [accessible](#), proving that the exclusion for the `Lab_Admins` OU is working correctly.
-    *   **Banner Test:** Confirmed that the legal warning banner appears on the [login screen](#) of the workstation for all users.
+    *   **Restriction Test:** Logged in as a standard Finance user (Han Solo) and confirmed that both the Command Prompt and Control Panel were successfully [blocked](screenshots/Finance%20member%20Cant%20use%20CMD%20or%20Control%20Panel.png) as intended by the policy.
+    *   **Exception Test:** Logged in as an IT user (Padme Amidala) and confirmed that the Command Prompt and Control Panel remained [accessible](screenshots/IT%20member%20Can%20use%20CMD%20or%20Control%20Panel.png), proving that the exclusion for the `Lab_Admins` OU is working correctly.
+    *   **Banner Test:** Confirmed that the legal warning banner appears on the [login screen](screenshots/Banner%20Test.png) of the workstation for all users.
 *   **Step 3:** Confirmed automatic provisioning of network resources.
-    *   Verified that both the S: Drive and the `Lab_Office_Printer` are automatically mapped and visible to the user upon login [without any manual intervention](#).
-    *   Used the `gpresult /r` command on the client computer to generate a report, which confirmed that all the correct policies are being [applied to the user's session](#).
+    *   Verified that both the S: Drive and the `Lab_Office_Printer` are automatically mapped and visible to the user upon login [without any manual intervention](screenshots/S%20Drive%20and%20Printer%20Accessible.png).
+    *   Used the `gpresult /r` command on the client computer to generate a report, which confirmed that all the correct policies are being [applied to the user's session](screenshots/gpresult.png).
 *   **Step 4:** Validated the enforcement of resource limits.
-    *   **Quota Test:** As a standard user, I attempted to copy a 101MB file into the Finance folder, which has a 100MB limit. Verified that the [system blocked the transfer](#) because the quota would be exceeded.
+    *   **Quota Test:** As a standard user, I attempted to copy a 101MB file into the Finance folder, which has a 100MB limit. Verified that the [system blocked the 101 MB transfer](screenshots/Finance%20member%20cant%20add%20101%20MB%20file%20to%20Finance%20folder.png) because the quota would be exceeded.
         *   **Powershell Quota Test Script (101MB File):** Used to verify that the 100MB limit on the Finance folder correctly blocks oversized transfers.
           ```powershell
           $path = "$home\Desktop\TestFile.dat"
@@ -130,7 +130,7 @@
           $file.SetLength($size)
           $file.Close()
           ```
-    *   **Screening Test:** Attempted to save a video file (.mp4) to the shared folder. Verified the system blocked the action because of the file type, even though the user still had available storage space.
+    *   **Screening Test:** Attempted to save a video file (.mp4) to the shared folder. Verified the system blocked the action because of the file type, even though the user still had available storage space.[system blocked the 1 MB MP4 transfer](screenshots/Finance%20member%20cant%20add%20MP4%20file%20to%20Finance%20folder.png)
         *   **Powershell File Screening Script (1MB .mp4 File):** Used to verify that unauthorized file types are blocked even when the user has remaining storage quota.
           ```powershell
           $path = "$home\Desktop\fake video.mp4"
@@ -145,7 +145,7 @@
 
 *   **Step 1:** Developed a master list of users.
     *   To simulate a large-scale environment, a structured CSV file was created. This file acted as a blueprint, containing the Firstname, Lastname, Username, and Department for 97 additional staff members.
-    *   The file followed the structure below. The full list can be viewed [here](#).
+    *   The file followed the structure below. The full list can be viewed [here](screenshots/NewUsers.csv).
       ```
       Firstname,Lastname,Username,Department
       Han,Solo,han.solo,Finance
