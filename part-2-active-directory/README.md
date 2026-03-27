@@ -33,17 +33,18 @@ The goal was to build a centralized server environment to streamline user manage
 
 ## Visual Proof
 
+
+### Enterprise User Provisioning & Automation
+*   **Action:** Automated the mass creation and categorization of 100 domain users via PowerShell.
+*   **Context:** Replaced manual data entry with scalable automation to ensure rapid onboarding and 100% accuracy in departmental assignments.
+*   **Validation:** Verified the successful migration of users into specific Active Directory OUs (Organizational Units) and confirmed correct Security Group memberships (Finance, HR, IT Support).
+**[Insert Screenshot of PowerShell Script Execution showing "Successfully added" messages]**
+
 ### Policy Enforcement & Least Privilege
 *   **Action:** Applied Restricted User GPO.
 *   **Context:** Protecting system settings from non-administrative users to prevent unauthorized changes.
 *   **Validation:** Logged in as a standard user (Han Solo) and verified that access to the Control Panel and CMD was strictly denied by system policy.
 **[Insert Screenshot of "Access Denied" error on W11 Client]**
-
-### Corporate Compliance Branding
-*   **Action:** Configured Interactive Logon Banner.
-*   **Context:** Establishing legal notice and "Authorized Use" warnings for all employees prior to login.
-*   **Validation:** Verified that the custom security warning appears on the Windows 11 lock screen before any user can input credentials.
-**[Insert Screenshot of Logon Banner on W11 Client]**
 
 ### Automated Resource Deployment
 *   **Action:** Linked Drive Mappings and Printer Policy GPOs to user OUs.
@@ -51,17 +52,21 @@ The goal was to build a centralized server environment to streamline user manage
 *   **Validation:** Logged in as a standard user and confirmed the 'S:' drive and Lab_Office_Printer were present and functional in File Explorer.
 **[Insert Screenshot of W11 File Explorer showing mapped S: Drive and Printer]**
 
+### Role-Based Access Control (RBAC) & Identity Management
+*   **Action:** Provisioned departmental Security Groups (SG_Finance, SG_HR, SG_IT_Support) and implemented an OU-based exclusion for IT Administrators.
+*   **Context:** Establishing a scalable access model where permissions are tied to job functions (Roles) rather than individual user accounts, ensuring consistent security across the domain.
+*   **Validation:** Verified that moving users from the Lab_Users OU to the Lab_Admins OU successfully triggered GPO "Filtered" status, allowing IT staff to bypass standard desktop restrictions while keeping Finance and HR restricted.
+**[Users added to AD and in SG.png]** **Scaled AD Users SG%20Check.png**
+
+
+
 ### Storage Quota Enforcement
 *   **Action:** Configured a 100 MB FSRM quota on the Finance share.
 *   **Context:** To control storage consumption and prevent a single department from using all available disk space.
 *   **Validation:** Attempted to copy a 101 MB file into the Finance share and was blocked by the system due to the quota limit.
 **[Insert Screenshot of "File too large for destination" error message]**
 
-### Enterprise User Provisioning & Automation
-*   **Action:** Automated the mass creation and categorization of 100 domain users via PowerShell.
-*   **Context:** Replaced manual data entry with scalable automation to ensure rapid onboarding and 100% accuracy in departmental assignments.
-*   **Validation:** Verified the successful migration of users into specific Active Directory OUs (Organizational Units) and confirmed correct Security Group memberships (Finance, HR, IT Support).
-**[Insert Screenshot of PowerShell Script Execution showing "Successfully added" messages]**
+
 
 
 ## Professional Key Takeaways
