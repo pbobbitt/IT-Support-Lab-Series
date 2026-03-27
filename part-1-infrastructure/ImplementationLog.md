@@ -10,8 +10,8 @@ This project outlines the foundational setup of a virtualized enterprise environ
 *   **Acquired Core Software:** Downloaded all required components, including VirtualBox, the VirtualBox Extension Pack, Windows Server 2025, and Windows 11 Education ISOs.
 *   **Constructed a Virtual Network:** Created an isolated VirtualBox network (`NatNetwork_Lab`) with a `192.168.0.0/24` IP range to allow the server and client to communicate.
 
-> **Evidence:** See **System info** and **Network Settings**
-<img src="Images/System%20info.png" alt="A screenshot of the host computer's system information" width="70%">
+> **Evidence:** See **Network Settings**
+<img src="screenshots/NatNetwork_Lab.png" alt="A screenshot of the host computer's system information" width="70%">
 <BR>
 
 ## Milestone 2: Server Deployment & Domain Creation
@@ -22,7 +22,7 @@ This project outlines the foundational setup of a virtualized enterprise environ
 *   **Deployed Active Directory:** Added the Active Directory Domain Services role and promoted the server to become the first domain controller in a new forest named `lab.local`.
 
 > **Evidence:** See **Virtual Machine AD DS + DNS**
-<img src="Images/VM%20AD%20DS.png" alt="Server Manager dashboard showing AD DS and DNS roles are installed" width="70%">
+<img src="screenshots/WS2025-DC01%20AD%20DS.png" alt="Server Manager dashboard showing AD DS and DNS roles are installed" width="70%">
 <BR>
 
 ## Milestone 3: Client Workstation Setup
@@ -33,7 +33,7 @@ This project outlines the foundational setup of a virtualized enterprise environ
 *   **Configured Client Network Settings:** Set a static IP address (`192.168.0.100`) and pointed its DNS to the server's IP to ensure it could find the `lab.local` domain.
 
 > **Evidence:** See **W11 Ping test**
-<img src="Images/W11-CL01%20VM%20Ping%20Test.png" alt="A command prompt window showing a successful ping from the Windows 11 client to the server" width="70%">
+<img src="screenshots/W11-CL01%20VM%20Ping%20Test.png" alt="A command prompt window showing a successful ping from the Windows 11 client to the server" width="70%">
 <BR>
 
 ## Milestone 4: Domain Integration
@@ -43,7 +43,7 @@ This project outlines the foundational setup of a virtualized enterprise environ
 *   **Verified Domain Membership:** Confirmed on the `WS2025-DC01` server that a new computer object for `W11-CL01` appeared in the "Computers" container within Active Directory Users and Computers.
 
 > **Evidence:** See **W11-CL01 shows in ADUC on WS2025-DC01**
-<img src="Images/W11%20Has%20Joined%20Domain.png" alt="Active Directory Users and Computers window showing the W11-CL01 computer object" width="70%">
+<img src="screenshots/W11%20Has%20Joined%20Domain.png" alt="Active Directory Users and Computers window showing the W11-CL01 computer object" width="70%">
 <BR>
 
 ## Milestone 5: Environment Finalization & Stability
@@ -54,7 +54,7 @@ This project outlines the foundational setup of a virtualized enterprise environ
 *   **Resolved Initial Setup Hurdles:** Documented and fixed preliminary issues, such as Hyper-V conflicts that initially prevented the VMs from booting, ensuring a smooth operational state.
 
 > **Evidence:** See **Final Snapshot Tree**
-<img src="Images/Lab%20Snapshots%20Final.png" alt="The VirtualBox snapshot manager showing the final snapshot tree for the lab VMs" width="70%">
+<img src="screenshots/Lab%20Snapshots%20Final.png" alt="The VirtualBox snapshot manager showing the final snapshot tree for the lab VMs" width="70%">
 <BR>
 
 ## Troubleshooting Log
