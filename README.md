@@ -46,7 +46,9 @@ This repository contains a comprehensive, three-part technical lab series simula
 *   Designed a scalable **Organizational Unit (OU)** hierarchy.
 *   Implemented **Role-Based Access Control (RBAC)** for HR, Finance, and IT departments.
 *   Deployed **Group Policy Objects (GPOs)** to harden endpoints (restricting CMD/Control Panel) and enforce corporate compliance.
-*   **Key Outcome:** A secured domain where user permissions are automated based on their job function, significantly reducing the attack surface.
+*   Automated **User Provisioning at Scale**: Built a PowerShell-driven onboarding process to create and assign 100 user accounts from a CSV file.
+*   Validated Security & System Integrity: Conducted end-to-end testing (permissions, GPOs, resource limits), ensuring policies work as intended.
+*   **Key Outcome:** A fully automated and policy-driven domain where user access, security controls, and resource provisioning are consistently enforced, reducing manual IT workload and significantly reducing the attack surface, and ensuring every employee is set up correctly from day one.
 
 ### [Part 3: Help Desk Operations & Ticketing](./part-3-helpdesk-tickets/) *(In Progress)*
 **Focus: The User Experience.**
