@@ -66,8 +66,20 @@ The goal was to build a centralized server environment to streamline user manage
 
 
 ## Professional Key Takeaways
-*   **Automation & Scalability:** I learned how to manage 100+ users as efficiently as one user by utilizing Group Policy and Security Groups rather than manual configuration.
-*   **Security-First Mindset:** I focused on the "Principle of Least Privilege," ensuring that standard employees have exactly what they need to work without the ability to accidentally compromise the network.
-*   **Adaptability:** During the lab, I successfully troubleshot an authentication issue by identifying a VM mismatch, demonstrating my ability to remain calm and analytical when technical roadblocks occur.
-*   **Automation & Scalability:** I learned how to manage 100+ users as efficiently as one by utilizing PowerShell, Group Policy, and Security Groups, which is essential for any growing organization.
-*   **Systematic Troubleshooting:** I demonstrated a methodical approach to problem-solving by diagnosing a complex GPO printer deployment issue, isolating the root cause through a series of validation steps, and implementing a stable fix. This proves my ability to remain calm and analytical when resolving technical roadblocks.
+
+###   **Automation & Scalability:**
+  * I learned how to manage 100+ users as efficiently as one by utilizing PowerShell, Group Policy, and Security Groups, which is essential for any growing organization.
+
+###   **Security-First Mindset:**
+  * I focused on the "Principle of Least Privilege," ensuring that standard employees have exactly what they need to work without the ability to accidentally compromise the network.
+
+###   **Adaptability:**
+  * During the lab, I successfully troubleshot an authentication issue by identifying a VM mismatch, demonstrating my ability to remain calm and analytical when technical roadblocks occur.
+
+###   **Systematic Troubleshooting:**
+  * I demonstrated a methodical approach to problem-solving by diagnosing a complex GPO printer deployment issue, isolating the root cause through a series of validation steps, and implementing a stable fix. This proves my ability to remain calm and analytical when resolving technical roadblocks.
+
+## Disclaimer & AI Disclosure
+While the **technical architecture, troubleshooting, data migration, and verification** of this lab were performed entirely by the author, **Generative AI** was utilized as a collaborative tool to assist in the structured formatting, professional terminology refinement, and documentation of this report. 
+
+This approach was taken to ensure the lab's technical findings are communicated with the clarity and professional standards required in a production IT environment.
