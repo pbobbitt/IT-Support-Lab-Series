@@ -1,6 +1,6 @@
 # Windows Server 2025 & Active Directory Deployment Lab
 
-# Project Conclusion
+# Project Overview
 This project outlines the foundational setup of a virtualized enterprise environment. Starting with bare-metal hardware, a complete, two-machine network was deployed, consisting of a Windows Server 2025 Domain Controller and a Windows 11 client workstation. The process involved meticulous hardware validation, virtual network configuration, operating system installation, and the critical integration of the client into the Active Directory domain. The result is a stable, cleanly configured baseline environment, secured with snapshots, ready for more advanced infrastructure development and testing.
 
 ## Milestone 1: Environment Preparation
