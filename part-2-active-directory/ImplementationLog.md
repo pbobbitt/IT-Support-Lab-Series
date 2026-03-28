@@ -1,4 +1,4 @@
-# Project Conclusion
+# Project Overview
 This project demonstrates the end-to-end deployment of a Windows Server 2025 virtual infrastructure, transitioning from a blank-slate environment to a fully automated, enterprise-ready domain. By leveraging PowerShell automation to scale the directory to 100 users and implementing a strict Least Privilege model via Group Policy Objects, the lab achieves a balance between administrative efficiency and robust security.  
 
 The successful resolution of complex Point and Print handshake failures and the enforcement of FSRM storage governance further validate the reliability of the network resources. Ultimately, this environment serves as a functional proof-of-concept for managing scalable identity services, automated resource provisioning, and real-world infrastructure troubleshooting in a modern IT ecosystem.
