@@ -1,4 +1,4 @@
-# Enterprise IT Support & Systems Administration Lab Series  
+# Enterprise IT Support Lab Series  
 
 
 **Professional & Educational Credentials**  
