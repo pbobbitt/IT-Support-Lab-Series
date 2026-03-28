@@ -1,4 +1,4 @@
-# Part 1 - Windows Server 2025 & Active Directory Infrastructure
+# Part 1: Windows Server 2025 & Active Directory Infrastructure
 
 
 **Professional & Educational Credentials**  
