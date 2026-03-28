@@ -1,4 +1,4 @@
-# Identity & Access Management With Active Directory
+# Part 2 - Identity & Access Management With Active Directory
 
 # Project Overview
 This project demonstrates the end-to-end deployment of a Windows Server 2025 virtual infrastructure, transitioning from a blank-slate environment to a fully automated, enterprise-ready domain. By leveraging PowerShell automation to scale the directory to 100 users and implementing a strict Least Privilege model via Group Policy Objects, the lab achieves a balance between administrative efficiency and robust security.  
