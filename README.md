@@ -1,4 +1,4 @@
-IT Support Lab Series  
+# IT Support Lab Series  
 
 
 **Professional & Educational Credentials**  
