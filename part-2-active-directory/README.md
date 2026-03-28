@@ -46,7 +46,7 @@ The successful resolution of complex Point and Print handshake failures and the 
 **The environment is fully functional and scaled for 100 users. All automated security policies, resource permissions, and network services have been verified as operational, with client workstations successfully receiving all configurations as intended.**
 
 > **Full Technical Deep Dive**
-> For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](InsertLinkHere.md)**
+> For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](https://github.com/pbobbitt/IT-Support-Lab-Series/blob/main/part-2-active-directory/ImplementationLog.md)**
 
 ## Visual Proof
 
