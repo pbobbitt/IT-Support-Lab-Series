@@ -45,7 +45,7 @@ The primary objective of this phase was to establish a scalable, virtualized Win
 **The enterprise environment is fully operational, with a verified secure link between the Windows Server 2025 Domain Controller and the Windows 11 workstation, confirming that centralized management and DNS services are fully functional.**
 
 > **Full Technical Deep Dive**
-> For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)]([InsertLinkHere.md](https://github.com/pbobbitt/IT-Support-Lab-Series/blob/main/part-1-infrastructure/ImplementationLog.md))**
+> For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](https://github.com/pbobbitt/IT-Support-Lab-Series/blob/main/part-1-infrastructure/ImplementationLog.md))**
 
 ## Visual Proof
 
