@@ -42,7 +42,7 @@ This repository contains a comprehensive, three-part technical lab series simula
 *   Provisioned a Windows 11 managed endpoint.
 *   **Key Outcome:** A fully functional, stable environment with verified internal/external connectivity and disaster recovery fail-safes.
 
-<img src="screenshots/W11%20Has%20Joined%20Domain.png" alt="ADUC showing W11-CL01 in the Computers Container" width="49%">&nbsp;<img src="screenshots/W11-CL01%20VM%20Ping%20Test.png" alt="Successful Ping tests" width="70%">
+<img src="screenshots/W11%20Has%20Joined%20Domain.png" alt="ADUC showing W11-CL01 in the Computers Container" width="49%">&nbsp;<img src="screenshots/W11-CL01%20VM%20Ping%20Test.png" alt="Successful Ping tests" width="49%">
 
 ### [Part 2: Identity & Access Management (Active Directory/GPO)](./part-2-active-directory/)
 **Focus: Security & Governance.**
@@ -53,7 +53,7 @@ This repository contains a comprehensive, three-part technical lab series simula
 *   Validated **Security & System Integrity**: Conducted end-to-end testing (permissions, GPOs, resource limits), ensuring policies work as intended.
 *   **Key Outcome:** A fully automated and policy-driven domain where user access, security controls, and resource provisioning are consistently enforced, reducing manual IT workload and significantly reducing the attack surface, and ensuring every employee is set up correctly from day one.
 
-<img src="screenshots/Scaling%20PowerShell%20.png" alt="Users added with powershell" width="49%">&nbsp;<img src="screenshots/Scaled%20AD%20Users.png" alt=" All Users in AD " width="49%">&nbsp;<img src="screenshots/S%20Drive%20and%20Printer%20Accessible.png" alt="W11 File Explorer showing mapped S: Drive and Printer" width="70%">
+<img src="screenshots/Scaling%20PowerShell%20.png" alt="Users added with powershell" width="49%">&nbsp;<img src="screenshots/Scaled%20AD%20Users.png" alt=" All Users in AD " width="49%">&nbsp;<img src="screenshots/S%20Drive%20and%20Printer%20Accessible.png" alt="W11 File Explorer showing mapped S: Drive and Printer" width="49%">
 
 
 ### [Part 3: Help Desk Operations & Ticketing](./part-3-helpdesk-tickets/) *(In Progress)*
