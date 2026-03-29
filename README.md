@@ -42,6 +42,8 @@ This repository contains a comprehensive, three-part technical lab series simula
 *   Provisioned a Windows 11 managed endpoint.
 *   **Key Outcome:** A fully functional, stable environment with verified internal/external connectivity and disaster recovery fail-safes.
 
+<img src="screenshots/W11%20Has%20Joined%20Domain.png" alt="ADUC showing W11-CL01 in the Computers Container" width="49%">&nbsp;<img src="screenshots/W11-CL01%20VM%20Ping%20Test.png" alt="Successful Ping tests" width="70%">
+
 ### [Part 2: Identity & Access Management (Active Directory/GPO)](./part-2-active-directory/)
 **Focus: Security & Governance.**
 *   Designed a scalable **Organizational Unit (OU)** hierarchy.
