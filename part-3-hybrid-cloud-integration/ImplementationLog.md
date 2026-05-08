@@ -14,6 +14,29 @@ This lab connects an existing on-premise Windows Server 2025 Active Directory, c
 <img src="Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="M365 Admin Center" width="70%">
 <BR>
 
+## Pre- Milestone 2: Troubleshooting
+
+Before starting to install Entra Connect on the local lab enviroment i looked on Microsoft Learn and saw there was a known issue for Active Directory directory synchronization when used with Entra Connect Sync, which both of those will be used in the next section. Here is the [Microsoft database entry for the issue](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025#3692msgdesc)
+  
+  > "Applications that use the Active Directory directory synchronization (DirSync) control for on-premises Active Directory Domain Services (AD DS), such as when using Microsoft Entra Connect Sync, can result in incomplete synchronization."
+
+The listed fix is the Windows `KB5068861` update. I checked my install, and luckily, my Windows Server 2025 install already had this specific update, but I wanted to note this, as if this error were more recent, this would possibly lead to a lot of issues with this setup. But i did see my Windows server needed a Windows update, which i attempted to install...
+
+<img src="Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="M365 Admin Center" width="70%">
+
+Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
+
+#### Root Cause Analysis
+* **Problem:** VirtualBox error `VERR_DISK_FULL` appeared. 
+* **Cause:** The physical host SSD (1.81 TB) reached critical capacity (only 23.9 MB remaining), preventing the VM from expanding its dynamically allocated disk.
+* **Resolution (CompTIA 6-Step Methodology):**
+    1. **Identify:** Domain controller VM hit "Paused" status in VirtualBox and displayed `Error (VERR_DISK_FULL)`. Checked the Host OS main storage drive and confirmed the Host OS was out of space.
+    2. **Theory:** While downloading the cumulative updates (KB5070773) required for the Entra Connect installation, the Virtual Machine lacked the buffer space required on the host OS for the VM to write update files.
+    3. **Action:** Performed host-level cleanup, clearing ~60GB of data.
+    4. **Verification:** Successfully resumed the VM and completed the OS patching without further issues.
+
+<img src="Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="M365 Admin Center" width="70%">
+  
 ## Milestone 2: Entra Connect Installation
 **Focus:** Installing the tool that links the local Windows Server 2025 Domain Controller to the new cloud environment.
 
