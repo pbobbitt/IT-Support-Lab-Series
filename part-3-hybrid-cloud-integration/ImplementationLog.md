@@ -22,7 +22,7 @@ Before starting to install Entra Connect on the local lab enviroment i looked on
 
 The listed fix is the Windows `KB5068861` update. I checked my install, and luckily, my Windows Server 2025 install already had this specific update, but I wanted to note this, as if this error were more recent, this would possibly lead to a lot of issues with this setup. But i did see my Windows server needed a Windows update, which i attempted to install...
 
-<img src="Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="M365 Admin Center" width="70%">
+<img src="Screenshots/DC%20Windows%20Patch%20needed.png" alt="DC Windows Patch Needed" width="70%">
 
 Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 
@@ -35,7 +35,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
     3. **Action:** Performed host-level cleanup, clearing ~60GB of data.
     4. **Verification:** Successfully resumed the VM and completed the OS patching without further issues.
 
-<img src="Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="M365 Admin Center" width="70%">
+<img src="Screenshots/Error%20(VERR_DISK_FULL).png" alt="Error (VERR_DISK_FULL)" width="49%"><img src="Screenshots/Host%20PC%20Storage%20Full.png" alt="Host PC Storage Full" width="49%">
   
 ## Milestone 2: Entra Connect Installation
 **Focus:** Installing the tool that links the local Windows Server 2025 Domain Controller to the new cloud environment.
