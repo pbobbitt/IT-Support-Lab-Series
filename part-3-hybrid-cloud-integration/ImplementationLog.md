@@ -4,14 +4,13 @@ This lab connects an existing on-premise Windows Server 2025 Active Directory, c
 ## Milestone 1: Microsoft 365 Cloud Setup
 **Focus:** Provisioning a free enterprise-grade cloud environment to host the synced directory.
 
-*   **Go to the Microsoft 365 Developer Program website.**
-*   **Sign up for a free Developer account.**
-  *   {Pro Tip: Use a `.edu` student email if you have one to bypass the waitlist that personal emails often get stuck on.}
-*   **Select the "Configurable Sandbox" option.**
-*   **Create a custom domain name for the cloud environment.**
-  *   {Example: `yourlabname.onmicrosoft.com`. Document the Global Admin username and password you create here, as you will need it later.}
+* Enrolled in the [Microsoft 365 Developer Program](https://developer.microsoft.com/en-us/microsoft-365/dev-program)
+  * Signed up for a free Developer account.
+    * Selected `Applications for internal use> all areas> Configurable sandbox`
+  * Made an account and a custom domain name for the cloud environment.
+    * Domain name: `pbitsupport.onmicrosoft.com`
 
-> **Evidence:** See **{Screenshot of your new Microsoft 365 Admin Center showing your custom domain}**
+> **Evidence:** See **{Screenshot of new Microsoft 365 Admin Center showing custom domain}**
 <img src="#" alt="{Image showing the Microsoft 365 portal dashboard confirming the tenant is active}" width="70%">
 <BR>
 
