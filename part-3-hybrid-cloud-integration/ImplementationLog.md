@@ -35,7 +35,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
     3. **Action:** Performed host-level cleanup, clearing ~60GB of data.
     4. **Verification:** Successfully resumed the VM and completed the OS patching without further issues.
 
-<img src="Screenshots/Error%20(VERR_DISK_FULL).png" alt="Error (VERR_DISK_FULL)" width="20%"><img src="Screenshots/Host%20PC%20Storage%20Full.png" alt="Host PC Storage Full" width="60%">
+<img src="Screenshots/Error%20(VERR_DISK_FULL).png" alt="Error (VERR_DISK_FULL)" width="35%"><img src="Screenshots/Host%20PC%20Storage%20Full.png" alt="Host PC Storage Full" width="60%">
   
 ## Milestone 2: Entra Connect Installation
 **Focus:** Installing the tool that links the local Windows Server 2025 Domain Controller to the new cloud environment.
