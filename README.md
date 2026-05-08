@@ -62,8 +62,11 @@ This repository contains a comprehensive, three-part technical lab series simula
 
 <img src="screenshots/Scaling%20PowerShell%20.png" alt="Users added with powershell" width="49%">&nbsp;<img src="screenshots/Scaled%20AD%20Users.png" alt=" All Users in AD " width="49%">&nbsp;<img src="screenshots/S%20Drive%20and%20Printer%20Accessible.png" alt="W11 File Explorer showing mapped S: Drive and Printer" width="49%">&nbsp;<img src="screenshots/GPOs.png" alt="Users In Active Directory" width="49%">
 
-
-### [Part 3: Help Desk Operations & Ticketing](./part-3-helpdesk-tickets/) *(In Progress)*
+### [Part 3: Help Desk Operations & Ticketing](./part-3-hybrid-cloud-integration/) *(In Progress)*
+**Focus: Bridge the gap between the on-premises Domain Controller and the Microsoft 365 ecosystem.**
+*   S
+  
+### [Part 4: Help Desk Operations & Ticketing](./part-4-helpdesk-tickets/) *(In Progress)*
 **Focus: The User Experience.**
 *   Simulating real-world L1/L2 support scenarios.
 *   Resolving common issues: Password resets, software deployment, and policy troubleshooting.
