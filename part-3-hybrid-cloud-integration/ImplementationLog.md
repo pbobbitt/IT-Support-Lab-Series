@@ -11,7 +11,7 @@ This lab connects an existing on-premise Windows Server 2025 Active Directory, c
     * Domain name: `pbitsupport.onmicrosoft.com`
 
 > **Evidence:** See **Microsoft 365 Admin Center**
-<img src="/Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="Microsoft 365 Admin Center showing custom domain" width="70%">
+<img src="Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="M365 Admin Center" width="70%">
 <BR>
 
 ## Milestone 2: Entra Connect Installation
