@@ -1,12 +1,19 @@
 # Part 1: Windows Server 2025 & Active Directory Infrastructure
 
 
-**Professional & Educational Credentials**  
+## Contact & Connect  
+The best way to contact me is via [LinkedIn](https://www.linkedin.com/in/patrickbobbitt/). For technical inquiries regarding my labs, feel free to open an issue.
+
 <p align="left">
-  <a href="https://linkedin.com/in/patrick-bobbitt"><img src="https://img.shields.io/badge/LinkedIn-Patrick%20Bobbitt-0072b1?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <img src="https://img.shields.io/badge/Education-WGU%20BS%20Cloud%20%26%20Network%20Engineering%20Student-00ADEE?style=for-the-badge&logo=google-scholar&logoColor=white" /> <a href="https://www.credly.com/badges/e7bb1b0e-1245-4fab-8b98-c8c061e3ee33/public_url"><img src="https://img.shields.io/badge/Certification-CompTIA%20A%2B-E31837?style=for-the-badge&logo=comptia&logoColor=white" /></a> <a href="https://www.credly.com/badges/119032c2-bae6-45e2-a3ad-a97ca4ec8c70/public_url"><img src="https://img.shields.io/badge/Certification-CompTIA%20Network%2B-E31837?style=for-the-badge&logo=comptia&logoColor=white" /></a>&nbsp;<a href="mailto:pbobbitt176@gmail.com"><img src="https://img.shields.io/badge/Email-Contact%20Me-red?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://linkedin.com/in/patrickbobbitt"><img src="https://img.shields.io/badge/LinkedIn-Patrick%20Bobbitt-0072b1?style=for-the-badge&logo=linkedin&logoColor=white" /></a>&nbsp;<a href="mailto:pbobbitt176@gmail.com"><img src="https://img.shields.io/badge/Email-Contact%20Me-red?style=for-the-badge&logo=gmail&logoColor=white" /></a>
 </p>
 
-**Lab Series Technical Stack**  
+## Education & Certifications
+<div>
+</a> <img src="https://img.shields.io/badge/Education-WGU%20BS%20Cloud%20%26%20Network%20Engineering%20Student-00ADEE?style=for-the-badge&logo=google-scholar&logoColor=white" /> <a href="https://www.credly.com/badges/119032c2-bae6-45e2-a3ad-a97ca4ec8c70/public_url"><img src="https://img.shields.io/badge/Certification-CompTIA%20Network%2B-E31837?style=for-the-badge&logo=comptia&logoColor=white" /></a> <a href="https://www.credly.com/badges/e7bb1b0e-1245-4fab-8b98-c8c061e3ee33/public_url"><img src="https://img.shields.io/badge/Certification-CompTIA%20A%2B-E31837?style=for-the-badge&logo=comptia&logoColor=white" /></a> <img src="https://img.shields.io/badge/In%20Progress-CompTIA%20Security%2B-6c757d?style=for-the-badge&logo=comptia&logoColor=white" /> <a href="https://www.credly.com/badges/9c442bc0-ff46-42e8-9d56-0f50adf6d797/public_url"><img src="https://img.shields.io/badge/Certification-CompTIA%20IT%20Operations%20Specialist%20(CIOS)-E31837?style=for-the-badge&logo=comptia&logoColor=white" /></a> <a href="https://www.peoplecert.org/public-profile?ed=XCHu3ZqUTNJZsRD7ohFrrJDXq3BRolCm"> <img src="https://img.shields.io/badge/Certification-ITIL%C2%AE%204%20Foundation-6F42C1?style=for-the-badge&logoColor=white" /> </a> <img src="https://img.shields.io/badge/In%20Progress-LPI%20Linux%20Essentials-6c757d?style=for-the-badge&logo=linux&logoColor=white" />
+</div>
+
+## Lab Series Technical Stack  
 <p align="left">
   <img src="https://img.shields.io/badge/Server-Windows%20Server%202025-0078D4?style=for-the-badge&logo=windowsserver&logoColor=white" />
   <img src="https://img.shields.io/badge/Client-Windows%2011-0078D4?style=for-the-badge&logo=windows11&logoColor=white" />
