@@ -30,14 +30,19 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 * **Problem:** VirtualBox error `VERR_DISK_FULL` appeared. 
 * **Cause:** The physical host SSD (1.81 TB) reached critical capacity (only 23.9 MB remaining), preventing the VM from expanding its dynamically allocated disk.
 * **Resolution (CompTIA 6-Step Methodology):**
+
     1. **Identify:** <br>
     Domain controller VM hit "Paused" status in VirtualBox and displayed `Error (VERR_DISK_FULL)`. 
+
     2. **Establish Theory:** <br>
     While downloading the cumulative updates (KB5070773) required for the Entra Connect installation, the Virtual Machine lacked the buffer space required on the host OS for the VM to write update files.
+
     3. **Test Theory:** <br>
     Checked the Host OS main storage drive and confirmed the Host OS was out of space.
+
     4. **Plan & Implement:** <br>
     The Host is my personal PC so i performed host-level cleanup, clearing ~60GB of data. Didn't make a longer write-up about this as it is not a part of this cloud migration lab.
+
     5. **Verification:** <br>
     Successfully resumed the VM and completed the OS patching without further issues.
 
