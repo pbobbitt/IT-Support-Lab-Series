@@ -14,13 +14,13 @@ This lab connects an existing on-premise Windows Server 2025 Active Directory, c
 <img src="Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="M365 Admin Center" width="70%">
 <BR>
 
-## Pre- Milestone 2: Troubleshooting
+## Pre-Milestone 2: Troubleshooting
 
-Before starting to install Entra Connect on the local lab enviroment i looked on Microsoft Learn and saw there was a known issue for Active Directory directory synchronization when used with Entra Connect Sync, which both of those will be used in the next section. Here is the [Microsoft database entry for the issue](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025#3692msgdesc)
+Before starting to install Entra Connect on the local lab environment, I looked on Microsoft Learn and saw there was a known issue with Active Directory directory synchronization when used with Entra Connect Sync, which both will be used in the next section. Here is the [Microsoft database entry for the issue](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025#3692msgdesc)
   
   > "Applications that use the Active Directory directory synchronization (DirSync) control for on-premises Active Directory Domain Services (AD DS), such as when using Microsoft Entra Connect Sync, can result in incomplete synchronization."
 
-The listed fix is the Windows `KB5068861` update. I checked my install, and luckily, my Windows Server 2025 install already had this specific update, but I wanted to note this, as if this error were more recent, this would possibly lead to a lot of issues with this setup. But i did see my Windows server needed a Windows update, which i attempted to install...
+The listed fix is the Windows `KB5068861` update. I checked my Windows Server 2025 install; luckily, it already had this specific update. I wanted to note this, as if this error were more recent, it could lead to a lot of issues with this setup. But i did see my Windows server needed a Windows update, which i attempted to install...
 
 <img src="Screenshots/DC%20Windows%20Patch%20needed.png" alt="DC Windows Patch Needed" width="70%">
 
@@ -87,6 +87,8 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 
 | Issue Encountered | Root Cause Analysis | Resolution & Verification |
 | :--- | :--- | :--- |
+| Potential Incomplete Directory Synchronization. | Software Bug: Microsoft identified a known issue in Windows Server 2025 where applications using DirSync (like Entra Connect) could fail to sync fully without specific patching. | Pre-emptive Verification: Researched documentation on Microsoft Learn and verified that KB5068861 was already installed on the local DC. This ensured a stable baseline before proceeding with the cloud handshake. | 
+| Virtual Machine "Paused" state and VERR_DISK_FULL error. | Resource Exhaustion: The physical host SSD (1.81 TB) reached critical capacity (23.9 MB remaining) during the download of cumulative update KB5070773, preventing the VM disk expansion. | Storage Remediation: Performed host-level cleanup to free ~60GB of space and enabled Host I/O Caching in VirtualBox settings. Verified by successfully resuming the VM and finishing the OS update. |
 | {Example: Could not log into the Microsoft 365 Developer Program / Placed on a waitlist.} | {Example: Microsoft updated their rules and flagged my personal `@outlook.com` email for manual review.} | {Example: Signed up again using my WGU `.edu` student email, which bypassed the waitlist entirely and instantly granted me the E5 tenant.} |
 | {Example: Entra Connect failed to authenticate my cloud credentials during setup.} | {Example: The Windows Server 2025 VM network adapter was set to "Host-Only" in VirtualBox, meaning it could not reach the internet to verify the login.} | {Example: Changed the VM network adapter settings to "NAT", verified I could ping google.com, and restarted the Entra Connect wizard successfully.} |
 | {Enter your issue here} | {Enter why it happened here} | {Enter how you fixed it and verified it here} |
