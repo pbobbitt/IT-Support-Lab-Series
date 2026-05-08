@@ -10,8 +10,8 @@ This lab connects an existing on-premise Windows Server 2025 Active Directory, c
   * Made an account and a custom domain name for the cloud environment.
     * Domain name: `pbitsupport.onmicrosoft.com`
 
-> **Evidence:** See **{Screenshot of new Microsoft 365 Admin Center showing custom domain}**
-<img src="#" alt="{Image showing the Microsoft 365 portal dashboard confirming the tenant is active}" width="70%">
+> **Evidence:** See **Microsoft 365 Admin Center**
+<img src="screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="Microsoft 365 Admin Center showing custom domain" width="70%">
 <BR>
 
 ## Milestone 2: Entra Connect Installation
