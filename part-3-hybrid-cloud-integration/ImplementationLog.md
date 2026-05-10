@@ -63,7 +63,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 * Downloaded Entra Connect from the [Microsoft Download Center](https://entra.microsoft.com/#view/Microsoft_AAD_Connect_Provisioning/AADConnectMenuBlade/%7E/GetStarted)
   *   Read and followed the current best practices listed by [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-install-roadmap#install-azure-ad-connect)
   *  Used Connect Sync as it covers the scope of the lab environment  
-* Running Connect Sync showing my `lab.local` domain was not routable via the internet, and that I would need to register with a domain registrar. This is out of scope of this lab so instead i added `pbitsupport.onmicrosoft.com` as an alternative UPN suffix.
+* Running Connect Sync showed my `lab.local` domain was not routable via the internet, and that I would need to register with a domain registrar. This is out of scope of this lab so instead i added `pbitsupport.onmicrosoft.com` as an alternative UPN suffix.
   * Added `pbitsupport.onmicrosoft.com` by going to
     * `Active Directory Domains and Trusts > on top folder Right click - Properties > added alternative UPN suffix`
   * On `Active Directory Users and Computers`, updated all users under both Lab_Admins and Lab_Users to now use `pbitsupport.onmicrosoft.com` as the UPN suffix by
@@ -71,16 +71,10 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 * Went through the rest of the Connect Sync setup
   * Cloud admin account: `Admin@pbitsupport.onmicrosoft.com`
   * Local admin account: `LAB\Administrator`
+* Verified all 100 users (31 from admin, 69 from users) Synced into the Microsoft Entra environment, which shows 101 users (100 from active directory + 1 cloud admin) 
 
-*   **Run the installer and choose "Express Settings".**
-*   **Enter your cloud credentials.**
-  *   {When prompted, enter the M365 Global Admin credentials you created in Milestone 1.}
-*   **Enter your local credentials.**
-  *   {When prompted, enter your local Enterprise/Domain Admin credentials for your Windows Server 2025 environment.}
-*   **Click Install and wait for the initial synchronization to finish.**
-
-> **Evidence:** See **{Screenshot of the "Configuration Complete" screen in the Entra Connect setup wizard}**
-<img src="#" alt="{Image showing Entra Connect successfully installed on the Domain Controller}" width="70%">
+> **Evidence:** See **Hybrid Identity Verification**
+<img src="Screenshots/Hybrid%20Users%20Synced.png" alt="M365 Admin Center" width="70%">
 <BR>
 
 ## Milestone 3: Hybrid Identity Verification
