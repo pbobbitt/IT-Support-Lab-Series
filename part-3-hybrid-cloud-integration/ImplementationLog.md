@@ -65,22 +65,24 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
   * Used Connect Sync as it covers the scope of the lab environment  
 * Running Connect Sync showed my `lab.local` domain was not routable via the internet, and that I would need to register with a domain registrar. This is out of scope of this lab so instead i added `pbitsupport.onmicrosoft.com` as an alternative UPN suffix.
   * Added `pbitsupport.onmicrosoft.com` by going to
-    * `Active Directory Domains and Trusts > on top folder Right click - Properties > added alternative UPN suffix`
+    * `Active Directory Domains and Trusts > on top folder Right click - Properties > added alternative UPN suffix.`
   * On `Active Directory Users and Computers`, updated all users under both Lab_Admins and Lab_Users to now use `pbitsupport.onmicrosoft.com` as the UPN suffix by
     * `Lab_Admins > Ctrl + A > Right click - Properties > Account > check UPN Suffix > pbitsupport.onmicrosoft.com `
    
-> Notice: In a real enterprise environment, we would have had a real domain to map these users onto to maintain the `@lab.local`. Due to that being out of the scope of this lab series, I instead opted to map the existing and future accounts to use the alternate UPN of `@pbitsupport.onmicrosoft.com`. In my lab environment, I would then start a campaign to train all current employees to use this new domain to sign in and to change all onboarding to reflect the change. This was done to establish a seamless Single Sign-On (SSO) experience and to eliminate authentication errors. <BR><BR>
+> Notice: In a real enterprise environment, we would have had a real domain to map these users onto to maintain the `@lab.local`. Due to that being out of the scope of this lab series, I instead opted to map the existing and future accounts to use the alternate UPN of `@pbitsupport.onmicrosoft.com`. In my lab environment, I would then start a Change Management Plan to use this new domain to sign in and to change all onboarding to reflect the change. This was done to establish a seamless Single Sign-On (SSO) experience and to eliminate authentication errors. <BR><BR>
 > Currently, users can use:
 > * `first.last@lab.local` Works on local accounts and file shares, but should instead use the new login now
-> * `first.last@pbitsupport.onmicrosoft.com` Works on local accounts, file shares, and O365, Entra, and email. this login will be the default used in this environment from now on 
+> * `first.last@pbitsupport.onmicrosoft.com` Works on local accounts, file shares, and O365, Entra, and email. This login will be the default used in this environment from now on 
 
-* Went through the rest of the Connect Sync setup
+* Went through the rest of the Connect Sync Express setup
   * Cloud admin account: `Admin@pbitsupport.onmicrosoft.com`
   * Local admin account: `LAB\Administrator`
+  * Left everything else default
  
-* After that, I re-ran the Connect sync and it comes up with more optional features
-  * Enabled Entra ID app and Attribute filtering
-  * Password hash synchronization
+* After that, I re-ran the Connect sync to customize the installation after the express setup had more options to select.
+  * Syncronization options changed:
+    * Enabled Entra ID app and Attribute filtering
+    * Password hash synchronization
     
 > **Evidence:** See **Connect Sync Complete**
 <img src="Screenshots/Connect%20Complete.png" alt="Connect Sync Complete" width="70%">
@@ -124,5 +126,8 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 
 | Issue Encountered | Root Cause Analysis | Resolution & Verification |
 | :--- | :--- | :--- |
-| Potential Incomplete Directory Synchronization. | Microsoft identified a [known issue](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025#3692msgdesc) in Windows Server 2025 where applications using DirSync (like Entra Connect) could fail to sync fully without specific patching. | Researched documentation on Microsoft Learn and verified that `KB5068861` was already installed on the local DC. This ensured a stable baseline before proceeding with the cloud integration | 
-| Virtual Machine "Paused" state and VERR_DISK_FULL error. | The physical host SSD (1.81 TB) reached critical capacity (23.9 MB remaining) during the download of cumulative update KB5070773, preventing the VM disk expansion. | Performed host-level cleanup to free ~60GB of space and enabled Host I/O Caching in VirtualBox settings. Verified by successfully resuming the VM and finishing the OS update. |
+| Potential Directory Synchronization Issues | Microsoft identified a [known issue](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025#3692msgdesc) in Windows Server 2025 where applications using DirSync (like Entra Connect) could fail to sync fully without specific patching. | Researched documentation on Microsoft Learn and verified that `KB5068861` was already installed on the local DC. This ensured a stable baseline before proceeding with the cloud integration | 
+| Virtual Machine `VERR_DISK_FULL` error. | The physical host SSD ran out of storage capacity during the KB5070773 update, preventing the update and potentially leaving a known directory synchronization issue. | To resolve, I cleaned files from the Host device. Verified by successfully resuming the VM and finishing the OS update. |
+| Entra Sync issue with Non-Routable Domain (lab.local) | Entra ID can only verify publicly hosted domains, so the private `@lab.local` accounts could not be used. This would prevent users from signing into cloud services with their local IDs. | Added `@pbitsupport.onmicrosoft.com` as an alternative UPN suffix and updated all user accounts to use that new domain as the primary. Verified change went live on Entra ID, ensuring a seamless Single Sign-On (SSO) |
+
+
