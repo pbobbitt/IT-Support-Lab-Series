@@ -1,6 +1,10 @@
 # Project Overview
 This lab connects an existing on-premise Windows Server 2025 Active Directory, containing 100 users, to Microsoft's cloud environment. By establishing this "Hybrid Identity" setup, local users are synced to a free Microsoft 365 Enterprise environment managed by Entra ID. Additionally, Microsoft Intune is used to automatically secure and deploy software to corporate computers over the internet, proving the ability to manage a remote workforce efficiently and securely. Finally, a Jira helpdesk system is set up as a foundational step for future ticketing and troubleshooting labs.
 
+Using systems created in parts 1 and 2 
+Domain Controller: `WS2025-DC01`
+Client Devices: `W11-CL01`
+
 ## Milestone 1: Microsoft 365 Cloud Setup
 **Focus:** Provisioning a free enterprise-grade cloud environment to host the synced directory.
 
@@ -47,12 +51,17 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
     Successfully resumed the VM and completed the OS patching without further issues.
 
 <img src="Screenshots/Error%20(VERR_DISK_FULL).png" alt="Error (VERR_DISK_FULL)" width="35%"><img src="Screenshots/Host%20PC%20Storage%20Full.png" alt="Host PC Storage Full" width="60%">
+
+> **Evidence:** See **Windows up to date"**
+<img src="Screenshots/DC%20Windows%20Patch%20Updated.png" alt="DC Windows Patch Updated" width="70%">
+<BR>
   
 ## Milestone 2: Entra Connect Installation
 **Focus:** Installing the tool that links the local Windows Server 2025 Domain Controller to the new cloud environment.
 
-*   **Log into your Windows Server 2025 Domain Controller VM.**
-  *   {Make sure the virtual machine has an active internet connection so it can reach Microsoft's servers.}
+* Downloaded Entra Connect from the [Microsoft Download Center](https://entra.microsoft.com/#view/Microsoft_AAD_Connect_Provisioning/AADConnectMenuBlade/%7E/GetStarted)
+  *   Read and followed the current best practices listed by [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-install-roadmap#install-azure-ad-connect)
+  *  Used Connect Sync as it covers the scope of the lab environment  
 *   **Download the Microsoft Entra Connect installer.**
   *   {Search for "Download Microsoft Entra Connect" in the server's web browser and download the official tool.}
 *   **Run the installer and choose "Express Settings".**
