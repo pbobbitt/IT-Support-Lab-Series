@@ -13,6 +13,7 @@ Client Devices: `W11-CL01`
     * Selected `Applications for internal use> all areas> Configurable sandbox`
   * Made an account and a custom domain name for the cloud environment.
     * Domain name: `pbitsupport.onmicrosoft.com`
+    * Admin account: `Admin@pbitsupport.onmicrosoft.com`
 
 > **Evidence:** See **Microsoft 365 Admin Center**
 <img src="Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="M365 Admin Center" width="70%">
@@ -68,7 +69,8 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
   * On `Active Directory Users and Computers`, updated all users under both Lab_Admins and Lab_Users to now use `pbitsupport.onmicrosoft.com` as the UPN suffix by
     * `Lab_Admins > Ctrl + A > Right click - Properties > Account > check UPN Suffix > pbitsupport.onmicrosoft.com ` 
 * Went through the rest of the Connect Sync setup
-  * 
+  * Cloud admin account: `Admin@pbitsupport.onmicrosoft.com`
+  * Local admin account: `LAB\Administrator`
 
 *   **Run the installer and choose "Express Settings".**
 *   **Enter your cloud credentials.**
