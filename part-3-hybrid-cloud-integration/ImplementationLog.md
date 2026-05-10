@@ -66,7 +66,9 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
   * Added `pbitsupport.onmicrosoft.com` by going to
     * `Active Directory Domains and Trusts > on top folder Right click - Properties > added alternative UPN suffix`
   * On `Active Directory Users and Computers`, updated all users under both Lab_Admins and Lab_Users to now use `pbitsupport.onmicrosoft.com` as the UPN suffix by
-    * `Lab_Admins > Ctrl + A > Right click - Properties > Account > check UPN Suffix > pbitsupport.onmicrosoft.com `
+    * `Lab_Admins > Ctrl + A > Right click - Properties > Account > check UPN Suffix > pbitsupport.onmicrosoft.com ` 
+* Went through the rest of the Connect Sync setup
+  * 
 
 *   **Run the installer and choose "Express Settings".**
 *   **Enter your cloud credentials.**
