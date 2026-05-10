@@ -62,8 +62,12 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 * Downloaded Entra Connect from the [Microsoft Download Center](https://entra.microsoft.com/#view/Microsoft_AAD_Connect_Provisioning/AADConnectMenuBlade/%7E/GetStarted)
   *   Read and followed the current best practices listed by [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-install-roadmap#install-azure-ad-connect)
   *  Used Connect Sync as it covers the scope of the lab environment  
-*   **Download the Microsoft Entra Connect installer.**
-  *   {Search for "Download Microsoft Entra Connect" in the server's web browser and download the official tool.}
+* Running Connect Sync showing my `lab.local` domain was not routable via the internet, and that I would need to register with a domain registrar. This is out of scope of this lab so instead i added `pbitsupport.onmicrosoft.com` as an alternative UPN suffix.
+  * Added `pbitsupport.onmicrosoft.com` by going to
+    * `Active Directory Domains and Trusts > on top folder Right click - Properties > added alternative UPN suffix`
+  * On `Active Directory Users and Computers`, updated all users under both Lab_Admins and Lab_Users to now use `pbitsupport.onmicrosoft.com` as the UPN suffix by
+    * `Lab_Admins > Ctrl + A > Right click - Properties > Account > check UPN Suffix > pbitsupport.onmicrosoft.com `
+
 *   **Run the installer and choose "Express Settings".**
 *   **Enter your cloud credentials.**
   *   {When prompted, enter the M365 Global Admin credentials you created in Milestone 1.}
