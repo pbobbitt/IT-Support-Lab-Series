@@ -61,16 +61,31 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 **Focus:** Installing the tool that links the local Windows Server 2025 Domain Controller to the new cloud environment.
 
 * Downloaded Entra Connect from the [Microsoft Download Center](https://entra.microsoft.com/#view/Microsoft_AAD_Connect_Provisioning/AADConnectMenuBlade/%7E/GetStarted)
-  *   Read and followed the current best practices listed by [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-install-roadmap#install-azure-ad-connect)
-  *  Used Connect Sync as it covers the scope of the lab environment  
+  * Read and followed the current best practices listed by [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-install-roadmap#install-azure-ad-connect)
+  * Used Connect Sync as it covers the scope of the lab environment  
 * Running Connect Sync showed my `lab.local` domain was not routable via the internet, and that I would need to register with a domain registrar. This is out of scope of this lab so instead i added `pbitsupport.onmicrosoft.com` as an alternative UPN suffix.
   * Added `pbitsupport.onmicrosoft.com` by going to
     * `Active Directory Domains and Trusts > on top folder Right click - Properties > added alternative UPN suffix`
   * On `Active Directory Users and Computers`, updated all users under both Lab_Admins and Lab_Users to now use `pbitsupport.onmicrosoft.com` as the UPN suffix by
-    * `Lab_Admins > Ctrl + A > Right click - Properties > Account > check UPN Suffix > pbitsupport.onmicrosoft.com ` 
+    * `Lab_Admins > Ctrl + A > Right click - Properties > Account > check UPN Suffix > pbitsupport.onmicrosoft.com `
+   
+> Notice: In a real enterprise environment, we would have had a real domain to map these users onto to maintain the `@lab.local`. Due to that being out of the scope of this lab series, I instead opted to map the existing and future accounts to use the alternate UPN of `@pbitsupport.onmicrosoft.com`. In my lab environment, I would then start a campaign to train all current employees to use this new domain to sign in and to change all onboarding to reflect the change. This was done to establish a seamless Single Sign-On (SSO) experience and to eliminate authentication errors. <BR><BR>
+> Currently, users can use:
+> * `first.last@lab.local` Works on local accounts and file shares, but should instead use the new login now
+> * `first.last@pbitsupport.onmicrosoft.com` Works on local accounts, file shares, and O365, Entra, and email. this login will be the default used in this environment from now on 
+
 * Went through the rest of the Connect Sync setup
   * Cloud admin account: `Admin@pbitsupport.onmicrosoft.com`
   * Local admin account: `LAB\Administrator`
+ 
+* After that, I re-ran the Connect sync and it comes up with more optional features
+  * Enabled Entra ID app and Attribute filtering
+  * Password hash synchronization
+    
+> **Evidence:** See **Connect Sync Complete**
+<img src="Screenshots/Connect%20Complete.png" alt="Connect Sync Complete" width="70%">
+<BR>
+
 * Verified all 100 users (31 from admin, 69 from users) Synced into the Microsoft Entra environment, which shows 101 users (100 from active directory + 1 cloud admin) 
 
 > **Evidence:** See **Hybrid Identity Verification**
@@ -78,7 +93,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 <BR>
 
 ## Milestone 3: Hybrid Identity Verification
-**Focus:** Confirming that the 100 local Active Directory users successfully populated into the cloud portal.
+**Focus:** Confirming that the 100 local Active Directory users have been successfully populated into the cloud portal.
 
 *   **Log into the Microsoft Entra Admin Center in your web browser.**
 *   **Navigate to the "Users" > "All Users" panel.**
