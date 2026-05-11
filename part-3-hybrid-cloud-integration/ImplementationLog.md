@@ -88,24 +88,26 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 <img src="Screenshots/Connect%20Complete.png" alt="Connect Sync Complete" width="70%">
 <BR>
 
-* Verified all 100 users (31 from admin, 69 from users) Synced into the Microsoft Entra environment, which shows 101 users (100 from active directory + 1 cloud admin) 
-
-> **Evidence:** See **Hybrid Identity Verification**
-<img src="Screenshots/Hybrid%20Users%20Synced.png" alt="M365 Admin Center" width="70%">
-<BR>
-
 ## Milestone 3: Hybrid Identity Verification
-**Focus:** Confirming that the 100 local Active Directory users have been successfully populated into the cloud portal.
+**Focus:** Confirming that the 100 local Active Directory users have successfully populated into the cloud portal.
 
-*   **Log into the Microsoft Entra Admin Center in your web browser.**
-*   **Navigate to the "Users" > "All Users" panel.**
+* Logged into the [Microsoft Entra Admin Center](https://azure.microsoft.com/)
+  * Confirmed User profiles synced
+    * `Manage > Users`
+    * Verified all 100 users (31 from admin, 69 from users) synced into the Microsoft Entra environment, which shows 101 users (100 from active directory + 1 cloud admin)
+  * Confirmed security groups synced
+    * `Manage > Groups`
+    * This shows 12 groups, the 3 that we set up in a previous lab `SG_Finance, SG_HR, and SG_IT_Support`, and 9 base groups of Entra ID
+    * Spot checked each group to ensure that the correct users ended up there
 *   **Locate your lab users in the directory list.**
   *   {Search for users from your local 100-user roster, such as Han Solo or Darth Vader, to ensure they transferred over.}
 *   **Verify the sync status column.**
   *   {Check the "On-premises sync enabled" column. It should say "Yes" next to your local users, proving they are linked to your home lab.}
 
-> **Evidence:** See **{Screenshot of the Entra Admin Center showing your local users in the cloud directory}**
-<img src="#" alt="{Image of the cloud user list with the 'On-premises sync enabled' column showing 'Yes'}" width="70%">
+* Verified all 100 users (31 from admin, 69 from users) Synced into the Microsoft Entra environment, which shows 101 users (100 from active directory + 1 cloud admin) 
+
+> **Evidence:** See **Hybrid Identity Verification**
+<img src="Screenshots/Hybrid%20Users%20Synced.png" alt="M365 Admin Center" width="70%">
 <BR>
 
 ## Milestone 4: Helpdesk Foundation (Jira Setup)
