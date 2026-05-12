@@ -95,10 +95,30 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
   * Confirmed User profiles synced
     * `Manage > Users`
     * Verified all 100 users (31 from admin, 69 from users) synced into the Microsoft Entra environment, which shows 101 users (100 from active directory + 1 cloud admin)
+
+   <img src="Screenshots/Users%20Synced.png" alt="Users Synced" width="70%">
+<BR>
+
   * Confirmed security groups synced
     * `Manage > Groups`
     * This shows 12 groups, the 3 that we set up in a previous lab `SG_Finance, SG_HR, and SG_IT_Support`, and 9 base groups of Entra ID
     * Spot checked each group to ensure that the correct users ended up there
+      
+   <img src="Screenshots/SGs%20Synced.png" alt="security groups" width="70%">
+<BR>
+
+  * Gpos / Devices/ Configuration Profiles
+    * GPOs do not sync to Entra ID, so instead we will set up Configuration Profiles on [Intune](https://intune.microsoft.com/#home)
+      * On Intune admin center `Devices > Configuration > Create > New Policy`
+        * Platform: Windows 10 and later, Profile type: Settings catalog
+        * Made a demo policy to set the start page for Chrome and Edge to [IT Support Lab Series](https://github.com/pbobbitt/IT-Support-Lab-Series)
+        * Assigned to `SG_Finance and SG_HR` left `SG_IT_Support` as the control group
+       
+<img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="70%">
+<BR>
+
+
+
 *   **Locate your lab users in the directory list.**
   *   {Search for users from your local 100-user roster, such as Han Solo or Darth Vader, to ensure they transferred over.}
 *   **Verify the sync status column.**
