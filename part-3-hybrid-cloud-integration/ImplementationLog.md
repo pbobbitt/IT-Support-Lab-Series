@@ -113,7 +113,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
         * Platform: Windows 10 and later, Profile type: Settings catalog
         * Made a demo policy to set the start page for Chrome and Edge to [IT Support Lab Series](https://github.com/pbobbitt/IT-Support-Lab-Series)
           * `Intune > Devices > Configuration > Create`
-        * Assigned to `SG_Finance and SG_HR` left `SG_IT_Support` as the control group
+        * Assigned to `SG_Finance and SG_HR` left `SG_IT_Support` on default browser behaivior for troubleshooting.
     * Enrolled the client machine `W11-CL01` into Intune
       * on Domain Controller: `WS2025-DC01`
         * Created new GPO `Entra Enroll` at
@@ -135,9 +135,9 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
       * On `W11-CL01`
         * Logged in as Padme Amidala to enroll the deivce in to the MDM,
           * `Settings > Accounts > Access work or school` Signed in with Padme Amidala's account
-        * Registered this device in the MDM now this device itwelf is enrolled so it should apply to all users who use this device.
+        * Registered this device in the MDM. Now, this device is enrolled, so it should apply to all users who use it.
        
-<img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="70%">
+<img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="45%"> <img src="Screenshots/Internet%20startup%20in%20action.gif" alt="Internet Start up in action" width="45%">
 <BR>
 
 *   **Locate your lab users in the directory list.**
