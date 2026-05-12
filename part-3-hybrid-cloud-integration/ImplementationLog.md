@@ -5,6 +5,8 @@ Using systems created in parts 1 and 2
 Domain Controller: `WS2025-DC01`
 Client Devices: `W11-CL01`
 
+On-Prem AD → Entra Connect → Entra ID → Licensing → Intune Enrollment → Configuration Profile → Client Success.
+
 ## Milestone 1: Microsoft 365 Cloud Setup
 **Focus:** Provisioning a free enterprise-grade cloud environment to host the synced directory.
 
