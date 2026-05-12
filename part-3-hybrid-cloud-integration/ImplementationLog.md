@@ -123,7 +123,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
         * With Connect sync
           * set Device options to have `configure hybrid microsoft entra ID join"
           * on Windows 10 or later devices
-          * SCP set `lab.local` as forest going to Entra ID "click add"
+          * SCP set `lab.local` as the forest going to `Entra ID`
       * on `W11-CL01` 
        
 <img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="70%">
