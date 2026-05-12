@@ -125,7 +125,17 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
           * set Device options to have `configure hybrid microsoft entra ID join"
           * on Windows 10 or later devices
           * SCP set `lab.local` as the forest going to `Entra ID`
-      * on `W11-CL01` 
+      * In order to use Intune, I have to assign them licenses for this Lab i have 25 licenses I can assign but I have 101 users so i will have to assign licenses on a per need basis
+        * On Microsoft 365 Admin Center
+          * `Users > Active Users`
+          * Assigned active licenses to 
+            * Han Solo: SG_Finance
+            * Darth Vader: SG_HR
+            * Padme Amidala: SG_IT_Support (this is an admin group)
+      * On `W11-CL01`
+        * Logged in as Padme Amidala to enroll the deivce in to the MDM,
+          * `Settings > Accounts > Access work or school` Signed in with Padme Amidala's account
+        * Registered this device in the MDM now this device itwelf is enrolled so it should apply to all users who use this device.
        
 <img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="70%">
 <BR>
