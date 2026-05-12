@@ -113,8 +113,13 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
         * Platform: Windows 10 and later, Profile type: Settings catalog
         * Made a demo policy to set the start page for Chrome and Edge to [IT Support Lab Series](https://github.com/pbobbitt/IT-Support-Lab-Series)
         * Assigned to `SG_Finance and SG_HR` left `SG_IT_Support` as the control group
-      * Enrolled the client machine `W11-CL01` into Intune
-        * on `W11-CL01` 
+    * Enrolled the client machine `W11-CL01` into Intune
+      * on Domain Controller: `WS2025-DC01`
+        * Created new GPO `Entra Enroll` at
+          * `Computer configuration > Administrative template > Windows components > Device registration`
+          * Enabled "register domain joined computers as devices"
+          * Applied to lab.local
+      * on `W11-CL01` 
        
 <img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="70%">
 <BR>
