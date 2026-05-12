@@ -113,11 +113,11 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
         * Platform: Windows 10 and later, Profile type: Settings catalog
         * Made a demo policy to set the start page for Chrome and Edge to [IT Support Lab Series](https://github.com/pbobbitt/IT-Support-Lab-Series)
         * Assigned to `SG_Finance and SG_HR` left `SG_IT_Support` as the control group
+      * Enrolled the client machine `W11-CL01` into Intune
+        * on `W11-CL01` 
        
 <img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="70%">
 <BR>
-
-
 
 *   **Locate your lab users in the directory list.**
   *   {Search for users from your local 100-user roster, such as Han Solo or Darth Vader, to ensure they transferred over.}
