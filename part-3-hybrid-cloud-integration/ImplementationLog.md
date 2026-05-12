@@ -124,7 +124,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
         * With Connect sync
           * set Device options to have `configure hybrid microsoft entra ID join"
           * on Windows 10 or later devices
-          * SCP set `lab.local` as the forest going to `Entra ID`
+          * SCP set `lab.local` as the forest going to `Entra ID` using Hybrid Microsoft Entra Join
       * In order to use Intune, I have to assign them licenses for this Lab i have 25 licenses I can assign but I have 101 users so i will have to assign licenses on a per need basis
         * On Microsoft 365 Admin Center
           * `Users > Active Users`
@@ -140,30 +140,12 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 <img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="45%"> <img src="Screenshots/Internet%20startup%20in%20action.gif" alt="Internet Start up in action" width="45%">
 <BR>
 
-*   **Locate your lab users in the directory list.**
-  *   {Search for users from your local 100-user roster, such as Han Solo or Darth Vader, to ensure they transferred over.}
-*   **Verify the sync status column.**
-  *   {Check the "On-premises sync enabled" column. It should say "Yes" next to your local users, proving they are linked to your home lab.}
-
 * Verified all 100 users (31 from admin, 69 from users) Synced into the Microsoft Entra environment, which shows 101 users (100 from active directory + 1 cloud admin) 
 
 > **Evidence:** See **Hybrid Identity Verification**
 <img src="Screenshots/Hybrid%20Users%20Synced.png" alt="M365 Admin Center" width="70%">
 <BR>
 
-## Milestone 4: Helpdesk Foundation (Jira Setup)
-**Focus:** Establishing a basic IT Service Management ticketing system to prepare for future support simulation labs.
-
-*   **Go to the Atlassian website and sign up for Jira Service Management.**
-  *   {Select the "Free" tier.}
-*   **Create a new IT Service Desk project.**
-  *   {Name it something relevant to your lab, like "Lab IT Helpdesk".}
-*   **Set up basic request categories.**
-  *   {Create a small "Service Catalog" with placeholder categories like "New Hire Onboarding" and "Software Install". You will not make any actual tickets in this phase, just set up the blank boards.}
-
-> **Evidence:** See **{Screenshot of your empty Jira Service Management IT dashboard}**
-<img src="#" alt="{Image showing the newly created Jira helpdesk project ready for future tickets}" width="70%">
-<BR>
 
 ## Troubleshooting Log
 
@@ -172,5 +154,9 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 | Potential Directory Synchronization Issues | Microsoft identified a [known issue](https://learn.microsoft.com/en-us/windows/release-health/resolved-issues-windows-server-2025#3692msgdesc) in Windows Server 2025 where applications using DirSync (like Entra Connect) could fail to sync fully without specific patching. | Researched documentation on Microsoft Learn and verified that `KB5068861` was already installed on the local DC. This ensured a stable baseline before proceeding with the cloud integration | 
 | Virtual Machine `VERR_DISK_FULL` error. | The physical host SSD ran out of storage capacity during the KB5070773 update, preventing the update and potentially leaving a known directory synchronization issue. | To resolve, I cleaned files from the Host device. Verified by successfully resuming the VM and finishing the OS update. |
 | Entra Sync issue with Non-Routable Domain (lab.local) | Entra ID can only verify publicly hosted domains, so the private `@lab.local` accounts could not be used. This would prevent users from signing into cloud services with their local IDs. | Added `@pbitsupport.onmicrosoft.com` as an alternative UPN suffix and updated all user accounts to use that new domain as the primary. Verified change went live on Entra ID, ensuring a seamless Single Sign-On (SSO) |
+| Had Issues adding device to Intune | None of my 101 users had an active license, so they could do Entra Join, but not MDM Enrollment | I have 25 Microsoft 365 E5 Developer licenses. I handed out 3 of them, but will need to cycle these as I have 101 users. | 
+| License assignment "invalid Usage Location" | Synced users had a null 'Usage Location' attribute, blocking license assignment. | Manually updated Usage Location to 'United States' in M365 Admin Center to satisfy regional compliance. |
+| GPO Lockout (Settings) | "Disable Settings" GPO prevented manual Intune sync on the client VM. | Utilized an account from the SG_IT_Support group (excluded from the GPO) to perform the initial MDM registration. |
+
 
 
