@@ -119,6 +119,11 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
           * `Computer configuration > Administrative template > Windows components > Device registration`
           * Enabled "register domain joined computers as devices"
           * Applied to lab.local
+          * ran CLI `gpupdate /force`
+        * With Connect sync
+          * set Device options to have `configure hybrid microsoft entra ID join"
+          * on Windows 10 or later devices
+          * SCP set `lab.local` as forest going to Entra ID "click add"
       * on `W11-CL01` 
        
 <img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="70%">
