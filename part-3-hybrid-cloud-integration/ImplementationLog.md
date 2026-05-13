@@ -118,6 +118,9 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
         * Made a demo policy to set the start page and new page for Chrome and Edge to [IT Support Lab Series](https://github.com/pbobbitt/IT-Support-Lab-Series)
           * `Intune > Devices > Configuration > Create`
         * Assigned to `SG_Finance and SG_HR` left `SG_IT_Support` on default browser behaivior for troubleshooting.
+       
+<img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="70%">
+<BR>
     * Enrolled the client machine `W11-CL01` into Intune
       * on Domain Controller: `WS2025-DC01`
         * Created new GPO `Entra Enroll` at
@@ -136,12 +139,15 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
             * Han Solo: SG_Finance
             * Darth Vader: SG_HR
             * Padme Amidala: SG_IT_Support (this is an admin group)
+
+<img src="Screenshots/Limited%20Licenses%20Assigned.png" alt="Limited Licenses Assigned" width="70%">
+<BR> 
       * On `W11-CL01`
         * Logged in as Padme Amidala to enroll the deivce in to the MDM,
           * `Settings > Accounts > Access work or school` Signed in with Padme Amidala's account
         * Registered this device in the MDM. Now, this device is enrolled, so it should apply to all users who use it.
        
-<img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="45%"> <img src="Screenshots/Internet%20startup%20in%20action.gif" alt="Internet Start up in action" width="45%">
+<img src="Screenshots/Internet%20startup%20in%20action.gif" alt="Internet Start up in action" width="45%">
 <BR>
 
 * Verified all 100 users (31 from admin, 69 from users) Synced into the Microsoft Entra environment, which shows 101 users (100 from active directory + 1 cloud admin) 
