@@ -83,29 +83,39 @@ This repository contains a comprehensive, three-part technical lab series simula
 *   Utilizing ticketing workflows to document and track "Break/Fix" incidents.
 *   **Key Outcome:** Demonstrating the ability to translate technical knowledge into professional end-user support.
 
-
 ## Key Technical Highlights
 
+### Cloud Integration & Hybrid Identity
+* **Hybrid Directory Synchronization:** Deployed **Microsoft Entra Connect Sync** to bridge the on-premises Windows Server 2025 environment with Microsoft 365, successfully synchronizing 100+ Active Directory users and security groups to the cloud.
+* **Seamless Single Sign-On (SSO):** Resolved non-routable domain (`lab.local`) limitations by configuring alternative UPN suffixes (`@pbitsupport.onmicrosoft.com`) across all local accounts, establishing a unified login for local file shares, Entra ID, and M365 email.
+
+### Modern Endpoint Management (MDM)
+* **Intune Device Enrollment:** Configured **Hybrid Microsoft Entra Join** via Group Policy and Entra Connect, successfully enrolling Windows 11 client devices into Microsoft Intune for cloud-based Mobile Device Management.
+* **Cloud Policy Deployment:** Transitioned local GPOs to Intune Configuration Profiles (Settings Catalog), deploying targeted web browser configurations based on synced Entra ID security groups (Finance vs. HR).
+* **Enterprise License Management:** Managed M365 E5 Developer licenses within the Microsoft 365 Admin Center, strategically provisioning access and managing "Usage Location" attributes to maintain regional compliance.
+
 ### Enterprise-Scale Automation
-* Automated the creation and security group assignment of 100+ user accounts using a custom PowerShell script, reducing a multi-hour onboarding task to just minutes and eliminating manual errors.
+* **Bulk User Provisioning:** Automated the creation and security group assignment of 100+ user accounts using a custom PowerShell script, reducing a multi-hour onboarding task to just minutes and eliminating manual errors.
 
 ### Security Hardening
-* Deployed automated security policies to enforce **Principle of Least Privilege (PoLP)**, I ensured that standard users cannot access system-level tools, while "IT Support" users maintain the access needed to perform their duties.
+* **Access Control:** Deployed automated security policies to enforce **Principle of Least Privilege (PoLP)**, ensuring that standard users cannot access system-level tools, while "IT Support" users maintain the access needed to perform their duties.
 
 ### Automated Resource Provisioning
-* Deployed Group Policies to automatically map departmental network drives (S:) and deploy shared printers, providing employees with instant, zero-touch access to essential tools upon login.
+* **Zero-Touch Setup:** Deployed Group Policies to automatically map departmental network drives (S:) and deploy shared printers, providing employees with instant access to essential tools upon login.
 
 ### Efficient Storage Management
-*  Implemented FSRM to enforce storage quotas and block unauthorized file types (e.g., audio/video), preventing waste and ensuring critical disk space remains available for business operations.
+* **Data Governance:** Implemented FSRM to enforce storage quotas and block unauthorized file types (e.g., audio/video), preventing waste and ensuring critical disk space remains available for business operations.
 
-  
 ### Troubleshooting & Resilience
-Throughout this lab, I resolved critical "low-level" conflicts, including:
-*   **Hypervisor Optimization:** Solving "Black Screen" boot errors by managing Hyper-V/Core Isolation conflicts at the host firmware level.
-*   **Network Logic:** Rectifying authentication errors caused by VM mismatches, proving a methodical approach to the OSI model.
-*   **Permission Misconfiguration:** Identified and corrected inherited NTFS/share permission conflicts that unintentionally granted Finance access to all departments.
-*   **GPO & Print Deployment Failure:** Troubleshot a failed network printer deployment caused by incorrect GPO pathing, driver issues, and client security restrictions; rebuilt the printer using a compatible driver and corrected FQDN configuration to restore functionality.
-*   **Policy Validation & Debugging:** Used tools like gpupdate and manual connection testing to systematically isolate failures and confirm successful policy enforcement across user environments.
+Throughout this lab series, I resolved critical conflicts, including:
+* **Proactive Vulnerability Management:** Researched Server 2025 DirSync known issues prior to cloud migration, confirming KB5068861 was installed to prevent directory synchronization failures.
+* **Identity & Routing Resolution:** Solved Entra Sync errors caused by a private local domain by bulk-mapping accounts to a public UPN suffix, ensuring cloud-authentication functionality.
+* **Licensing & Compliance Errors:** Rectified an "Invalid Usage Location" error during M365 license assignment by updating regional compliance data for synced cloud profiles.
+* **Policy Conflict Resolution:** Bypassed a local "Disable Settings" GPO that blocked MDM enrollment by utilizing an IT Support admin account, proving the effectiveness of previously established Least Privilege architectures.
+* **Hypervisor Optimization:** Solved "Black Screen" boot errors by managing Hyper-V/Core Isolation conflicts, and resolved a critical VirtualBox `VERR_DISK_FULL` crash during a cumulative OS update by performing host-level storage remediation.
+* **Permission Misconfiguration:** Identified and corrected inherited NTFS/share permission conflicts that unintentionally granted Finance access to all departments.
+* **GPO & Print Deployment Failure:** Troubleshot a failed network printer deployment caused by incorrect GPO pathing and client security restrictions; rebuilt the printer using a compatible driver and corrected the FQDN to restore functionality.
+* **Network Logic:** Rectified authentication errors caused by VM mismatches, proving a methodical approach to the OSI model.
   
 ### Documentation & Governance
 Each phase of this project includes a detailed **Implementation Log**. I treat these logs as professional internal documentation, ensuring that every configuration change is auditable and repeatable, a vital skill in any enterprise IT team.
