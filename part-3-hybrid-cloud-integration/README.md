@@ -46,7 +46,7 @@ The primary objective of this phase was to seamlessly connect a local Windows Se
 **The hybrid cloud environment is fully operational, proving the ability to securely sync local network accounts to Microsoft Entra ID and automatically push software configurations to remote employee devices using Intune.**
 
 > **Full Technical Deep Dive** 
-> For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](InsertLinkHere.md)**
+> For the specific CLI commands, granular configuration steps, and a detailed implementation log, please see: **[Implementation Log (Detailed Version)](https://github.com/pbobbitt/IT-Support-Lab-Series/edit/main/part-3-hybrid-cloud-integration/ImplementationLog.md)**
 
 ## Visual Proof
 
