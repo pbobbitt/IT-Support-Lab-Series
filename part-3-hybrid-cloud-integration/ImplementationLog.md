@@ -1,13 +1,12 @@
 # Project Overview
-This lab connects an existing on-premise Windows Server 2025 Active Directory, containing 100 users, to Microsoft's cloud environment. By establishing this "Hybrid Identity" setup, local users are synced to a free Microsoft 365 Enterprise environment managed by Entra ID. Additionally, Microsoft Intune is used to automatically secure and deploy software to corporate computers over the internet, proving the ability to manage a remote workforce efficiently and securely. Finally, a Jira helpdesk system is set up as a foundational step for future ticketing and troubleshooting labs.
+This lab connects an existing local network (a Windows Server 2025 containing 100 users) to Microsoft's cloud environment. By establishing this "Hybrid Identity" setup, local users are copied over to a free Microsoft 365 Enterprise workspace. Additionally, Microsoft Intune is used to automatically secure and deploy software to company computers over the internet, proving we can efficiently manage a remote workforce.
 
-Using systems created in parts 1 and 2 
+
+**Systems Used:** created in parts 1 and part 2 
 <BR><BR>
-Domain Controller: `WS2025-DC01`
+Domain Controller (Main Server): `WS2025-DC01`
 <BR>
-Client Devices: `W11-CL01`
-
-On-Prem AD → Entra Connect → Entra ID → Licensing → Intune Enrollment → Configuration Profile → Client Success.
+Client Device (Work Computer): `W11-CL01`
 
 ## Milestone 1: Microsoft 365 Cloud Setup
 **Focus:** Provisioning a free enterprise-grade cloud environment to host the synced directory.
@@ -19,7 +18,7 @@ On-Prem AD → Entra Connect → Entra ID → Licensing → Intune Enrollment �
     * Domain name: `pbitsupport.onmicrosoft.com`
     * Admin account: `Admin@pbitsupport.onmicrosoft.com`
 
-> **Evidence:** See **Microsoft 365 Admin Center**
+> **Evidence:** See **Microsoft 365 Admin Center Dashboard**
 <img src="Screenshots/M365%20E5%20configurable%20sandbox%20account.png" alt="M365 Admin Center" width="70%">
 <BR>
 
@@ -62,7 +61,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 <BR>
   
 ## Milestone 2: Entra Connect Installation
-**Focus:** Installing the tool that links the local Windows Server 2025 Domain Controller to the new cloud environment.
+**Focus:** Installing the tool that securely bridges our local network server to the new Microsoft cloud environment.
 
 * Downloaded Entra Connect from the [Microsoft Download Center](https://entra.microsoft.com/#view/Microsoft_AAD_Connect_Provisioning/AADConnectMenuBlade/%7E/GetStarted)
   * Read and followed the current best practices listed by [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-install-roadmap#install-azure-ad-connect)
