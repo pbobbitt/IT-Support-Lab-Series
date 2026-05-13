@@ -1,11 +1,14 @@
 # Project Overview
 This lab connects an existing local network (a Windows Server 2025 containing 100 users) to Microsoft's cloud environment. By establishing this "Hybrid Identity" setup, local users are copied over to a free Microsoft 365 Enterprise workspace. Additionally, Microsoft Intune is used to automatically secure and deploy software to company computers over the internet, proving we can efficiently manage a remote workforce.
 
-
-**Systems Used:** created in 
+Continuing from the setups in 
 <BR>
 [Part 1: Windows Server & Infrastructure Build](https://github.com/pbobbitt/IT-Support-Lab-Series/tree/main/part-1-infrastructure)
+<BR>
 [Part 2: Identity & Access Management With Active Directory]( https://github.com/pbobbitt/IT-Support-Lab-Series/tree/main/part-2-active-directory)
+<BR><BR>
+**Systems Used:**
+
 <BR><BR>
 Domain Controller (Main Server): `WS2025-DC01`
 <BR>
