@@ -2,7 +2,9 @@
 This lab connects an existing on-premise Windows Server 2025 Active Directory, containing 100 users, to Microsoft's cloud environment. By establishing this "Hybrid Identity" setup, local users are synced to a free Microsoft 365 Enterprise environment managed by Entra ID. Additionally, Microsoft Intune is used to automatically secure and deploy software to corporate computers over the internet, proving the ability to manage a remote workforce efficiently and securely. Finally, a Jira helpdesk system is set up as a foundational step for future ticketing and troubleshooting labs.
 
 Using systems created in parts 1 and 2 
+<BR><BR>
 Domain Controller: `WS2025-DC01`
+<BR>
 Client Devices: `W11-CL01`
 
 On-Prem AD → Entra Connect → Entra ID → Licensing → Intune Enrollment → Configuration Profile → Client Success.
