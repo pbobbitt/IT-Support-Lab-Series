@@ -72,7 +72,7 @@ This repository contains a comprehensive, three-part technical lab series simula
 *   Automated remote device provisioning for Windows 11 endpoints by deploying Configuration Profiles using Microsoft Intune, eliminating manual IT setups and instantly enforcing corporate web policies over the internet for targeted departments.
 *   Unblocked cloud enrollment and prevented system downtime across the server environment by resolving critical M365 licensing errors and local GPO lockouts, ensuring a 100% success rate for targeted hybrid-join workstation registrations.
 
-<img src="Screenshots/Hybrid%20Users%20Synced.png" alt="Microsoft Entra admin center showing the list of synchronized users" width="49%"><img src="Screenshots/Internet%20startup%20in%20action.gif" alt="Animated GIF showing the web browser automatically opening to the IT support page based on the cloud policy" width="49%">
+<img src="Screenshots/Hybrid%20Users%20Synced.png" alt="Microsoft Entra admin center showing the list of synchronized users" width="49%"> <img src="Screenshots/Internet%20startup%20in%20action.gif" alt="Animated GIF showing the web browser automatically opening to the IT support page based on the cloud policy" width="49%">
 
 ### [Part 4: Help Desk Operations & Ticketing](./part-4-helpdesk-tickets/) *(In Progress)*
 **Focus: The User Experience.**
