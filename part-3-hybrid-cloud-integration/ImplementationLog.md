@@ -115,7 +115,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
     * GPOs do not sync to Entra ID, so instead we will set up Configuration Profiles on [Intune](https://intune.microsoft.com/#home)
       * On Intune admin center `Devices > Configuration > Create > New Policy`
         * Platform: Windows 10 and later, Profile type: Settings catalog
-        * Made a demo policy to set the start page for Chrome and Edge to [IT Support Lab Series](https://github.com/pbobbitt/IT-Support-Lab-Series)
+        * Made a demo policy to set the start page and new page for Chrome and Edge to [IT Support Lab Series](https://github.com/pbobbitt/IT-Support-Lab-Series)
           * `Intune > Devices > Configuration > Create`
         * Assigned to `SG_Finance and SG_HR` left `SG_IT_Support` on default browser behaivior for troubleshooting.
     * Enrolled the client machine `W11-CL01` into Intune
