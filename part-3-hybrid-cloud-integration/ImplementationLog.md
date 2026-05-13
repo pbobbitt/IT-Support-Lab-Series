@@ -144,10 +144,12 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
 
 <img src="Screenshots/Limited%20Licenses%20Assigned.png" alt="Limited Licenses Assigned" width="70%">
 <BR> 
-      * On `W11-CL01`
+
+   * On `W11-CL01`
         * Logged in as Padme Amidala to enroll the deivce in to the MDM,
           * `Settings > Accounts > Access work or school` Signed in with Padme Amidala's account
         * Registered this device in the MDM. Now, this device is enrolled, so it should apply to all users who use it.
+        
        
 <img src="Screenshots/Internet%20startup%20in%20action.gif" alt="Internet Start up in action" width="45%">
 <BR>
