@@ -65,12 +65,14 @@ This repository contains a comprehensive, three-part technical lab series simula
 
 <img src="screenshots/Scaling%20PowerShell%20.png" alt="Users added with powershell" width="49%">&nbsp;<img src="screenshots/Scaled%20AD%20Users.png" alt=" All Users in AD " width="49%">&nbsp;<img src="screenshots/S%20Drive%20and%20Printer%20Accessible.png" alt="W11 File Explorer showing mapped S: Drive and Printer" width="49%">&nbsp;<img src="screenshots/GPOs.png" alt="Users In Active Directory" width="49%">
 
-### [Part 3: Help Desk Operations & Ticketing](./part-3-hybrid-cloud-integration/) *(In Progress)*
-**Focus: Manage on the cloud**
-*   Streamlined secure access for 100 users and 3 departments by implementing a Hybrid Identity environment using Microsoft Entra Connect, achieving 100% successful synchronization to Entra ID and enabling seamless Single Sign-On (SSO) capabilities.
-*   Eliminated cloud authentication blockers for 100 local accounts by configuring alternative UPN Suffix routing, successfully mapping a private local network to a fully verified, publicly routable Microsoft 365 Enterprise cloud domain.
-*   Automated remote device provisioning for Windows 11 endpoints by deploying Configuration Profiles using Microsoft Intune, eliminating manual IT setups and instantly enforcing corporate web policies over the internet for targeted departments.
-*   Unblocked cloud enrollment and prevented system downtime across the server environment by resolving critical M365 licensing errors and local GPO lockouts, ensuring a 100% success rate for targeted hybrid-join workstation registrations.
+### [Part 3: Hybrid Cloud Integration & Endpoint Management (MDM)](./part-3-hybrid-cloud-integration/)
+**Focus: Cloud Identity & Mobility.**
+*   Established a **Hybrid Identity** infrastructure by deploying Microsoft Entra Connect Sync, bridging the on-premises Active Directory to a Microsoft 365 Enterprise environment.
+*   Engineered **Single Sign-On (SSO)** capabilities by resolving non-routable `.local` domain constraints and implementing alternative UPN suffixes for over 100 users.
+*   Configured **Hybrid Microsoft Entra Join** via GPO and enrolled client endpoints into **Microsoft Intune** for over-the-air Mobile Device Management (MDM).
+*   Modernized policy enforcement by translating local Group Policies into **Intune Configuration Profiles**, pushing customized browser settings and security policies via the cloud.
+*   Conducted advanced **troubleshooting and root cause analysis**, resolving critical host-machine storage failures (`VERR_DISK_FULL`), licensing attribute errors, and GPO conflicts during MDM enrollment.
+*   **Key Outcome:** A fully synchronized, cloud-integrated environment that extends local infrastructure to the web. Users benefit from seamless SSO, while IT can securely provision licenses, enforce compliance, and push software to remote devices over the internet, enabling a secure "work-from-anywhere" infrastructure.
 
 <img src="screenshots/Hybrid%20Users%20Synced.png" alt="Microsoft Entra admin center showing the list of synchronized users" width="49%">&nbsp;<img src="screenshots/Internet%20startup%20in%20action.gif" alt="Animated GIF showing the web browser automatically opening to the IT support page based on the cloud policy" width="49%">
 
