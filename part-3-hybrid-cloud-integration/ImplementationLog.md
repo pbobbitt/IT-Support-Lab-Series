@@ -121,7 +121,8 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
        
 <img src="Screenshots/Internet%20startup.gif" alt="Internet Start up" width="70%">
 <BR>
-    * Enrolled the client machine `W11-CL01` into Intune
+
+   * Enrolled the client machine `W11-CL01` into Intune
       * on Domain Controller: `WS2025-DC01`
         * Created new GPO `Entra Enroll` at
           * `Computer configuration > Administrative template > Windows components > Device registration`
@@ -139,6 +140,7 @@ Then I ran into a Storage controller `Error (VERR_DISK_FULL)` on VirtualBox
             * Han Solo: SG_Finance
             * Darth Vader: SG_HR
             * Padme Amidala: SG_IT_Support (this is an admin group)
+           
 
 <img src="Screenshots/Limited%20Licenses%20Assigned.png" alt="Limited Licenses Assigned" width="70%">
 <BR> 
