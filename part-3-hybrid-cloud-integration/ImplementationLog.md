@@ -8,8 +8,6 @@ Continuing from the setups in
 [Part 2: Identity & Access Management With Active Directory]( https://github.com/pbobbitt/IT-Support-Lab-Series/tree/main/part-2-active-directory)
 <BR><BR>
 **Systems Used:**
-
-<BR><BR>
 Domain Controller (Main Server): `WS2025-DC01`
 <BR>
 Client Device (Work Computer): `W11-CL01`
